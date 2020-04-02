@@ -1,24 +1,25 @@
-# README
+#FANTRA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+　フリーでツアーガイドを提供する人と、代理店を使わずに旅行に来た観光客を繋げるサイト
 
-Things you may want to cover:
+### サイトテーマ
+　情報を開示してツアーガイドに信頼度を与え、観光客に安心で興奮を与える時間を提供する。
 
-* Ruby version
+### テーマを選んだ理由
+　一人でキューバへ行った時、突然一人の現地の方にツアーを提案されました。３時間10$という口約束で現地を案内してもらい、本来なら行かないであろう土地を訪れることができ、貴重な時間を過ごすことができました。しかし、ある建物の中に入ると大の大人４人に囲まれキューバの葉巻セット（300$）を無理矢理買わせようとしてきました。そこを何とか断ると、さらにキューバを案内され結局３時間を大幅に超えた６時間分と飲食代を全て請求されました。ATMのキャッシングもなぜか使えず、遠い異国の地で無一文になり不安感に襲われました。
+　それ以降も一人で海外に行くときに、フリーでツアーガイドをしている方に声をかけられますが、キューバの経験から断るようになってしまいました。貴重で楽しいはずの時間を信頼がないからという理由で逃してしまうのは経験値としてもったいないので、この問題を解決するために上記のテーマを選びました。
 
-* System dependencies
+### ターゲットユーザ
+　代理店を使わずに旅行に来ている個人もしくは集団
 
-* Configuration
+### 主な利用シーン
+　国内、海外旅行時
 
-* Database creation
+## 設計書
+https://drive.google.com/file/d/1V8b0s7xpOMYB5x0dfWLcza6MN3KTzFNL/view
+https://docs.google.com/spreadsheets/d/13-miCM3jG-xWHSIkEinxZYTqiatSw3DAn1toWsmMKDY/edit?usp=sharing
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1GI4ReXtEez9_sQIpyTkd1dt3nGEc07cR-_PNrY1dAtE/edit?usp=sharing
