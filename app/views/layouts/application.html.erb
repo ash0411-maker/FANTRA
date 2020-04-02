@@ -10,6 +10,38 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <% if admin_signed_in? %>
+          <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
+        <% elsif guide_signed_in? %>
+          <%= link_to "FANTRA", tour_guide_home_top_path, class: "logo" %>
+          <span class = "guide_name">ツアーガイドの<%= current_guide.name %>さん</span>
+        <% else %>
+          <%= link_to "FANTRA", admin_session_path, class: "logo" %>
+        <% end %>
+        <% if admin_signed_in? %>
+          <ul class="list-ad-signin">
+            <li>
+              <%= link_to "ジャンル", admin_genres_path %>
+            </li>
+            <li>
+              <%= link_to "都市", admin_cities_path %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            </li>
+          </ul>
+        <% elsif guide_signed_in? %>
+          <ul class="list-guide-signin">
+            <li>
+              <%= link_to "ツアー新規投稿", tour_guide_tours_new_path %>
+            </li>
+          </ul>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
+

@@ -63,3 +63,23 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #ログイン機能
 gem 'devise'
+
+#論理的退会機能
+gem 'paranoia'
+
+#Bootstrap
+gem 'bootstrap-sass', '~> 3.4.1'
+
+#jquery
+gem 'jquery-rails'
+
+#画像
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+#ページング
+gem 'kaminari','~> 1.1.1'
+
+#エラー発見機
+gem 'pry-byebug'
+

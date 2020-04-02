@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+
+
+header {
+	background-color: black;
+	width: 100%;
+	height: 70px;
+}
+
+li{
+	list-style: none;
+}
+
+nav li{
+	float: left;
+	line-height: 70px;
+	padding: 0 10px 0;
+}
+
+nav li a{
+	color: white;
+	font-size: 16px;
+}
+
+.flash{
+	color: blue;
+}
+
+.logo {
+	line-height: 70px;
+    color: #FAFAFA;
+    padding: 30px;
+	font-size: 30px;
+}
+
+.list-ad-signin{
+	float: right;
+}
+
+.list-guide-signin{
+	float: right;
+}
+
+// current_guideの名前表示
+.guide_name{
+	color: white;
+}
