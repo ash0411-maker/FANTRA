@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	    when Admin
 	      admin_home_top_path
 	    when Guide
-	      tour_guide_home_top_path
+	      tour_guide_top_path
 	  	end
 	end
 
@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
 
 		if resource == :admin
 		  new_admin_session_path
-		elsif resource == :tour_guides
-		  tour_guides_tour_guide_path
+		elsif resource == :guide
+		  root_path
 		end
 	end
 

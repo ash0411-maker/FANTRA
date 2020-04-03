@@ -15,7 +15,7 @@
         <% if admin_signed_in? %>
           <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
         <% elsif guide_signed_in? %>
-          <%= link_to "FANTRA", tour_guide_home_top_path, class: "logo" %>
+          <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
           <span class = "guide_name">ツアーガイドの<%= current_guide.name %>さん</span>
         <% else %>
           <%= link_to "FANTRA", admin_session_path, class: "logo" %>
@@ -35,13 +35,24 @@
         <% elsif guide_signed_in? %>
           <ul class="list-guide-signin">
             <li>
-              <%= link_to "ツアー新規投稿", tour_guide_tours_new_path %>
+              <%= link_to "ツアー新規投稿", new_tour_guide_tour_path %>
+            </li>
+            <li>
+              <%= link_to "ツアー一覧", tour_guide_tours_path %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
             </li>
           </ul>
+        <% else %>
+            <ul>
+              <li><%= link_to "ツアーガイドログイン", new_guide_session_path %></li>
+            </ul>
         <% end %>
       </nav>
     </header>
     <%= yield %>
   </body>
 </html>
+
 

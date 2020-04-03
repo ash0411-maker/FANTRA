@@ -1,3 +1,30 @@
 // Place all the styles related to the tour_guide/home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.about-first-wrapper{
+	background-image: image-url("chari.jpeg");
+	background-size: cover;
+	background-position: center;
+	height: 400px;
+	position: relative;
+}
+
+.about-container{
+	color: white;
+	position: absolute;
+	top: 170px;
+	left: 100px;
+}
+
+.fantra-headline{
+	margin-top: 40px;
+	line-height: 30px;
+	color: white;
+}
+
+.fantra-second-wrapper{
+	background-color: black;
+	height: 160px;
+}

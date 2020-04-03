@@ -1,2 +1,68 @@
-<h1>TourGuide::Tours#edit</h1>
-<p>Find me in app/views/tour_guide/tours/edit.html.erb</p>
+<h1>ツアー内容編集画面</h1>
+<div class = "container">
+	<div class = "row">
+		<%= form_with(model: @tour, url: tour_guide_tour_path(@tour)) do |f| %>
+
+		    <div class = "col-xs-10 col-xs-offset-1">
+		    	<div class = "row">
+			    	<div class = "form_field col-xs-3">
+			    	  <%= f.label :ツアーの題名 %><br/>
+			    	  <%= f.text_field :title %>
+			    	</div>
+
+			    	<div class = "form_field col-xs-3">
+			    	  <%= f.label :ジャンル %><br/>
+			    	  <%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--ジャンル--" %>
+			    	</div>
+
+			    	<div class = "form_field col-xs-3">
+			    	  <%= f.label :案内する都市 %><br/>
+			    	  <%= f.collection_select :city_id, City.all, :id, :name, :prompt => "--都市名--" %>
+			    	</div>
+			    </div>
+			    <div class = "row">
+			        <div class = "form_field col-xs-6">
+			        	<%= f.label :ツアー説明 %><br/>
+			        	<%= f.text_area :body, class: "tour-body" %>
+			       </div>
+			       <div class = "col-xs-4">
+			       		<div class = "right-bar">
+					    	<div class = "form_field">
+					    	  <%= f.label :定員 %><br/>
+					    	  <%= f.text_field :capacity %>人
+					    	</div>
+
+					    	<div class = "form_field">
+					    	  <%= f.label :ツア一１人あたりの価格 %><br/>
+					    	  <%= f.text_field :price %>円
+					    	</div>
+
+					    	<div class = "form_field">
+					    	  <%= f.label :所要時間 %><br/>
+					    	  <%= f.text_field :time, placeholder: "4時間、2日など" %>
+					    	</div>
+
+					    	<div class = "form_field">
+					    	  <%= f.label :価格に含まれるサービス %><br/>
+					    	  <%= f.text_area :contents_of_price, class: "contents_of_price", placeholder: "移動費、食費、入場料など" %>
+					    	</div>
+					    </div>
+				    </div>
+			    </div>
+
+		    	<div class = "form_field">
+		    	  <%= f.label :販売ステータス %><br/>
+		    	  <%= f.select :is_active,[["販売中", "true"], ["販売停止", "false"]]  %>
+		    	</div>
+
+		    	<!-- 画像のformはメモに保存した！ -->
+		    	<!-- https://qiita.com/NT90957869/items/421e30433112771a8535 -->
+
+		    	<div class = "form_field">
+		    	  <%= f.submit  "編集確定", class: "btn btn-success" %>
+		    	</div>
+		    </div>
+
+		<% end %>
+	</div>
+</div>
