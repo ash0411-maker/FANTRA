@@ -3,5 +3,8 @@ class Guide < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   attachment :identification_image
+
+  has_many :tours
 end

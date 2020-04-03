@@ -1,5 +1,10 @@
 class TourGuide::ToursController < ApplicationController
   def new
+  	@tour = Tour.new
+  	@genres = Genre.all
+  end
+
+  def create
   end
 
   def show
