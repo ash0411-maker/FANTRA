@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
+  #管理者以外のトップ画面
+  root to: 'tour_guide/home#about'
 
-  namespace :tour_guide do
-    get 'guides/show'
-    get 'guides/edit'
-  end
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -17,9 +15,6 @@ Rails.application.routes.draw do
   registrations: 'guides/registrations'
 }
 
-#管理者以外のトップ画面
-root to: 'tour_guide/home#about'
-
 # 管理者
 namespace :admin do
     get 'home/top'
@@ -31,6 +26,7 @@ end
 namespace :tour_guide do
     get 'top' => 'home#top'
     get 'tours/thanks' => 'tours#thanks', as: 'thanks'
+    resources :guides, only: [:show, :edit, :update]
     resources :tours do
     	resources :photos, only: [:new, :create]
     end

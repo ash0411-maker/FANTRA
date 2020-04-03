@@ -1,2 +1,49 @@
-<h1>TourGuide::Guides#show</h1>
-<p>Find me in app/views/tour_guide/guides/show.html.erb</p>
+<h1>ツアーガイド詳細画面</h1>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-7 col-xs-offset-1">
+			<table class = "table table-bordered">
+				<thead>
+					<tr>
+						<th class = "active text-center"><h4>名前</h4></th>
+						<th class = " text-center"><h4><%= @guide.family_name %>  <%= @guide.name %></h4></th>
+					</tr>
+					<tr>
+						<th class = "active text-center"><h4>国籍</h4></th>
+						<th class = " text-center"><h4><%= @guide.nationality %></h4></th>
+					</tr>
+					<tr>
+						<th class = "active text-center"><h4>登録住所</h4></th>
+						<th class = " text-center">
+							<h4>
+								〒　<%= @guide.postal_code %><br/>
+								<%= @guide.address %>
+							</h4>
+						</th>
+					</tr>
+					<tr>
+						<th class = "active text-center"><h4>電話番号</h4></th>
+						<th class = " text-center"><h4><%= @guide.phone_number %></h4></th>
+					</tr>
+					<tr>
+						<th class = "active text-center"><h4>メールアドレス</h4></th>
+						<th class = " text-center"><h4><%= @guide.email %></h4></th>
+					</tr>
+					<tr>
+						<th class = "active text-center guide-identification"><h4>身分証明書</h4></th>
+						<th class = " text-center"><%= attachment_image_tag @guide, :identification_image, :fill, 300, 200, format: 'jpeg' %></th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class = "col-xs-4">
+			<% if @guide.selfy_image_id.nil? %>
+				<h4>あなたの写真を追加しましょう！</h4>
+			<% end %>
+			<%= image_tag 'no_image.jpg', size: '200x200' %>
+			<div>
+				<%= link_to "編集画面", edit_tour_guide_guide_path(@guide), class: "btn btn-success" %>
+			</div>
+		</div>
+	</div>
+</div>

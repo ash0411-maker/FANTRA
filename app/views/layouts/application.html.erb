@@ -35,6 +35,10 @@
         <% elsif guide_signed_in? %>
           <ul class="list-guide-signin">
             <li>
+              <%= link_to "マイページ", tour_guide_guide_path(current_guide) %>
+            </li>
+            <li>
+            <li>
               <%= link_to "ツアー新規投稿", new_tour_guide_tour_path %>
             </li>
             <li>
@@ -46,7 +50,9 @@
           </ul>
         <% else %>
             <ul>
-              <li><%= link_to "ツアーガイドログイン", new_guide_session_path %></li>
+              <li>
+                <%= link_to "ツアーガイドログイン", new_guide_session_path %>
+              </li>
             </ul>
         <% end %>
       </nav>
