@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :tour_guide do
+    get 'guides/show'
+    get 'guides/edit'
+  end
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',

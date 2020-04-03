@@ -1,0 +1,2 @@
+module TourGuide::GuidesHelper
+end
