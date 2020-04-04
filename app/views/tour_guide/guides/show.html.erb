@@ -42,8 +42,44 @@
 			<% end %>
 			<%= image_tag 'no_image.jpg', size: '200x200' %>
 			<div>
-				<%= link_to "編集画面", edit_tour_guide_guide_path(@guide), class: "btn btn-success" %>
+				<%= link_to "編集画面", edit_tour_guide_guide_path(@guide), class: "btn btn-success tour-edit-btn" %>
 			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-7 col-xs-offset-1">
+			<% if @tours.count == 0 %>
+				<div class = "text-center">
+					<h1>最高のツアーを生み出しましょう！</h1>
+					<%= link_to "ツアー新規投稿", new_tour_guide_tour_path, class: "btn btn-success btn-lg" %>
+				</div>
+			<% else %>
+				<h1>あなたが提供しているツアー</h1>
+				<table class = "table table-bordered">
+					<thead>
+						<thead>
+							<tr>
+								<th>ツアー題名</th>
+								<th>所要時間</th>
+								<th>定員</th>
+								<th>価格</th>
+								<th>価格に含まれるサービス</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @tours.each do |tour| %>
+								<tr>
+									<td><%= tour.title %></td>
+									<td><%= tour.time %></td>
+									<td><%= tour.capacity %></td>
+									<td><%= tour.price %></td>
+									<td><%= tour.contents_of_price %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</thead>
+				</table>
+			<% end %>
 		</div>
 	</div>
 </div>

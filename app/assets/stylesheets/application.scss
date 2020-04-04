@@ -29,10 +29,14 @@ li{
 	list-style: none;
 }
 
+nav ul{
+	float: right;
+}
+
 nav li{
 	float: left;
 	line-height: 70px;
-	padding: 0 10px 0;
+	padding: 0 15px 0;
 }
 
 nav li a{
@@ -47,8 +51,9 @@ nav li a{
 .logo {
 	line-height: 70px;
     color: #FAFAFA;
-    padding: 30px;
+    padding-left: 30px;
 	font-size: 30px;
+	float: left;
 }
 
 .list-ad-signin{
@@ -62,8 +67,7 @@ nav li a{
 // current_guideの名前表示
 .guide_name{
 	color: white;
+	line-height: 70px;
+	padding-left: 30px;
 }
 
-.tour-edit-btn{
-	margin-left: 70px;
-}

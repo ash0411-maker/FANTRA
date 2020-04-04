@@ -1,6 +1,7 @@
 class TourGuide::GuidesController < ApplicationController
   def show
   	@guide = Guide.find(params[:id])
+  	@tours = @guide.tours
   end
 
   def edit

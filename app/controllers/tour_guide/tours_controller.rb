@@ -46,7 +46,6 @@ class TourGuide::ToursController < ApplicationController
 end
 
 
-
 # params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :price, :contents_of_price, :is_active,
 #     	tour_photo_images: []
 #     	)
