@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-	  #管理者以外のトップ画面
+
+	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
 
 	  devise_for :admins, controllers: {
@@ -39,6 +40,15 @@ Rails.application.routes.draw do
 	    resources :tours do
 	    	resources :photos, only: [:new, :create]
 	    end
+	end
+
+	# 観光客
+	namespace :tourist do
+		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
+		resources :tours, only: [:show, :index] do
+			resource :book_marks, only: [:create, :destroy]
+		end
+		resources :tourists, only: [:show, :edit]
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

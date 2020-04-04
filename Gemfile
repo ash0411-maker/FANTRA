@@ -83,3 +83,6 @@ gem 'kaminari','~> 1.1.1'
 #エラー発見機
 gem 'pry-byebug'
 
+#アイコン
+gem 'font-awesome-sass', '~> 5.4.1'
+

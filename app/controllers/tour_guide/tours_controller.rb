@@ -12,7 +12,7 @@ class TourGuide::ToursController < ApplicationController
   	@tour = Tour.new(tour_params)
   	@tour.guide_id = current_guide.id
   	@tour.save
-  	redirect_to tour_guide_home_top_path
+  	redirect_to tour_guide_top_path
   end
 
   def show
@@ -37,6 +37,12 @@ class TourGuide::ToursController < ApplicationController
   	@tour = Tour.find(params[:id])
   	@tour.update(tour_params)
   	redirect_to tour_guide_tour_path(@tour)
+  end
+
+  def destroy
+    @tour = Tour.find(params[:id])
+    @tour.destroy
+    redirect_to tour_guide_top_path
   end
 
   private

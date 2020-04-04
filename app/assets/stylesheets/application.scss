@@ -13,8 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ // bootstrap
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+// font-awesome
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
 
 
@@ -64,8 +71,8 @@ nav li a{
 	float: right;
 }
 
-// current_guideの名前表示
-.guide_name{
+// ログインユーザー名前表示
+.login_name{
 	color: white;
 	line-height: 70px;
 	padding-left: 30px;

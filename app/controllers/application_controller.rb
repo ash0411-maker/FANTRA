@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 	      admin_home_top_path
 	    when Guide
 	      tour_guide_top_path
+	    when Tourist
+	      tourist_tours_path
 	  	end
 	end
 
@@ -17,13 +19,15 @@ class ApplicationController < ActionController::Base
 		  new_admin_session_path
 		elsif resource == :guide
 		  root_path
+		elsif resource == :tourist
+		  root_path
 		end
 	end
 
 
 	private
 	def configure_permitted_parameters
-	  devise_parameter_sanitizer.permit(:sign_up, keys:[:family_name, :name, :email, :nationality, :postal_code, :address, :phone_number, :identification_image])
+	  devise_parameter_sanitizer.permit(:sign_up, keys:[:family_name, :name, :email, :nationality, :postal_code, :address, :phone_number, :identification_image, :sex, :birth_year ])
 	  devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
 	end
 end

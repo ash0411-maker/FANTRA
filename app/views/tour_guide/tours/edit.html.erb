@@ -58,8 +58,13 @@
 		    	<!-- 画像のformはメモに保存した！ -->
 		    	<!-- https://qiita.com/NT90957869/items/421e30433112771a8535 -->
 
-		    	<div class = "form_field">
-		    	  <%= f.submit  "編集確定", class: "btn btn-success" %>
+		    	<div class = "row">
+		    		<div class = "col-xs-3">
+		    	  		<%= f.submit  "編集確定", class: "btn btn-success" %>
+		    	  	</div>
+		    	  	<div class = "col-xs-3 col-xs-offset-1">
+		    	  		<td><%= link_to "削除", tour_guide_tour_path(@tour), method: :delete,data: {confirm:'削除してもよろしいですか？'}, class: "btn btn-danger" %></td>
+		    	  	</div>
 		    	</div>
 		    </div>
 

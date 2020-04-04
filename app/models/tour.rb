@@ -13,4 +13,9 @@ class Tour < ApplicationRecord
   	validates :price, presence: true
   	validates :content_of_price, presence: true
 
+    has_many :book_marks, dependent: :destroy
+    def bookmarked_by?(tourist)
+      BookMark.where(tourist_id: tourist.id).exists?
+    end
+
 end

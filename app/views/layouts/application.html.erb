@@ -12,18 +12,27 @@
   <body>
     <header>
       <nav>
+
         <% if admin_signed_in? %>
           <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
         <% elsif guide_signed_in? %>
           <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
           <%= link_to tour_guide_guide_path(current_guide) do %>
-            <span class = "guide_name">ツアーガイドの<%= current_guide.name %>さん</span>
+            <span class = "login_name">ツアーガイドの<%= current_guide.name %>さん</span>
+          <% end %>
+        <% elsif tourist_signed_in? %>
+          <%= link_to "FANTRA", tourist_tours_path, class: "logo" %>
+          <%= link_to tourist_tourist_path(current_tourist) do %>
+            <span class = "login_name">ツーリストの<%= current_tourist.name %>さん</span>
           <% end %>
         <% else %>
-          <%= link_to "FANTRA", admin_session_path, class: "logo" %>
+          <h3 class = "logo">FANTRA</h3>
+          <span class = "login_name"></span>
         <% end %>
+
+      <!-- 管理者ログイン時 -->
         <% if admin_signed_in? %>
-          <ul class="list-ad-signin">
+          <ul>
             <li>
               <%= link_to "ジャンル", admin_genres_path %>
             </li>
@@ -34,8 +43,9 @@
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li>
           </ul>
+      <!-- ガイドログイン時 -->
         <% elsif guide_signed_in? %>
-          <ul class="list-guide-signin">
+          <ul>
             <li>
             <li>
               <%= link_to "ツアー新規投稿", new_tour_guide_tour_path %>
@@ -47,13 +57,24 @@
               <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
             </li>
           </ul>
+      <!-- 観光客ログイン時 -->
+        <% elsif tourist_signed_in? %>
+          <ul>
+            <li>
+                <%= link_to "ログアウト", destroy_tourist_session_path, method: :delete %>
+            </li>
+            <li>
+                <%= link_to "ブックマーク", tourist_book_mark_path %>
+            </li>
+          </ul>
+        <!-- ログアウト時 -->
         <% else %>
           <ul>
             <li>
-                <%= link_to "ツアーガイドログイン", new_guide_session_path %>
+                <%= link_to "ツーリストログイン", tourist_session_path %>
             </li>
             <li>
-                <%= link_to "ツアーガイドサインアップ", new_guide_registration_path %>
+                <%= link_to "ツアーガイドログイン", guide_session_path %>
             </li>
           </ul>
         <% end %>
