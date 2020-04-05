@@ -1,4 +1,17 @@
-<div class = "image-wrapper"></div>
+
+<!----- ツアー画像＆ブックマーク ----->
+<div class = "image-wrapper">
+	<span class = "book_mark">
+		<div id = "book_marks_<%= @tour.id %>">
+			<%= render 'tourist/book_marks/book_mark', tour: @tour %>
+		</div>
+	</span>
+</div>
+<!----- ツアー画像＆ブックマーク ----->
+
+
+<!------- ツアー情報詳細 -------->
+<div class = "tour-info-wrapper">
 	<div class = "container">
 		<div class = "row">
 			<div class = "col-xs-3">
@@ -10,8 +23,6 @@
 					</div>
 				</div>
 			</div>
-
-		<!----- ツアー情報詳細 ------>
 			<div class = "col-xs-7">
 				<div class = "right-bar">
 					<table class = "table">
@@ -32,19 +43,11 @@
 					</table>
 				</div>
 			</div>
-
-		<!----- ブックマーク機能 ------>
-			<div class = "col-xs-2">
-				<div class = "bookmark">
-					<p>ブックマーク登録</p>
-					<div id = "book_marks_<%= @tour.id %>">
-						<%= render 'tourist/book_marks/book_mark', tour: @tour %>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
+<!------- ツアー情報詳細 -------->
+
 
 <!----- ツアー情報詳細　説明文 ------>
 <div class = "container">
@@ -57,4 +60,4 @@
 		</div>
 	</div>
 </div>
-
+<!----- ツアー情報詳細　説明文 ------>

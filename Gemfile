@@ -86,3 +86,12 @@ gem 'pry-byebug'
 #アイコン
 gem 'font-awesome-sass', '~> 5.4.1'
 
+#googlemap
+gem 'geocoder'
+
+
+
+
+
+
+

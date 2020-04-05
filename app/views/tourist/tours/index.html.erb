@@ -1,21 +1,27 @@
+
+<!------ トップ画像 ------>
 <div class = "tourist-first-wrapper"></div>
+<!------ トップ画像 ------>
+
 <div class = "tourist-second-wrapper">
 	<div class = "container">
 		<div class = "row">
 			<div class = "col-xs-6 col-xs-offset-1">
-				<h3 class = "tourist-headline">素敵な旅を見つけましょう</h3>
+				<h3 class = "tourist-headline">ここから旅を始めましょう</h3>
 			</div>
+
 		<!----- 検索機能 ----->
 			<div class = "col-xs-5">
-				<div class="search">
+				<div class= "search-city">
+					<p><%= flash[:warning] %></p>
 		        	<div class="search-form">
 			            <%= form_tag(tourist_search_search_path, method: :get) do %>
 			              <%= text_field_tag 'search[content]' %>
-			              <%= submit_tag '都市名検索', class: "btn btn-primary" %>
+			              <%= submit_tag '検索', class: "btn btn-primary" %>
 			            <% end %>
 		          	</div>
 		        </div>
-		        <div>
+		        <div class= "search-genre">
 					<% @genres.each do |genre| %>
 						<%= link_to tourist_tours_path(genre_id: genre.id), class: "btn btn-default tourist-genre-btn" do %>
 							<% genre.name %>
@@ -24,10 +30,21 @@
 				</div>
 			</div>
 		<!----- 検索機能 ----->
-		</div>
 
+		</div>
 	</div>
 </div>
+<div class= "search-city">
+	<p><%= flash[:warning] %></p>
+	<div class="search-form">
+        <%= form_tag(tourist_search_search_path, method: :get) do %>
+          <%= text_field_tag 'search[content]' %>
+          <%= submit_tag '検索', class: "btn btn-primary" %>
+        <% end %>
+  	</div>
+</div>
+
+<!------ ツアー一覧  --------->
 <div class = "container">
 	<div class = "row">
 		<table class = "table">
@@ -50,3 +67,11 @@
 		</table>
 	</div>
 </div>
+<!------ ツアー一覧  --------->
+
+
+
+
+
+
+

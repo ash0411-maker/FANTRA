@@ -21,7 +21,7 @@
 
 .tourist-second-wrapper{
 	background-color: black;
-	height: 160px;
+	height: 180px;
 }
 
 .tourist-body-text{
@@ -29,13 +29,23 @@
 	line-height: 50px;
 }
 
+.search-city{
+	margin-top: 40px;
+}
+
+.search-genre{
+	margin-top: -60px;
+}
+
 .tourist-genre-btn{
 	margin: 80px 10px 0 0px;
 }
 
-.bookmark{
-	color: white;
-}
+
+
+
+
+
 
 
 
@@ -46,6 +56,20 @@
 .image-wrapper{
 	height: 400px;
 	background-color: gray;
+	position: relative;
+}
+
+.book_mark{
+	color: white;
+	position: absolute;
+	top: 30px;
+	right: 50px;
+}
+
+.tour-info-wrapper{
+	background-color: black;
+	color: white;
+	height: 180px;
 }
 
 // ツアー詳細左
@@ -86,3 +110,13 @@
 .bookmark{
 	margin: 40px 0 0 40px;
 }
+// ツアー詳細
+
+
+
+
+
+
+
+
+
