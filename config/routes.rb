@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
 	# 観光客
 	namespace :tourist do
+		get 'search/search'
 		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
 		resources :tours, only: [:show, :index] do
 			resource :book_marks, only: [:create, :destroy]

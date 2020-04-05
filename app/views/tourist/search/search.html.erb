@@ -1,0 +1,31 @@
+<% if @tours == 0 %>
+	<h1><%= @content %>の検索ヒット数は０件です</h1>
+<% else %>
+	<h1><%= @content %>の検索ヒット数は<%= @tours.count %>件です</h1>
+	<div class = "container">
+		<div class = "row">
+			<table class = "table">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @tours.each do |tour| %>
+						<tr>
+							<td><%= tour.title %></td>
+							<td><%= tour.price %></td>
+							<td><%= tour.capacity %></td>
+							<td><%= tour.contents_of_price %></td>
+							<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-primary" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<% end %>

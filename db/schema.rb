@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_063152) do
+ActiveRecord::Schema.define(version: 2020_04_05_035852) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(version: 2020_04_04_063152) do
     t.string "selfy_image_id"
     t.index ["email"], name: "index_guides_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "tourist_id", null: false
+    t.integer "tour_id", null: false
+    t.integer "guide_id", null: false
+    t.string "tour_title", null: false
+    t.integer "tour_body", null: false
+    t.integer "price", null: false
+    t.integer "contents_of_price", null: false
+    t.integer "capacity", null: false
+    t.integer "total_people", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tour_photos", force: :cascade do |t|
