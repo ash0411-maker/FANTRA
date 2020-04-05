@@ -2,7 +2,7 @@ class TourGuide::ToursController < ApplicationController
 
   def new
   	@tour = Tour.new
-  	# @tour.tour_photos.build
+  	@tour.tour_photos.build
   	@genres = Genre.all
   	# 都市だけ undefined method `map' for nil:NilClass が発生
   	# @cities = City.all
@@ -12,6 +12,10 @@ class TourGuide::ToursController < ApplicationController
   	@tour = Tour.new(tour_params)
   	@tour.guide_id = current_guide.id
   	@tour.save
+    @tour.tour_photos.each do |img|
+      img.tour_id = @tour.id
+      img.save
+    end
   	redirect_to tour_guide_top_path
   end
 
@@ -47,11 +51,8 @@ class TourGuide::ToursController < ApplicationController
 
   private
   def tour_params
-    params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :price, :contents_of_price, :time, :is_active,)
+  params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :price, :contents_of_price, :is_active,
+       tour_photo_images: []
+       )
   end
 end
-
-
-# params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :price, :contents_of_price, :is_active,
-#     	tour_photo_images: []
-#     	)

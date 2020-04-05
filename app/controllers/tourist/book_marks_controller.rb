@@ -1,7 +1,7 @@
 class Tourist::BookMarksController < ApplicationController
 
     def index
-        @bookmarks = current_tourist.book_marks
+        @book_marks = current_tourist.book_marks
     end
 
 	def create

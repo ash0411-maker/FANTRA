@@ -34,6 +34,11 @@
 						    	</div>
 
 						    	<div class = "form_field">
+						    	  <%= f.label :所要時間 %><br/>
+						    	  <%= f.text_field :time, placeholder: "4時間、2日など" %>
+						    	</div>
+
+						    	<div class = "form_field">
 						    	  <%= f.label :ツア一１人あたりの価格 %><br/>
 						    	  <%= f.text_field :price %>円
 						    	</div>
@@ -51,8 +56,61 @@
 		        	  <%= f.select :is_active,[["販売中", "true"], ["販売停止", "false"]]  %>
 		        	</div>
 
-		        	<!-- 画像のformはメモに保存した！ -->
-		        	<!-- https://qiita.com/NT90957869/items/421e30433112771a8535 -->
+		        <!----- jQuery ----->
+		        	<!-- <script>
+						$(function() {
+					        $(".photo-btn").click(function() {
+					          $("#tour-photo-field").append("<%= f.attachment_field :tour_photos_images %>");
+					        });
+					      });
+					</script> -->
+
+		        <!----- 写真複数枚投稿 ----->
+		        	<div class = "row">
+		        		<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+						<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+					</div>
+
+					<div class = "row">
+						<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+						<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+					</div>
+
+					<div class = "row">
+						<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+						<div class = "col-xs-4">
+				        	<div id = "form_field">
+					        	<%= f.label :ツアー写真 %><br />
+								<%= f.attachment_field :tour_photos_images %>
+							</div>
+						</div>
+					</div>
+				<!----- 写真追加ボタン ----->
 
 		        	<div class = "form_field">
 		        	  <%= f.submit  "保存", class: "btn btn-success" %>
