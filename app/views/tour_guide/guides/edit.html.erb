@@ -5,6 +5,8 @@
 		<%= form_with(model: @guide, url: tour_guide_guide_path(@guide)) do |f| %>
 
 		    <div class = "col-xs-9 col-xs-offset-3">
+
+		    <!---- 姓、名、国籍、身分証明書 ----->
 		    	<div class = "row">
 		        	<div class = "col-xs-3">
 		        	  <%= f.label :姓 %>
@@ -16,8 +18,15 @@
 		        	  <%= f.label :国籍 %>
 		        	  <%= f.text_field :nationality %><br/>
 		        	</div>
+		        	<div class = "col-xs-3">
+		    	 		<%= f.label :身分証明書 %><br/>
+		        	  	<%= f.attachment_field :identification_image %>
+		    	 	</div>
 		    	</div>
+		    <!---- 姓、名、国籍、身分証明書 ----->
 
+
+		    <!---- 郵便番号、住所、電話番号、メアド ----->
 		    	 <div class = "row">
 		    	 	<div class = "col-xs-3">
 		    	 		<%= f.label :郵便番号 %><br/>
@@ -38,17 +47,20 @@
 		        	  	<%= f.text_field :email %>
 		    	 	</div>
 		    	 </div>
+		    <!---- 郵便番号、住所、電話番号、メアド ----->
+
+
+		    <!---- 自己紹介 ----->
 		    	 <div class = "row">
-		    	 	<div class = "col-xs-3">
-		    	 		<%= f.label :身分証明書 %><br/>
-		        	  	<%= f.attachment_field :identification_image %>
-		    	 	</div>
-		    	 	<div class = "col-xs-3">
-		    	 		<%= f.label :自己紹介 %><br/>
-		        	  	<%= f.text_area :introduction %>
+		    	 	<div class = "col-xs-7">
+		    	 		<%= f.label :自己紹介 %>(250文字以内)<br/>
+		        	  	<%= f.text_area :introduction, class: "guide-introduction-area" %>
 		    	 	</div>
 		    	 </div>
+		    <!---- 自己紹介 ----->
+
 		    </div>
+
 		    <div class = "row">
 		    	<div class = "col-xs-9 col-xs-offset-3">
 		    		<%= f.submit  "編集", class: "btn btn-success" %>

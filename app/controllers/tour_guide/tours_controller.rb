@@ -51,7 +51,7 @@ class TourGuide::ToursController < ApplicationController
 
   private
   def tour_params
-  params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :price, :contents_of_price, :is_active,
+  params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :time, :price, :contents_of_price, :is_active,
        tour_photo_images: []
        )
   end

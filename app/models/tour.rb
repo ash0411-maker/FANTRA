@@ -3,6 +3,7 @@ class Tour < ApplicationRecord
 	belongs_to :guide
 	belongs_to :genre
 	belongs_to :city
+  has_many :book_marks, dependent: :destroy
 
   # ツアー写真を複数枚投稿
 	has_many :tour_photos, dependent: :destroy
@@ -18,9 +19,8 @@ class Tour < ApplicationRecord
 
 
   # ブックマーク機能
-  has_many :book_marks, dependent: :destroy
   def bookmarked_by?(tourist)
-    BookMark.where(tourist_id: tourist.id).exists?
+    self.book_marks.where(tourist_id: tourist.id).exists?
   end
 
 end

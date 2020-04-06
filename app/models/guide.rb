@@ -6,7 +6,9 @@ class Guide < ApplicationRecord
 
   attachment :identification_image
 
+  has_many :orders
   has_many :tours, dependent: :destroy
+
 
   validates :name, presence: true
   validates :family_name, presence: true

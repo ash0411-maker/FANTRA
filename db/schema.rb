@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_035852) do
+ActiveRecord::Schema.define(version: 2020_04_06_025308) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_035852) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -70,13 +72,16 @@ ActiveRecord::Schema.define(version: 2020_04_05_035852) do
     t.integer "tour_id", null: false
     t.integer "guide_id", null: false
     t.string "tour_title", null: false
-    t.integer "tour_body", null: false
+    t.text "tour_body", null: false
     t.integer "price", null: false
-    t.integer "contents_of_price", null: false
+    t.string "contents_of_price", null: false
     t.integer "capacity", null: false
     t.integer "total_people", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "companion"
+    t.string "tour_time"
+    t.string "tour_city"
   end
 
   create_table "tour_photos", force: :cascade do |t|

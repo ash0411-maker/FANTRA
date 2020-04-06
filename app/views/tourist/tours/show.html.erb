@@ -9,7 +9,6 @@
 </div>
 <!----- ツアー画像＆ブックマーク ----->
 
-
 <!------- ツアー情報詳細 -------->
 <div class = "tour-info-wrapper">
 	<div class = "container">
@@ -43,11 +42,15 @@
 					</table>
 				</div>
 			</div>
+			<div class = "col-xs-2">
+				<div class = "order-btn">
+					<%= link_to "予約に進む", new_tourist_order_path(tour_id: @tour.id), class: "btn btn-success btn-lg"  %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 <!------- ツアー情報詳細 -------->
-
 
 <!----- ツアー情報詳細　説明文 ------>
 <div class = "container">
@@ -61,3 +64,5 @@
 	</div>
 </div>
 <!----- ツアー情報詳細　説明文 ------>
+
+

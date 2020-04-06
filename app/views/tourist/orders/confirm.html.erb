@@ -1,0 +1,83 @@
+<div class = "container">
+	<div class = "row">
+		<div class = "confirm-box">
+			<div class = "col-xs-3 col-xs-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-heading text-center">
+				    	<h3 class="panel-title">ツアー内容</h3>
+					</div>
+					<div class="panel-body">
+					    <p>
+					    	ツアー名：<strong class = "text-right"><%= @order.tour_title %></strong>
+					    </p>
+					    <p>
+					    	ツアー都市：<strong class = "text-right"><%= @order.tour_city %></strong>
+					    </p>
+					    <p>
+					    	定員：<strong class = "text-right"><%= @order.capacity %>名</strong>
+					    </p>
+					    <p>
+					    	所要時間：<strong class = "text-right"><%= @order.tour_time %></strong>
+					    </p>
+					    <p class = "order-confirm-text">
+					    	ホスト：<strong><%= @order.guide.family_name %> <%= @order.guide.name %></strong>
+					    </p>
+					</div>
+
+					<div class="panel-body">
+						<p>価格に含まれるサービス</p>
+					    <p class = "order-confirm-text">
+					    	<strong><%= @order.contents_of_price %></strong>
+					    </p>
+					</div>
+					<div class="panel-body">
+						<p>合計人数</p>
+					    <p class = "order-confirm-text">
+					    	<strong><%= @order.total_people %>名</strong>
+					    </p>
+					</div>
+
+					<div class="panel-body">
+						<p>一人当たりの金額</p>
+					    <p class = "order-confirm-text">
+					    	<strong>¥<%= number_with_delimiter(@order.price) %></strong>
+					    </p>
+					</div>
+
+					<div class="panel-body">
+						<p>合計金額</p>
+					    <p class = "order-confirm-text">
+					    	¥<%= number_with_delimiter(@order.price) %>　× <%= @order.total_people %>名　＝　<strong>¥<%= number_with_delimiter(@total_price) %></strong>
+					    </p>
+					</div>
+				</div>
+				<%= form_for(@order, url: tourist_orders_path) do |f| %>
+
+					<%= f.hidden_field :tourist_id, :value => current_tourist.id %>
+					<%= f.hidden_field :tour_id, :value => @order.tour_id %>
+					<%= f.hidden_field :guide_id, :value => @order.guide_id %>
+					<%= f.hidden_field :tour_title, :value => @order.tour_title %>
+					<%= f.hidden_field :tour_body, :value => @order.tour_body %>
+					<%= f.hidden_field :tour_city, :value => @order.tour_city %>
+					<%= f.hidden_field :total_people, :value => @order.total_people %>
+					<%= f.hidden_field :price, :value => @order.price %>
+					<%= f.hidden_field :contents_of_price, :value => @order.contents_of_price %>
+					<%= f.hidden_field :capacity, :value => @order.capacity %>
+					<%= f.hidden_field :tour_time, :value => @order.tour_time %>
+
+					<div>
+						<%= f.submit '送信', class: "btn btn-success" %>
+					</div>
+
+				<% end %>
+			</div>
+			<div class = "col-xs-7">
+				<h2>ツアー説明</h2>
+				<h4 class = "order-confirm-body"><%= @order.tour_body %></h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

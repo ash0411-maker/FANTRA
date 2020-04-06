@@ -1,2 +1,66 @@
-<h1>Tourist::Tourists#show</h1>
-<p>Find me in app/views/tourist/tourists/show.html.erb</p>
+<h1>ツアリスト詳細ページ</h1>
+<div class = "container">
+	<div class = "row">
+
+	<!----- 予約済みツアー ----->
+		<div class = "col-xs-7 col-xs-offset-1">
+			<h2><strong><%= current_tourist.name %>さん</strong>が予約した旅行</h2>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th class = "text-center">ツアータイトル</th>
+						<th class = "text-center">ツアー都市</th>
+						<th class = "text-center">参加人数</th>
+						<th class = "text-center">合計金額</th>
+						<th class = "text-center">ツアータイトル</th>
+						<th class = "text-center">さらなる情報</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @orders.each do |order| %>
+						<tr class = "text-center">
+							<td><%= order.tour_title %></td>
+							<td><%= order.tour_city %></td>
+							<td><%= order.total_people %></td>
+							<td><%= number_with_delimiter(order.price) %></td>
+							<td><%= order.guide.family_name %> <%= order.guide.name %></td>
+							<td><%= link_to "ツアー詳細", tourist_tour_path(order.tour_id) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	<!----- 予約済みツアー ----->
+
+
+	<!---- ツーリスト登録情報 ---->
+		<div class = "col-xs-3" col-xs-offset-1>
+			<h3><%= current_tourist.name %>さん</strong>の登録情報</h3>
+			<div class="panel panel-default">
+				<div class="panel-heading text-center">
+			    	<h3 class="panel-title">
+			    		<%= link_to "内容変更", edit_tourist_tourist_path(current_tourist), class: "btn btn-success btn-lg" %>
+			    	</h3>
+				</div>
+				<div class="panel-body">
+				    <p class = "tourist-info-text">
+				    	名前： <%= current_tourist.family_name %> <%= current_tourist.name %><br/>
+				    	国籍： <%= current_tourist.nationality %><br/>
+				    	性別： <%= current_tourist.sex %><br/>
+				    	生まれ年： <%= current_tourist.birth_year %>年<br/>
+				    	電話番号： <%= current_tourist.phone_number %>
+				    </p>
+				</div>
+
+				<div class="panel-body">
+					<h3>住所</h3>
+				    <p>
+				    	〒 <%= current_tourist.postal_code %><br/>
+				    	   <%= current_tourist.address %>
+				    </p>
+				</div>
+			</div>
+		</div>
+	<!---- ツーリスト登録情報 ---->
+	</div>
+</div>

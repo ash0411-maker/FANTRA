@@ -1,4 +1,5 @@
 class Tourist::ToursController < ApplicationController
+
   def index
   	@genres = Genre.all
   	if params[:genre_id]
@@ -13,4 +14,5 @@ class Tourist::ToursController < ApplicationController
   	@tour = Tour.find(params[:id])
     @tour_photos = @tour.tour_photos
   end
+
 end

@@ -1,47 +1,31 @@
 
 <!------ トップ画像 ------>
-<div class = "tourist-first-wrapper"></div>
+<div class = "tourist-first-wrapper">
+	<span class = "search-city">
+		<p><%= flash[:warning] %></p>
+	    <%= form_tag(tourist_search_search_path, method: :get) do %>
+	      <%= text_field_tag 'search[content]' %>
+	      <%= submit_tag '都市名検索', class: "btn btn-primary" %>
+	    <% end %>
+	</span>
+</div>
 <!------ トップ画像 ------>
 
 <div class = "tourist-second-wrapper">
 	<div class = "container">
 		<div class = "row">
-			<div class = "col-xs-6 col-xs-offset-1">
+			<div class = "col-xs-4 col-xs-offset-1">
 				<h3 class = "tourist-headline">ここから旅を始めましょう</h3>
 			</div>
-
-		<!----- 検索機能 ----->
-			<div class = "col-xs-5">
-				<div class= "search-city">
-					<p><%= flash[:warning] %></p>
-		        	<div class="search-form">
-			            <%= form_tag(tourist_search_search_path, method: :get) do %>
-			              <%= text_field_tag 'search[content]' %>
-			              <%= submit_tag '検索', class: "btn btn-primary" %>
-			            <% end %>
-		          	</div>
-		        </div>
-		        <div class= "search-genre">
-					<% @genres.each do |genre| %>
-						<%= link_to tourist_tours_path(genre_id: genre.id), class: "btn btn-default tourist-genre-btn" do %>
-							<% genre.name %>
-						<% end %>
+		    <div class= "col-xs-5 col-xs-offset-2">
+				<% @genres.each do |genre| %>
+					<%= link_to tourist_tours_path(genre_id: genre.id), class: "btn btn-default tourist-genre-btn" do %>
+						<% genre.name %>
 					<% end %>
-				</div>
+				<% end %>
 			</div>
-		<!----- 検索機能 ----->
-
 		</div>
 	</div>
-</div>
-<div class= "search-city">
-	<p><%= flash[:warning] %></p>
-	<div class="search-form">
-        <%= form_tag(tourist_search_search_path, method: :get) do %>
-          <%= text_field_tag 'search[content]' %>
-          <%= submit_tag '検索', class: "btn btn-primary" %>
-        <% end %>
-  	</div>
 </div>
 
 <!------ ツアー一覧  --------->
@@ -59,7 +43,7 @@
 				<% @tour_all.each do |tour| %>
 					<tr>
 						<td><%= tour.title %></td>
-						<td><%= tour.price %></td>
+						<td>¥ <%= number_with_delimiter(tour.price) %></td>
 						<td><%= link_to "詳細", tourist_tour_path(tour) %></td>
 					</tr>
 				<% end %>

@@ -1,42 +1,81 @@
 <h1>ツアーガイド詳細画面</h1>
 <div class = "container">
 	<div class = "row">
+
+	<!----- ツアーガイド情報 ----->
 		<div class = "col-xs-7 col-xs-offset-1">
 			<table class = "table table-bordered">
 				<thead>
 					<tr>
-						<th class = "active text-center"><h4>名前</h4></th>
-						<th class = " text-center"><h4><%= @guide.family_name %>  <%= @guide.name %></h4></th>
+						<th class = "col-xs-4 active text-center">
+							<h4>名前</h4>
+						</th>
+						<th class = " text-center">
+							<h4><%= @guide.family_name %>  <%= @guide.name %></h4>
+						</th>
 					</tr>
+
 					<tr>
-						<th class = "active text-center"><h4>国籍</h4></th>
-						<th class = " text-center"><h4><%= @guide.nationality %></h4></th>
+						<th class = "col-xs-4 active text-center">
+							<h4>国籍</h4>
+						</th>
+						<th class = " text-center">
+							<h4><%= @guide.nationality %></h4>
+						</th>
 					</tr>
+
 					<tr>
-						<th class = "active text-center"><h4>登録住所</h4></th>
+						<th class = "active text-center">
+							<h4>登録住所</h4>
+						</th>
 						<th class = " text-center">
 							<h4>
-								〒 <%= @guide.postal_code %><br/>
-								<%= @guide.address %>
+								<p>〒 <%= @guide.postal_code %></p>
+								<p><%= @guide.address %></p>
 							</h4>
 						</th>
 					</tr>
+
 					<tr>
-						<th class = "active text-center"><h4>電話番号</h4></th>
-						<th class = " text-center"><h4><%= @guide.phone_number %></h4></th>
+						<th class = "col-xs-4 active text-center">
+							<h4>電話番号</h4>
+						</th>
+						<th class = " text-center">
+							<h4><%= @guide.phone_number %></h4>
+						</th>
 					</tr>
+
 					<tr>
-						<th class = "active text-center"><h4>メールアドレス</h4></th>
-						<th class = " text-center"><h4><%= @guide.email %></h4></th>
+						<th class = "col-xs-4 active text-center">
+							<h4>メールアドレス</h4>
+
+						</th>
+						<th class = " text-center"><h4>
+							<%= @guide.email %></h4>
+						</th>
 					</tr>
+
 					<tr>
-						<th class = "active text-center guide-identification"><h4>身分証明書</h4></th>
+						<th class = "col-xs-4 active text-center guide-identification">
+							<h4>自己紹介</h4>
+						</th>
+						<th>
+							<p class = "guide-introduction"><%= @guide.introduction %></p>
+						</th>
+					</tr>
+
+					<tr>
+						<th class = "col-xs-4 active text-center guide-identification"><h4>身分証明書</h4></th>
 						<th class = " text-center"><%= attachment_image_tag @guide, :identification_image, :fill, 300, 200, format: 'jpeg' %></th>
 					</tr>
 				</thead>
 			</table>
 		</div>
-		<div class = "col-xs-4">
+	<!----- ツアーガイド情報 ----->
+
+
+<!----- ツアーガイドの顔が写ってる写真、編集ボタン ---->
+		<div class = "col-xs-3">
 			<% if @guide.selfy_image_id.nil? %>
 				<h4>あなたの写真を追加しましょう！</h4>
 			<% end %>
@@ -46,6 +85,10 @@
 			</div>
 		</div>
 	</div>
+<!----- ツアーガイドの顔が写ってる写真、編集ボタン ----->
+
+
+<!----- ツアーガイドが提供するツアー一覧 ---->
 	<div class = "row">
 		<div class = "col-xs-7 col-xs-offset-1">
 			<% if @tours.count == 0 %>
@@ -59,21 +102,23 @@
 					<thead>
 						<thead>
 							<tr>
-								<th>ツアー題名</th>
-								<th>所要時間</th>
-								<th>定員</th>
-								<th>価格</th>
-								<th>価格に含まれるサービス</th>
+								<th class = "text-center">ツアー題名</th>
+								<th class = "text-center">所要時間</th>
+								<th class = "text-center">定員</th>
+								<th class = "text-center">価格</th>
+								<th class = "text-center">価格に含まれるサービス</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<% @tours.each do |tour| %>
-								<tr>
+								<tr class = "text-center">
 									<td><%= tour.title %></td>
 									<td><%= tour.time %></td>
-									<td><%= tour.capacity %></td>
-									<td><%= tour.price %></td>
+									<td><%= tour.capacity %>名</td>
+									<td>¥ <%= number_with_delimiter(tour.price) %></td>
 									<td><%= tour.contents_of_price %></td>
+									<td><%= link_to "編集", edit_tour_guide_tour_path(tour), class: "btn btn-success" %></td>
 								</tr>
 							<% end %>
 						</tbody>
@@ -83,3 +128,10 @@
 		</div>
 	</div>
 </div>
+<!----- ツアーガイドが提供するツアー一覧 ---->
+
+
+
+
+
+

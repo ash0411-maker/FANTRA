@@ -1,31 +1,79 @@
 <% if @tours == 0 %>
 	<h1><%= @content %>の検索ヒット数は０件です</h1>
 <% else %>
-	<h1><%= @content %>の検索ヒット数は<%= @tours.count %>件です</h1>
 	<div class = "container">
 		<div class = "row">
-			<table class = "table">
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @tours.each do |tour| %>
+			<h1><%= @content %>の検索ヒット数は<%= @tours.count %>件です</h1>
+			<div class = "col-xs-7">
+				<table class = "table table-bordered">
+					<thead>
 						<tr>
-							<td><%= tour.title %></td>
-							<td><%= tour.price %></td>
-							<td><%= tour.capacity %></td>
-							<td><%= tour.contents_of_price %></td>
-							<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-primary" %></td>
+							<th class = "text-center">ツアー名</th>
+							<th class = "text-center">ツアー価格</th>
+							<th class = "text-center">ツアー定員</th>
+							<th class = "text-center">価格に含まれるサービス</th>
+							<th class = "text-center">詳細ページ</th>
 						</tr>
-					<% end %>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<% @tours.each do |tour| %>
+							<tr class = "text-center">
+								<td><%= tour.title %></td>
+								<td>¥ <%= number_with_delimiter(tour.price) %></td>
+								<td><%= tour.capacity %>名</td>
+								<td><%= tour.contents_of_price %></td>
+								<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-primary" %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		<!-- google map -->
+			<div class = "col-xs-5">
+				<div id="map"></div>
+				<style>
+				    #map {
+				    height: 500px;
+				    width: 80%;
+				  }
+				</style>
+				<script>
+				  function initMap() {
+				    var uluru = {lat: <%= @cordinates[0] %>, lng: <%= @cordinates[1] %>};
+				    var map = new google.maps.Map(document.getElementById('map'), {
+				      zoom: 5,
+				      center: uluru
+				    });
+				    var marker = new google.maps.Marker({
+				      position: uluru,
+				      map: map
+				    });
+				  }
+				</script>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNg9omd6T56aBwuHBLSpulCFfe8SLZ_h8&callback=initMap"
+				async defer></script>
+			</div>
+		<!-- google map -->
 		</div>
 	</div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

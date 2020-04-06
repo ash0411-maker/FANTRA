@@ -4,6 +4,8 @@ class Tourist::SearchController < ApplicationController
   def search
   	if @content = params["search"]["content"]
 	    @city = City.match(@content)
+	    results = Geocoder.search(@content)
+		@cordinates = results.first.coordinates
 	    unless @city.nil?
 	    	@tours = @city.tours
 	    else
