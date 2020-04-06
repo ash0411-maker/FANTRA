@@ -13,21 +13,30 @@
     <header>
       <nav>
 
+      <!-- 管理者ロゴ -->
         <% if admin_signed_in? %>
           <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
+
+      <!-- ツアーガイドロゴ -->
         <% elsif guide_signed_in? %>
           <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
           <%= link_to tour_guide_guide_path(current_guide) do %>
             <span class = "login_name">ツアーガイドの<%= current_guide.name %>さん</span>
+            <span>
+              <%= attachment_image_tag current_guide, :selfy_image, :fill, 40, 40, format: 'jpeg', class: "guide_selfy_image" %>
+            </span>
           <% end %>
+
+      <!-- 観光客ロゴ -->
         <% elsif tourist_signed_in? %>
           <%= link_to "FANTRA", tourist_tours_path, class: "logo" %>
           <%= link_to tourist_tourist_path(current_tourist) do %>
             <span class = "login_name">ツーリストの<%= current_tourist.name %>さん</span>
           <% end %>
+
+      <!-- ログイン前ロゴ -->
         <% else %>
-          <h3 class = "logo">FANTRA</h3>
-          <span class = "login_name"></span>
+          <%= link_to "FANTRA", root_path, class: "logo" %>
         <% end %>
 
       <!-- 管理者ログイン時 -->
@@ -43,6 +52,7 @@
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li>
           </ul>
+
       <!-- ガイドログイン時 -->
         <% elsif guide_signed_in? %>
           <ul>

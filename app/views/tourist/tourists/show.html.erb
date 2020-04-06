@@ -21,10 +21,10 @@
 						<tr class = "text-center">
 							<td><%= order.tour_title %></td>
 							<td><%= order.tour_city %></td>
-							<td><%= order.total_people %></td>
-							<td><%= number_with_delimiter(order.price) %></td>
+							<td><%= order.total_people %>名</td>
+							<td>¥ <%= number_with_delimiter(order.price) %></td>
 							<td><%= order.guide.family_name %> <%= order.guide.name %></td>
-							<td><%= link_to "ツアー詳細", tourist_tour_path(order.tour_id) %></td>
+							<td><%= link_to "ツアー詳細へ", tourist_tour_path(order.tour_id), class: "btn btn-default" %></td>
 						</tr>
 					<% end %>
 				</tbody>
@@ -44,16 +44,18 @@
 				</div>
 				<div class="panel-body">
 				    <p class = "tourist-info-text">
-				    	名前： <%= current_tourist.family_name %> <%= current_tourist.name %><br/>
-				    	国籍： <%= current_tourist.nationality %><br/>
-				    	性別： <%= current_tourist.sex %><br/>
-				    	生まれ年： <%= current_tourist.birth_year %>年<br/>
-				    	電話番号： <%= current_tourist.phone_number %>
+				    	<strong>名前：</strong> <%= current_tourist.family_name %> <%= current_tourist.name %><br/>
+				    	<strong>国籍：</strong> <%= current_tourist.nationality %><br/>
+				    	<strong>性別：</strong> <%= current_tourist.sex %><br/>
+				    	<strong>生まれ年：</strong> <%= current_tourist.birth_year %>年<br/>
+				    	<strong>電話番号：</strong> <%= current_tourist.phone_number %><br/>
+				    	<strong>メールアドレス：</strong><br/>
+				    	 <%= current_tourist.email %>
 				    </p>
 				</div>
 
 				<div class="panel-body">
-					<h3>住所</h3>
+					<h3><strong>住所</strong></h3>
 				    <p>
 				    	〒 <%= current_tourist.postal_code %><br/>
 				    	   <%= current_tourist.address %>

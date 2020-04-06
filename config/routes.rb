@@ -31,15 +31,18 @@ Rails.application.routes.draw do
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
 	end
 
-	# ツアーとツアー提供者
+
+	# ツアーとツアーガイド
 	namespace :tour_guide do
 	    get 'top' => 'home#top'
 	    get 'tours/thanks' => 'tours#thanks', as: 'thanks'
 	    resources :guides, only: [:show, :edit, :update]
+	    resources :orders, only: [:index, :edit, :update]
 	    resources :tours do
-	    	resources :photos, only: [:new, :create]
+	    	resource :photos, only: [:new, :create]
 	    end
 	end
+
 
 	# 観光客
 	namespace :tourist do

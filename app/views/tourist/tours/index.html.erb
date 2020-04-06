@@ -44,7 +44,7 @@
 					<tr>
 						<td><%= tour.title %></td>
 						<td>¥ <%= number_with_delimiter(tour.price) %></td>
-						<td><%= link_to "詳細", tourist_tour_path(tour) %></td>
+						<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-default" %></td>
 					</tr>
 				<% end %>
 			</tbody>

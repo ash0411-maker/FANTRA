@@ -1,1 +1,14 @@
-<h1>ツアーガイドトップ画面</h1>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-4 col-xs-offset-2">
+			<div>
+				<h1>
+					予約件数：
+					<%= link_to tour_guide_orders_path do %>
+						<%= @orders.count %>件です
+					<% end %>
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
