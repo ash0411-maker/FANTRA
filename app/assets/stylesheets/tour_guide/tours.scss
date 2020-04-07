@@ -20,7 +20,7 @@
 }
 
 // ツアー写真送信ボタン
-.tour-photo-submit{
+.tour-photo-submit {
 	margin-top: 40px;
 }
 // ------------ ツアー新規投稿 ------------ 
@@ -30,20 +30,49 @@
 
 
 //------------ ツアー詳細 ------------------
-// ----- ツアー詳細上部 -----
-.tour-top-wrapper{
+
+.tour-top-wrapper {
 	height: 600px;
 	background-color: black;
-	margin-top: -20px;
 	color: white;
 }
 
-// ツアー詳細画像部分
-.image-wrapper{
+// ----- ツアー写真 -----
+
+
+.tour-image-wrapper {
 	height: 400px;
-	background-color: gray;
+	padding: 30px 0 0 150px;
+	background-color: black;
 }
-// ----- ツアー詳細上部 -----
+
+.tour-img-1 {
+	padding-right: 10px;
+}
+
+.tour-img-2 {
+
+}
+
+.tour-img-3 {
+	padding-left: 10px;
+}
+
+.tour-img-4 {
+	padding-top: 20px;
+}
+
+.tour-img-5 {
+	padding-left: 20px;
+}
+
+.tour-img-6{
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+
+// ----- ツアー写真 -----
 
 
 

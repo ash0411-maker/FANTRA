@@ -21,10 +21,7 @@ class TourGuide::ToursController < ApplicationController
 
   def show
   	@tour = Tour.find(params[:id])
-    results = Geocoder.search(@tour.meetingpoint_address)
-    binding.pry
-    @coordinates = results.first.coordinates
-
+    @tour_photos = @tour.tour_photos
   end
 
 
