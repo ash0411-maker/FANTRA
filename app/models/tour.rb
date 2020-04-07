@@ -4,15 +4,18 @@ class Tour < ApplicationRecord
 	belongs_to :genre
 	belongs_to :city
   has_many :book_marks, dependent: :destroy
+  has_many :tour_photos, dependent: :destroy
 
-  # ツアー写真を複数枚投稿
-	has_many :tour_photos, dependent: :destroy
-  accepts_attachments_for :tour_photos, attachment: :image
+  # ビューからデータを送る際に、ツアーと一緒にツアー写真を送るための記述
+  # reject_if => 指定した条件下においてvalidationを無効にする
+  accepts_nested_attributes_for :tour_photos, reject_if: :all_blank, allow_destroy: true
+
+
 
   validates :genre_id, presence: true
   validates :city_id, presence: true
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :body, presence: true, length: { maximum: 500 }
   validates :capacity, presence: true
   validates :price, presence: true
   validates :contents_of_price, presence: true

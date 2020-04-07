@@ -2,7 +2,7 @@
 	<div class = "row">
 		<h1>ツアー新規投稿</h1>
 		<div>
-			<%= form_with(model: @tour, url: tour_guide_tours_path) do |f| %>
+			<%= form_for(@tour, url: tour_guide_tours_path) do |f| %>
 		        <div class = "col-xs-9 col-xs-offset-3">
 		        	<div class = "row">
 			        	<div class = "form_field col-xs-3">
@@ -22,7 +22,7 @@
 			        </div>
 			        <div class = "row">
 				        <div class = "form_field col-xs-6">
-				          <%= f.label :ツアー説明 %><br/>
+				          <%= f.label :ツアー説明 %>（500文字以内）<br/>
 				          <%= f.text_area :body, class: "tour-body" %>
 				        </div>
 
@@ -56,65 +56,28 @@
 		        	  <%= f.select :is_active,[["販売中", "true"], ["販売停止", "false"]]  %>
 		        	</div>
 
-		        <!----- jQuery ----->
-		        	<!-- <script>
-						$(function() {
-					        $(".photo-btn").click(function() {
-					          $("#tour-photo-field").append("<%= f.attachment_field :tour_photos_images %>");
-					        });
-					      });
-					</script> -->
 
 		        <!----- 写真複数枚投稿 ----->
 		        	<div class = "row">
 		        		<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
-							</div>
-						</div>
-						<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
+				        	<div id = "tour_photos">
+							    <%= f.fields_for :tour_photos do |tour_photo| %>
+							      <%= render 'tour_photo_fields', f: tour_photo %>
+							    <% end %>
+							    <div id = "links">
+							      <%= link_to_add_association '写真を追加',f, :tour_photos %>
+							    </div>
 							</div>
 						</div>
 					</div>
+		        <!----- 写真複数枚投稿 ----->
 
-					<div class = "row">
-						<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
-							</div>
-						</div>
-						<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
-							</div>
-						</div>
-					</div>
 
-					<div class = "row">
-						<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
-							</div>
-						</div>
-						<div class = "col-xs-4">
-				        	<div id = "form_field">
-					        	<%= f.label :ツアー写真 %><br />
-								<%= f.attachment_field :tour_photos_images %>
-							</div>
-						</div>
-					</div>
-				<!----- 写真追加ボタン ----->
 
 		        	<div class = "form_field">
 		        	  <%= f.submit  "保存", class: "btn btn-success" %>
 		        	</div>
+
 		        </div>
 		    <% end %>
 		</div>

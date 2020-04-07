@@ -89,6 +89,9 @@ gem 'font-awesome-sass', '~> 5.4.1'
 #googlemap
 gem 'geocoder'
 
+#複数のデータを同時保存
+gem 'cocoon'
+
 
 
 

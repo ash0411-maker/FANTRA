@@ -20,12 +20,14 @@
       <!-- ツアーガイドロゴ -->
         <% elsif guide_signed_in? %>
           <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
-          <%= link_to tour_guide_guide_path(current_guide) do %>
-            <span class = "login_name">ツアーガイドの<%= current_guide.name %>さん</span>
-            <span>
-              <%= attachment_image_tag current_guide, :selfy_image, :fill, 40, 40, format: 'jpeg', class: "guide_selfy_image" %>
-            </span>
-          <% end %>
+          <span class = "guide-my-page-link">
+            <%= link_to tour_guide_guide_path(current_guide) do %>
+              <span>
+                <%= attachment_image_tag current_guide, :selfy_image, :fill, 40, 40, format: 'jpeg', class: "guide_selfy_image" %>
+              </span>
+              <span class = "login_name">マイページ</span>
+            <% end %>
+          </span>
 
       <!-- 観光客ロゴ -->
         <% elsif tourist_signed_in? %>

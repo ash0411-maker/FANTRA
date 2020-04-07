@@ -1,27 +1,32 @@
 class TourGuide::ToursController < ApplicationController
 
+
   def new
   	@tour = Tour.new
-  	@tour.tour_photos.build
+    @tour_photo = @tour.tour_photos.build
+
   	@genres = Genre.all
   	# 都市だけ undefined method `map' for nil:NilClass が発生
   	# @cities = City.all
   end
 
+
   def create
   	@tour = Tour.new(tour_params)
   	@tour.guide_id = current_guide.id
   	@tour.save
-    @tour.tour_photos.each do |img|
-      img.tour_id = @tour.id
-      img.save
-    end
   	redirect_to tour_guide_top_path
   end
 
+
   def show
   	@tour = Tour.find(params[:id])
+    results = Geocoder.search(@tour.meetingpoint_address)
+    binding.pry
+    @coordinates = results.first.coordinates
+
   end
+
 
   def index
   	@genres = Genre.all
@@ -37,11 +42,13 @@ class TourGuide::ToursController < ApplicationController
   	@tour = Tour.find(params[:id])
   end
 
+
   def update
   	@tour = Tour.find(params[:id])
-  	@tour.update(tour_params)
+  	@tour.update!(tour_params)
   	redirect_to tour_guide_tour_path(@tour)
   end
+
 
   def destroy
     @tour = Tour.find(params[:id])
@@ -49,10 +56,15 @@ class TourGuide::ToursController < ApplicationController
     redirect_to tour_guide_top_path
   end
 
+
+
   private
   def tour_params
-  params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :time, :price, :contents_of_price, :is_active,
-       tour_photo_images: []
-       )
+  params.require(:tour).permit(:genre_id, :city_id, :title, :body, :capacity, :time, :price,
+    :contents_of_price, :meetingpoint_address, :meetingpoint_introduction, :is_active, tour_photos_attributes: [:id, :image, :tour_id, :_destroy])
   end
+
 end
+
+
+
