@@ -21,6 +21,13 @@ class Tourist::OrdersController < ApplicationController
   	redirect_to tourist_orders_thanks_path
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @tourist = @order.tourist
+    @order.destroy
+    redirect_to tourist_tourist_path(@tourist)
+  end
+
   def thanks
   end
 

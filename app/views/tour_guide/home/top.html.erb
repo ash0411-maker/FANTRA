@@ -1,11 +1,11 @@
 <div class = "container">
 	<div class = "row">
-		<div class = "col-xs-4 col-xs-offset-2">
+		<div class = "col-xs-8 col-xs-offset-2">
 			<div>
 				<h1>
-					予約件数：
+					今日に入った予約件数は
 					<%= link_to tour_guide_orders_path do %>
-						<%= @orders.count %>件です
+						<%= current_guide.orders.where(created_at: Time.zone.now.all_day).count %>件です
 					<% end %>
 				</h1>
 			</div>

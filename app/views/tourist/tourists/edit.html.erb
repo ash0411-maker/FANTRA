@@ -1,2 +1,82 @@
-<h1>Tourist::Tourists#edit</h1>
-<p>Find me in app/views/tourist/tourists/edit.html.erb</p>
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-9">
+			<% if @tourist.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= @tourist.errors.count %>件のエラーが発生しました。</h2>
+			      <ul>
+			      <% @tourist.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+		    <% end %>
+			<h1><%= @tourist.name %>さんの情報変更画面</h1>
+			<%= form_for(@tourist, url: tourist_tourist_path(@tourist)) do |f| %>
+
+				<div class = "tourist-edit-box">
+					<div class = "row">
+						<div class="field col-xs-3">
+						    <%= f.label :姓 %><br />
+						    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
+					  	</div>
+
+						<div class="field col-xs-3">
+						  <%= f.label :名 %><br />
+						  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+						</div>
+
+						<div class="field col-xs-3">
+							<%= f.label :性別 %><br />
+						  <%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
+						</div>
+					</div>
+				</div>
+
+				<div class = "tourist-edit-box">
+					<div class = "row">
+						<div class="field col-xs-3">
+						  <%= f.label :生まれ年（西暦） %><br />
+						 <%= f.text_field :birth_year, autofocus: true, autocomplete: "birth_year" %>年
+						</div>
+
+						<div class="field col-xs-3">
+						  <%= f.label :電話番号 %><br />
+						  <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+						</div>
+
+						<div class="field col-xs-3">
+						  <%= f.label :email %><br />
+						  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+						</div>
+					</div>
+				</div>
+
+				<div class = "tourist-edit-box">
+					<div class = "row">
+						<div class="field col-xs-3">
+						  <%= f.label :国籍 %><br />
+						  <%= f.text_field :nationality, autofocus: true, autocomplete: "nationality" %>
+						</div>
+
+						<div class="field col-xs-3">
+						  <%= f.label :郵便番号 %><br />
+						  <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+						</div>
+
+						<div class="field col-xs-3">
+						  <%= f.label :住所 %><br />
+						  <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="actions">
+				  <%= f.submit "情報更新", class: "btn btn-default" %>
+				</div>
+
+			<% end %>
+		</div>
+	</div>
+</div>

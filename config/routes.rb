@@ -53,8 +53,8 @@ Rails.application.routes.draw do
 		resources :tours, only: [:show, :index] do
 			resource :book_marks, only: [:create, :destroy]
 		end
-		resources :tourists, only: [:show, :edit]
-		resources :orders, only: [:show, :new, :create]
+		resources :tourists, only: [:show, :edit, :update]
+		resources :orders, only: [:show, :new, :create, :destroy]
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

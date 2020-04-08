@@ -1,13 +1,59 @@
 
 <!----- ツアー画像＆ブックマーク ----->
-<div class = "image-wrapper">
+<!----- ツアー写真 ----->
+<div class = "tour-image-wrapper">
+
+	<!-- ブックマーク -->
 	<span class = "book_mark">
 		<div id = "book_marks_<%= @tour.id %>">
 			<%= render 'tourist/book_marks/book_mark', tour: @tour %>
 		</div>
 	</span>
+	<!-- ブックマーク -->
+
+	<div class = "container">
+		<div class = "row">
+
+			<div class = "col-xs-4">
+				<div class = "tour-img-1">
+					<%= attachment_image_tag @tour_photos[0], :image, :fill, 380, 350, format: 'jpeg' %>
+				</div>
+			</div>
+
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-6">
+						<div class = "tour-img-2">
+							<%= attachment_image_tag @tour_photos[1], :image, :fill, 190, 150, format: 'jpeg' %>
+						</div>
+					</div>
+					<div class = "col-xs-6">
+						<div class = "tour-img-3">
+							<%= attachment_image_tag @tour_photos[2], :image, :fill, 190, 150, format: 'jpeg' %>
+						</div>
+					</div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-12">
+						<div class = "tour-img-4">
+							<%= attachment_image_tag @tour_photos[3], :image, :fill, 395, 190, format: 'jpeg' %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class = "col-xs-4">
+				<div class = "tour-img-5">
+					<%= attachment_image_tag @tour_photos[4], :image, :fill, 200, 350, format: 'jpeg' %>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
 </div>
-<!----- ツアー画像＆ブックマーク ----->
+<!----- ツアー写真 ----->
+
 
 <!------- ツアー情報詳細 -------->
 <div class = "tour-info-wrapper">
@@ -52,8 +98,10 @@
 </div>
 <!------- ツアー情報詳細 -------->
 
+
 <div class = "guide-tour-body-wrapper">
 	<div class = "container">
+
 
 	<!------- ツアー内容説明 -------->
 		<div class = "row">
@@ -91,6 +139,53 @@
 			</div>
 		</div>
 	<!------- ツアーガイド紹介 -------->
+
+
+	<!----------- 集合場所 ------------>
+		<div class = "row">
+			<div class = "guide-tour-details">
+				<div class = "col-xs-4">
+					<div class = "guide-body-title">
+						<h2>集合場所</h2>
+					</div>
+				</div>
+				<div class = "col-xs-8">
+					<div class = "tour-body-wrapper">
+						<h4 class = "guide-body-text">
+							<%= @tour.meetingpoint_address %><br/>
+							<%= @tour.meetingpoint_introduction %>
+						</h4>
+
+					<!----- GoogleMap ----->
+						<div id="map"></div>
+						<style>
+						    #map {
+						    height: 500px;
+						    width: 70%;
+						  }
+						</style>
+						<script>
+						  function initMap() {
+						    var uluru = {lat: <%= @tour.latitude %>, lng: <%= @tour.longitude %>};
+						    var map = new google.maps.Map(document.getElementById('map'), {
+						      zoom: 16,
+						      center: uluru
+						    });
+						    var marker = new google.maps.Marker({
+						      position: uluru,
+						      map: map
+						    });
+						  }
+						</script>
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNg9omd6T56aBwuHBLSpulCFfe8SLZ_h8&callback=initMap"async defer></script>
+					<!----- GoogleMap ----->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	<!----------- 集合場所 ------------>
+
 
 	</div>
 </div>

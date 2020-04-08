@@ -55,8 +55,10 @@
 // ---------  ツアー詳細 -------------
 // ツアー詳細
 // ツアー詳細画像部分
-.image-wrapper{
+// ----- ツアー写真 -----
+.tour-image-wrapper {
 	height: 400px;
+	padding: 30px 0 0 150px;
 	background-color: black;
 	position: relative;
 }
@@ -67,6 +69,30 @@
 	top: 30px;
 	right: 50px;
 }
+
+.tour-img-1 {
+	padding-right: 20px;
+}
+
+.tour-img-2 {
+
+}
+
+.tour-img-3 {
+	padding-left: 10px;
+}
+
+.tour-img-4 {
+	padding-top: 10px;
+}
+
+.tour-img-5 {
+	padding-left: 15px;
+}
+// ----- ツアー写真 -----
+
+
+
 
 .tour-info-wrapper{
 	background-color: black;

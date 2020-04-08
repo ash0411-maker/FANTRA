@@ -33,7 +33,7 @@
         <% elsif tourist_signed_in? %>
           <%= link_to "FANTRA", tourist_tours_path, class: "logo" %>
           <%= link_to tourist_tourist_path(current_tourist) do %>
-            <span class = "login_name">ツーリストの<%= current_tourist.name %>さん</span>
+            <span class = "login_name login_tourist_name"><%= current_tourist.name %>さんのマイページ</span>
           <% end %>
 
       <!-- ログイン前ロゴ -->
