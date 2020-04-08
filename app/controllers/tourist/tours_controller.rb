@@ -12,6 +12,7 @@ class Tourist::ToursController < ApplicationController
 
   def show
   	@tour = Tour.find(params[:id])
+
     @tour_photos = @tour.tour_photos
   end
 

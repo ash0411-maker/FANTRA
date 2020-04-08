@@ -5,21 +5,23 @@ class Tourist::OrdersController < ApplicationController
   	@order = Order.new
   end
 
+
   def confirm
   	@order = Order.new(order_params)
-  	if order_params[:companion] =+ 1 > @order.capacity
-  		redirect_to new_tourist_order_path
-  	end
-
+  	 if order_params[:companion] += 1 > @order.capacity
+      redirect_to new_tourist_order_path
+    end
   	@order.total_people = @order.companion.to_i + 1
   	@total_price = @order.price * @order.total_people
   end
+
 
   def create
   	@order = Order.new(order_params)
   	@order.save
   	redirect_to tourist_orders_thanks_path
   end
+
 
   def destroy
     @order = Order.find(params[:id])
@@ -28,13 +30,14 @@ class Tourist::OrdersController < ApplicationController
     redirect_to tourist_tourist_path(@tourist)
   end
 
+
   def thanks
   end
+
 
   def show
   end
 
-  
 
 
   private
