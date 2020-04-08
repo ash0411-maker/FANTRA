@@ -19,7 +19,7 @@ class TourGuide::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      redirect_to edit_tour_guide_order_path(@order)
+      redirect_to tour_guide_orders_path
     end
   end
 

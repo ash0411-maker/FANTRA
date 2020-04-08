@@ -1,51 +1,21 @@
+<h2>予約ステータスを変更しましょう！</h2>
 <div class = "container">
 	<div class = "row">
-
-
-	<!----- 予約一覧 ----->
 		<div class = "col-xs-8">
-			<table class = "table">
-				<thead>
-					<tr>
-						<th class = "text-center">ツアータイトル</th>
-						<th class = "text-center">予約者</th>
-						<th class = "text-center">国籍</th>
-						<th class = "text-center">参加人数</th>
-						<th class = "text-center">手数料12%を引いた売り上げ</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @orders.each do |order| %>
-						<tr class = "text-center">
-							<td>
-								<%= order.tour_title %>
-							</td>
-							<td>
-								<%= order.tourist.family_name %> <%= order.tourist.name %>
-							</td>
-							<td>
-								<%= order.tourist.nationality %>
-							</td>
-							<td>
-								<%= order.total_people %>名
-							</td>
-
-							<td>
-								¥ <%= number_with_delimiter(order.price) %>
-							</td>
-							<td>
-								<%= link_to "注文ステータス変更", edit_tour_guide_order_path(order), class: "btn btn-success" %>
-							</td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
+			<div class = "bg-success">
+				<h2>現在の予約</h2>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー開始前" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 		</div>
-	<!----- 予約一覧 ----->
-
-
-	<!---- 売り上げ表 ----->
 		<div class = "col-xs-3">
 			<table class = "table table-bordered">
 				<tr>
@@ -58,8 +28,84 @@
 				</tr>
 			</table>
 		</div>
-	<!---- 売り上げ表 ----->
+	</div>
+
+	<div class = "row">
+		<div class = "col-xs-8">
+			<div class = "bg-info">
+				<h2>ツアー前日</h2>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー前日" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-xs-8">
+			<div class = "bg-success">
+				<h2>本日のツアー</h2>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー当日" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
 
+
+	<div class = "row">
+		<div class = "col-xs-8">
+			<div class = "bg-info">
+				<h2>ツアー中</h2>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー中" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class = "row">
+		<div class = "col-xs-8">
+			<div class = "bg-success">
+				<h2>終了済みツアー</h2>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー終了" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
+
+
+

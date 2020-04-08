@@ -64,4 +64,3 @@ class TourGuide::ToursController < ApplicationController
 end
 
 
-

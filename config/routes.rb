@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 	    get 'top' => 'home#top'
 	    get 'tours/thanks' => 'tours#thanks', as: 'thanks'
 	    resources :guides, only: [:show, :edit, :update]
-	    resources :orders, only: [:index, :edit, :update]
+	    resources :orders, only: [:index, :update]
 	    resources :tours do
 	    	resource :photos, only: [:new, :create]
 	    end

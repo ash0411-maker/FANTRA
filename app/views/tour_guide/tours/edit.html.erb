@@ -51,6 +51,19 @@
 			    </div>
 
 			    <div class = "row">
+		        	<div class = "col-xs-4">
+				    	<div id = "tour_photos">
+						    <%= f.fields_for :tour_photos do |tour_photo| %>
+						      <%= render 'tour_photo_fields', f: tour_photo %>
+						    <% end %>
+						    <div id = "links">
+						      <%= link_to_add_association '写真を追加',f, :tour_photos %>
+						    </div>
+						</div>
+					</div>
+				</div>
+
+			    <div class = "row">
 			    	<div class = "col-xs-4">
 			    		<%= f.label :集合場所住所 %>(郵便番号なし)<br/>
 					    <%= f.text_field :meetingpoint_address %>

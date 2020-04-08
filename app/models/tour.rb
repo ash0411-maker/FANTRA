@@ -10,6 +10,10 @@ class Tour < ApplicationRecord
   # reject_if => 指定した条件下においてvalidationを無効にする
   accepts_nested_attributes_for :tour_photos, reject_if: :all_blank, allow_destroy: true
 
+  #ツアーの詳細画面で表示するgooglemap
+  geocoded_by :meetingpoint_address
+  after_validation :geocode, if: :meetingpoint_address_changed?
+
 
 
   validates :genre_id, presence: true
