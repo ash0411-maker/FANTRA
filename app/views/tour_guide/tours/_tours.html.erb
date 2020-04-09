@@ -1,0 +1,40 @@
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-2">
+			<div class =  "panel panel-default category-search-box">
+				<div class="panel-heading">
+					<h3 class="panel-title">ジャンル検索</h3>
+				</div>
+				<div class = "panel-body" >
+					<% genres.each do |genre| %>
+						<p>
+							<%= link_to tour_guide_tours_path(genre_id: genre.id) do %>
+								<%= genre.name %>
+							<% end %>
+						</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class = "col-xs-9">
+			<table class = "table">
+				<thead>
+					<th class = "active">紹介者</th>
+					<th class = "active">ツアー名</th>
+					<th class = "active">都市</th>
+					<th class = "active">ジャンル</th>
+					<th class = "active"></th>
+				</thead>
+				<% tours.each do |tour| %>
+					<tbody>
+						<td><%= tour.guide.name %>さん</td>
+						<td><%= tour.title %></td>
+						<td><%= tour.city.name %></td>
+						<td><%= tour.genre.name %></td>
+						<td><%= link_to "ツアー詳細へ", tour_guide_tour_path(tour), class: "btn btn-default" %></td>
+					</tbody>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

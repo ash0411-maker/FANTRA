@@ -1,4 +1,4 @@
-<h1>ツアリスト詳細ページ</h1>
+<h1>ツアー前日はキャンセルできません</h1>
 <div class = "tourist-tourist-order-container" >
 			<div class = "tourist-tourist-order-table">
 				<h2><strong><%= current_tourist.name %>さん</strong>が予約している旅行リスト</h2>
@@ -29,7 +29,7 @@
 										<%= link_to "ツアー詳細へ", tourist_tour_path(order.tour_id), class: "btn btn-default" %>
 									</td>
 									<td>
-										<%= link_to "キャンセル", tourist_order_path(order), method: :delete,data: {confirm:'このツアーを本当にキャンセルしてもよろしいですか？キャンセル料が発生する可能性があります。'}, class: "btn btn-danger" %>
+										<%= link_to "キャンセル", tourist_tourist_order_path(current_tourist,order), method: :delete,data: {confirm:'このツアーを本当にキャンセルしてもよろしいですか？キャンセル料が発生する可能性があります。'}, class: "btn btn-danger" %>
 									</td>
 								</tr>
 							<% end %>
@@ -167,3 +167,4 @@
 		</div>
 </div>
 <!---- ツーリスト登録情報 ---->
+

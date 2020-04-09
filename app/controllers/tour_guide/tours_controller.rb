@@ -1,21 +1,20 @@
 class TourGuide::ToursController < ApplicationController
-
+  before_action :authenticate_guide!
 
   def new
   	@tour = Tour.new
     @tour_photo = @tour.tour_photos.build
-
-  	@genres = Genre.all
-  	# 都市だけ undefined method `map' for nil:NilClass が発生
-  	# @cities = City.all
   end
 
 
   def create
   	@tour = Tour.new(tour_params)
   	@tour.guide_id = current_guide.id
-  	@tour.save
-  	redirect_to tour_guide_top_path
+  	if @tour.save
+  	 redirect_to tour_guide_top_path
+    else
+      render 'new'
+    end
   end
 
 
@@ -29,9 +28,9 @@ class TourGuide::ToursController < ApplicationController
   	@genres = Genre.all
   	if params[:genre_id]
   		@genre = Genre.find(params[:genre_id])
-  		@tour_all = @genre.tours.order(created_at: :desc)
+  		@tours = @genre.tours.order(created_at: :desc)
   	else
-  		@tour_all = Tour.all
+  		@tours = Tour.all
   	end
   end
 

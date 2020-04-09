@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
 
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
 	    get 'home/top'
 	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
+	    resources :orders, only: [:index, :show]
+	    resources :tours, only: [:index, :show]
 	end
 
 
@@ -47,14 +50,15 @@ Rails.application.routes.draw do
 	# 観光客
 	namespace :tourist do
 		get 'search/search'
-		get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
 		get 'orders/thanks' => 'orders#thanks', as: 'orders_thanks'
+		resources :tourists, only: [:show, :edit, :update] do
+			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
+			resources :orders, only: [:show, :new, :create, :destroy]
+		end
 		resources :tours, only: [:show, :index] do
 			resource :book_marks, only: [:create, :destroy]
 		end
-		resources :tourists, only: [:show, :edit, :update]
-		resources :orders, only: [:show, :new, :create, :destroy]
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

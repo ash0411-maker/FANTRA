@@ -1,7 +1,7 @@
-class Tourist::ToursController < ApplicationController
-  before_action :authenticate_tourist!
+class Admin::ToursController < ApplicationController
+
   def index
-  	@genres = Genre.all
+    @genres = Genre.all
   	if params[:genre_id]
   		@genre = Genre.find(params[:genre_id])
   		@tours = @genre.tours.order(created_at: :desc)
@@ -12,7 +12,5 @@ class Tourist::ToursController < ApplicationController
 
   def show
   	@tour = Tour.find(params[:id])
-    @tour_photos = @tour.tour_photos
   end
-
 end

@@ -1,5 +1,7 @@
 class TourGuide::OrdersController < ApplicationController
 
+  before_action :authenticate_guide!
+
   def index
   	@orders = current_guide.orders
 

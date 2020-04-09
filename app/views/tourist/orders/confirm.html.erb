@@ -51,7 +51,7 @@
 					    </p>
 					</div>
 				</div>
-				<%= form_for(@order, url: tourist_orders_path) do |f| %>
+				<%= form_for(@order, url: tourist_tourist_orders_path) do |f| %>
 
 					<%= f.hidden_field :tourist_id, :value => current_tourist.id %>
 					<%= f.hidden_field :tour_id, :value => @order.tour_id %>
@@ -59,6 +59,7 @@
 					<%= f.hidden_field :tour_title, :value => @order.tour_title %>
 					<%= f.hidden_field :tour_body, :value => @order.tour_body %>
 					<%= f.hidden_field :tour_city, :value => @order.tour_city %>
+					<%= f.hidden_field :companion, :value => @order.companion %>
 					<%= f.hidden_field :total_people, :value => @order.total_people %>
 					<%= f.hidden_field :price, :value => @order.price %>
 					<%= f.hidden_field :contents_of_price, :value => @order.contents_of_price %>

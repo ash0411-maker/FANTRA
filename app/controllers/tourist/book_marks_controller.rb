@@ -1,5 +1,7 @@
 class Tourist::BookMarksController < ApplicationController
 
+    before_action :authenticate_tourist!
+
     def index
         @book_marks = current_tourist.book_marks
     end

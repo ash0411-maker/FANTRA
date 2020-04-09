@@ -4,7 +4,7 @@
 
 
 
-// ツアー一覧
+// --------- ツアー一覧 ------------
 .tourist-first-wrapper{
 	background-image: image-url("viet.jpeg");
 	background-size: cover;
@@ -44,8 +44,22 @@
 }
 
 
+// --- ツアー写真 ---
+.tour-tour-photos-index{
+	padding-top: 40px;
+	position: relative;
+}
+
+.show-book-mark{
+	position: absolute;
+	top: 50px;
+	left: 20px;
+}
+// --- ツアー写真 ---
 
 
+
+// --------- ツアー一覧 ------------
 
 
 
@@ -68,6 +82,7 @@
 	position: absolute;
 	top: 30px;
 	right: 50px;
+	z-index: 1000;
 }
 
 .tour-img-1 {

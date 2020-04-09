@@ -11,12 +11,18 @@
 </div>
 <!------ トップ画像 ------>
 
+
+
+<!------ ジャンル ------>
 <div class = "tourist-second-wrapper">
 	<div class = "container">
 		<div class = "row">
+
 			<div class = "col-xs-4 col-xs-offset-1">
 				<h3 class = "tourist-headline">ここから旅を始めましょう</h3>
 			</div>
+
+		<!-- ジャンル選択 -->
 		    <div class= "col-xs-5 col-xs-offset-2">
 				<% @genres.each do |genre| %>
 					<%= link_to tourist_tours_path(genre_id: genre.id), class: "btn btn-default tourist-genre-btn" do %>
@@ -24,31 +30,37 @@
 					<% end %>
 				<% end %>
 			</div>
+		<!-- ジャンル選択 -->
+
 		</div>
 	</div>
 </div>
+<!------ ジャンル ------>
+
+
 
 <!------ ツアー一覧  --------->
 <div class = "container">
 	<div class = "row">
-		<table class = "table">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @tour_all.each do |tour| %>
-					<tr>
-						<td><%= tour.title %></td>
-						<td>¥ <%= number_with_delimiter(tour.price) %></td>
-						<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-default" %></td>
-					</tr>
+		<h2>気になる写真をブックマークしましょう！</h2>
+		<% @tours.each do |tour| %>
+			<div class = "col-xs-4">
+				<% @tour_photos = tour.tour_photos %>
+				<%= link_to tourist_tour_path(tour) do %>
+					<%= attachment_image_tag @tour_photos[0], :image, :fill, 350, 200, format: 'jpeg',class: "tour-tour-photos-index" %>
+					<h3><%= tour.title %>    ¥ <%= number_with_delimiter(tour.price) %></h3>
+
+				<!----- ブックマーク機能 ----->
+					<div class = "show-book-mark">
+						<div id = "book_marks_<%= tour.id %>">
+							<%= render 'tourist/book_marks/book_mark', tour: tour %>
+						</div>
+					</div>
+				<!----- ブックマーク機能 ----->
+
 				<% end %>
-			</tbody>
-		</table>
+			</div>
+		<% end %>
 	</div>
 </div>
 <!------ ツアー一覧  --------->

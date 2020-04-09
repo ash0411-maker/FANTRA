@@ -1,4 +1,5 @@
 class TourGuide::GuidesController < ApplicationController
+    before_action :authenticate_guide!
 
   def show
   	@guide = Guide.find(params[:id])

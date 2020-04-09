@@ -4,12 +4,13 @@
 
 	<!----- 注文フォーム ----->
 		<div class = "col-xs-4 col-xs-offset-2">
-			<%= form_for(@order, url: tourist_orders_confirm_path, method: :get) do |f| %>
+			<%= form_for(@order, url: tourist_tourist_orders_confirm_path(@tourist), method: :get) do |f| %>
 
 				<div class="order-form-group">
-					<h3>お連れの方は？</h3>
+					<h3>お連れの人数は？<br/>（<%= current_tourist.name %> さんを除いた人数）</h3>
+					<h3><%= flash[:danger] %></h3>
 					<%= f.label :参加人数, "数字のみを入力してください" %><br/>
-					<%= f.text_field :companion %>
+					<%= f.text_field :companion %>名
 				</div>
 
 				<%= f.hidden_field :tourist_id, :value => current_tourist.id %>

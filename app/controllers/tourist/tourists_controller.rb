@@ -1,4 +1,5 @@
 class Tourist::TouristsController < ApplicationController
+  before_action :authenticate_tourist!
   def show
   	@orders = current_tourist.orders
   end
