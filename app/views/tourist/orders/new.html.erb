@@ -1,6 +1,7 @@
 <h1>ツアー予約概要</h1>
 <div class = "container">
 	<div class = "row">
+		<h3><%= flash[:danger] %></h3>
 
 	<!----- 注文フォーム ----->
 		<div class = "col-xs-4 col-xs-offset-2">
@@ -8,7 +9,6 @@
 
 				<div class="order-form-group">
 					<h3>お連れの人数は？<br/>（<%= current_tourist.name %> さんを除いた人数）</h3>
-					<h3><%= flash[:danger] %></h3>
 					<%= f.label :参加人数, "数字のみを入力してください" %><br/>
 					<%= f.text_field :companion %>名
 				</div>

@@ -1,2 +1,77 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<h1>
+	予約者：<%= @order.tourist.family_name %> <%= @order.tourist.name %> 様<br/>
+	ガイド：<%= @order.guide.family_name %> <%= @order.guide.name %> 様<br/>
+	<%= @order.tour_title %>の注文詳細画面
+</h1>
+<div class = "container">
+
+<!----- 観光客情報 ----->
+	<div class = "row">
+		<div class = "col-xs-10">
+			<h2>予約者情報</h2>
+			<table class = "table">
+				<thead>
+					<tr class = "active">
+						<th class = "text-center">氏名</th>
+						<th class = "text-center">生まれ年</th>
+						<th class = "text-center">国籍</th>
+						<th class = "text-center">今回の支払い額</th>
+						<th class = "text-center">これまでの総注文回数</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class = "text-center">
+						<td><%= @order.tourist.family_name %> <%= @order.tourist.name %></td>
+						<td><%= @order.tourist.birth_year %></td>
+						<td><%= @order.tourist.nationality %></td>
+						<td>¥ <%= number_with_delimiter(@order.price) %></td>
+						<td><%= @order.tourist.orders.count %></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class = "col-xs-2">
+			<div class =  "panel panel-default text-center">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>管理者売上</strong></h3>
+				</div>
+				<div class = "panel-body" >
+					¥ <%= number_with_delimiter(@order.admin_sales) %>
+				</div>
+			</div>
+		</div>
+	</div>
+<!----- 観光客情報 ----->
+
+
+<!----- ガイド情報 ----->
+	<div class = "row">
+		<div class = "col-xs-10">
+			<h2>ツアーガイド情報</h2>
+			<table class = "table">
+				<thead>
+					<tr class = "active">
+						<th class = "text-center">氏名</th>
+						<th class = "text-center">国籍</th>
+						<th class = "text-center">今回の売り上げ</th>
+						<th class = "text-center">これまでの総受注数</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class = "text-center">
+						<td><%= @order.guide.family_name %> <%= @order.guide.name %></td>
+						<td><%= @order.guide.nationality %></td>
+						<td>¥ <%= number_with_delimiter(@order.guide_sales) %></td>
+						<td><%= @order.guide.orders.count %></td>
+						<td><%= link_to "ツアー詳細へ", admin_tour_path(@order.tour_id), class: "btn btn-default" %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<!----- ガイド情報 ----->
+
+</div>

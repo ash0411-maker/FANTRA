@@ -4,5 +4,6 @@ class TourGuide::HomeController < ApplicationController
   end
 
   def about
+  	@tours = Tour.all
   end
 end

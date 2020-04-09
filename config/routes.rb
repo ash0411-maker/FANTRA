@@ -52,10 +52,12 @@ Rails.application.routes.draw do
 		get 'search/search'
 		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
 		get 'orders/thanks' => 'orders#thanks', as: 'orders_thanks'
+
 		resources :tourists, only: [:show, :edit, :update] do
 			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 			resources :orders, only: [:show, :new, :create, :destroy]
 		end
+
 		resources :tours, only: [:show, :index] do
 			resource :book_marks, only: [:create, :destroy]
 		end

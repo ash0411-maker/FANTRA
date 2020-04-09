@@ -61,10 +61,14 @@
 					<%= f.hidden_field :tour_city, :value => @order.tour_city %>
 					<%= f.hidden_field :companion, :value => @order.companion %>
 					<%= f.hidden_field :total_people, :value => @order.total_people %>
-					<%= f.hidden_field :price, :value => @order.price %>
 					<%= f.hidden_field :contents_of_price, :value => @order.contents_of_price %>
 					<%= f.hidden_field :capacity, :value => @order.capacity %>
 					<%= f.hidden_field :tour_time, :value => @order.tour_time %>
+					<%= f.hidden_field :price, :value => @total_price %>
+					<% admin_sales = @total_price * 0.12 %>
+					<% guide_sales = @total_price * 0.88 %>
+					<%= f.hidden_field :admin_sales, :value => admin_sales %>
+					<%= f.hidden_field :guide_sales, :value => guide_sales %>
 
 					<div>
 						<%= f.submit '送信', class: "btn btn-success" %>

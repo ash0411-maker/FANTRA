@@ -1,5 +1,8 @@
 class Tourist::TouristsController < ApplicationController
   before_action :authenticate_tourist!
+  before_action :correct_tourist, only: [:show, :edit, :update, :destroy]
+
+
   def show
   	@orders = current_tourist.orders
   end
@@ -20,6 +23,13 @@ class Tourist::TouristsController < ApplicationController
   private
   def tourist_params
     params.require(:tourist).permit(:family_name, :name, :nationnality, :birth_year, :address, :postal_code, :email, :phone_number, :sex)
+  end
+
+  def correct_tourist
+    tourist = Tourist.find(params[:id])
+    if current_tourist != tourist
+      redirect_to tourist_tourist_path(current_tourist)
+    end
   end
 
 end

@@ -1,18 +1,17 @@
 class TourGuide::OrdersController < ApplicationController
-
   before_action :authenticate_guide!
+
 
   def index
   	@orders = current_guide.orders
-
-  	order_sales = []
+  	guide_total_sales = []
   	@orders.each do |order|
-  		order.price *= 0.88
-  		order_sales << order.price
+  		guide_total_sales << order.guide_sales
   	end
-  	order_sales = order_sales.sum
-  	@order_sales = order_sales.floor
+  	@guide_total_sales = guide_total_sales.sum
+  	@guide_total_sales = @guide_total_sales.floor
   end
+
 
   def update
     @order = Order.find(params[:id])

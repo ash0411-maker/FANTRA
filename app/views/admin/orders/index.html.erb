@@ -2,11 +2,12 @@
 	<div class = "row">
 
 	<!----- 注文一覧 ----->
-		<div class = "col-xs-8">
+		<div class = "col-xs-9">
 			<table class = "table">
 				<thead>
 					<tr class = "active">
 						<th class = "text-center">予約された日</th>
+						<th class = "text-center">ツアー値段</th>
 						<th class = "text-center">ガイド</th>
 						<th class = "text-center">ツアー都市</th>
 						<th class = "text-center">ツーリストの国籍</th>
@@ -18,11 +19,11 @@
 					<% @orders.each do |order| %>
 						<tr class = "text-center">
 							<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+							<td>¥ <%= number_with_delimiter(order.price) %></td>
 							<td><%= order.guide.family_name %> <%= order.guide.name %>さん</td>
 							<td><%= order.tour_city %></td>
 							<td><%= order.tourist.nationality %></td>
-							<% sales = order.price * 0.12 %>
-							<td>¥ <%= number_with_delimiter(sales.floor) %></td>
+							<td>¥ <%= number_with_delimiter(order.admin_sales.floor) %></td>
 							<td><%= link_to "詳細", admin_order_path(order), class: "btn btn-default" %></td>
 						</tr>
 					<% end %>
@@ -31,15 +32,16 @@
 		</div>
 	<!----- 注文一覧 ----->
 
+
 	<!----- 総売上 ----->
-		<div class = "col-xs-4">
+		<div class = "col-xs-3">
 			<table class = "table table-bordered">
 				<tr>
 					<th class = "active">
 						<h3>総売上</h3>
 					</th>
 					<th>
-						<h3>¥ <%= number_with_delimiter(@admin_sales.floor) %></h3>
+						<h3>¥ <%= number_with_delimiter(@admin_total_sales.floor) %></h3>
 					</th>
 				</tr>
 			</table>

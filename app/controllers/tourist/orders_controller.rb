@@ -12,8 +12,11 @@ class Tourist::OrdersController < ApplicationController
   def confirm
   	@order = Order.new(order_params)
   	if @order.companion.to_i + 1 > @order.capacity
-      flash[:danger] = "定員数が超えています。"
+      flash[:danger] = "定員数を超えています。"
       redirect_to new_tourist_tourist_order_path(current_tourist, tour_id: @order.tour_id)
+    elsif @order.companion == ""
+      redirect_to new_tourist_tourist_order_path(current_tourist, tour_id: @order.tour_id)
+      flash[:danger] = "0人の場合は0とご入力ください"
     end
   	@order.total_people = @order.companion.to_i + 1
   	@total_price = @order.price * @order.total_people
@@ -45,7 +48,8 @@ class Tourist::OrdersController < ApplicationController
 
   private
   def order_params
-      params.require(:order).permit(:tourist_id, :tour_id, :guide_id, :tour_title, :tour_body, :price, :contents_of_price, :capacity, :companion, :total_people, :tour_time, :tour_city)
+      params.require(:order).permit(:tourist_id, :tour_id, :guide_id, :tour_title, :tour_body, :price, :contents_of_price, :capacity, :companion, :total_people, :tour_time, :tour_city,:admin_sales, :guide_sales)
   end
+
 end
 

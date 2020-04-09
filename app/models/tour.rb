@@ -20,6 +20,8 @@ class Tour < ApplicationRecord
   validates :city_id, presence: true
   validates :title, presence: true, length: { maximum: 20 }
   validates :body, presence: true, length: { maximum: 500 }
+  validates :meetingpoint_introduction, presence: true, length: { maximum: 100 }
+  validates :meetingpoint_address, presence: true
   validates :capacity, presence: true
   validates :price, presence: true
   validates :contents_of_price, presence: true

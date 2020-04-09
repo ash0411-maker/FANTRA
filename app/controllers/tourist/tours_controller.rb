@@ -1,5 +1,5 @@
 class Tourist::ToursController < ApplicationController
-  before_action :authenticate_tourist!
+
   def index
   	@genres = Genre.all
   	if params[:genre_id]

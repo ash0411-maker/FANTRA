@@ -9,7 +9,7 @@
 				<div class = "panel-body" >
 					<% @genres.each do |genre| %>
 						<p>
-							<%= link_to tour_guide_tours_path(genre_id: genre.id) do %>
+							<%= link_to admin_tours_path(genre_id: genre.id) do %>
 								<%= genre.name %>
 							<% end %>
 						</p>
