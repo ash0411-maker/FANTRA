@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'guide/index'
+    get 'guide/show'
+    get 'guide/edit'
+  end
+  namespace :admin do
+    get 'tousits/index'
+    get 'tousits/show'
+    get 'tousits/edit'
+  end
 	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
 
