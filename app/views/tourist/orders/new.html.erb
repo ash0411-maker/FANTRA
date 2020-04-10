@@ -23,6 +23,8 @@
 				<%= f.hidden_field :contents_of_price, :value => @tour.contents_of_price %>
 				<%= f.hidden_field :capacity, :value => @tour.capacity %>
 				<%= f.hidden_field :tour_time, :value => @tour.time %>
+				<%= f.hidden_field :tour_genre, :value => @tour.genre.name %>
+				<%= f.hidden_field :tour_price, :value => @tour.price %>
 
 				<div>
 					<%= f.submit '送信', class: "btn btn-success" %>

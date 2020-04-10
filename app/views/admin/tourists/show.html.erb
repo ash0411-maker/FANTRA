@@ -1,0 +1,33 @@
+<div class = "container">
+	<div class = "row">
+		<h2>ガイド詳細</h2>
+		<div class = "col-xs-12">
+			<table class = "table">
+				<thead>
+					<tr class = "acitive">
+						<th>ID</th>
+						<th>氏名</th>
+						<th>生まれ年</th>
+						<th>国籍</th>
+						<th>電話番号</th>
+						<th>登録住所</th>
+						<th>注文回数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @tourist.id %></td>
+						<td><%= @tourist.family_name %> <%= @tourist.name %></td>
+						<td><%= @tourist.birth_year %></td>
+						<td><%= @tourist.nationality %></td>
+						<td><%= @tourist.phone_number %></td>
+						<td>〒<%= @tourist.postal_code %><br/>
+							<%= @tourist.address %>
+						</td>
+						<td><%= @tourist.orders.count %>件</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

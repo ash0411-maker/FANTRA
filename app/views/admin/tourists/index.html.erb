@@ -1,0 +1,29 @@
+<div class = "container">
+	<div class = "row">
+	<h2>ツーリスト一覧画面</h2>
+	  <div class="col-xs-6">
+		<table class = "table">
+			<thead>
+				<tr class= "active">
+					<th>会員ID</th>
+					<th>氏名</th>
+					<th>メールアドレス</th>
+					<th>ステータス</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @tourists.each do |tour| %>
+				<tr>
+					<td><%= tour.id %></td>
+					<td><%= link_to admin_tour_path(tour) do %><%= tour.family_name %> <%= tour.name %><% end %></td>
+					<td><%= tour.email %></td>
+					<td></td>
+					<td><%= link_to "詳細へ", admin_tourist_path(tour), class: "btn btn-default" %></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+      </div>
+	</div>
+</div>

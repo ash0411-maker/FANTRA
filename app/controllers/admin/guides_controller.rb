@@ -1,6 +1,4 @@
-class Admin::GuideController < ApplicationController
-	before_action :authenticate_admin!
-
+class Admin::GuidesController < ApplicationController
   def index
   	@guides = Guide.all
   end
@@ -12,5 +10,4 @@ class Admin::GuideController < ApplicationController
   def edit
   	@guide = Guide.find(params[:id])
   end
-
 end

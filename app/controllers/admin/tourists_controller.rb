@@ -1,7 +1,8 @@
-class Admin::TousitsController < ApplicationController
+class Admin::TouristsController < ApplicationController
+	before_action :authenticate_admin!
 
   def index
-  	@tousits = Tourist.all
+  	@tourists = Tourist.all
   end
 
   def show
@@ -11,4 +12,5 @@ class Admin::TousitsController < ApplicationController
   def edit
   	@tourist = Tourist.find(params[:id])
   end
+
 end

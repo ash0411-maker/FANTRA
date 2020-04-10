@@ -2,16 +2,13 @@
 
 <h2><%= flash[:notice] %></h2>
 <div class = "container">
+
 	<div class = "row">
-		<div class = "col-xs-4 col-xs-offset-1">
-			<%= link_to "注文一覧", admin_orders_path, class: "btn btn-default" %>
-			<%= link_to "ツアー一覧", admin_tours_path, class: "btn btn-default" %>
-		</div>
+		<h3>
+			<%= link_to admin_orders_today_path do %>
+				本日入った予約数 <%= Order.where(created_at: Time.zone.now.all_day).count %> 件
+			<% end %>
+		</h3>
 	</div>
-	<div class = "row">
-		<div class = "col-xs-4 col-xs-offset-1">
-			<%= link_to "ジャンル画面", admin_genres_path, class: "btn btn-default" %>
-			<%= link_to "都市画面", admin_cities_path, class: "btn btn-default" %>
-		</div>
-	</div>
+
 </div>

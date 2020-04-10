@@ -43,24 +43,7 @@
 <div class = "container">
 	<div class = "row">
 		<h2>気になる写真をブックマークしましょう！</h2>
-		<% @tours.each do |tour| %>
-			<div class = "col-xs-4">
-				<% @tour_photos = tour.tour_photos %>
-				<%= link_to tourist_tour_path(tour) do %>
-					<%= attachment_image_tag @tour_photos[0], :image, :fill, 350, 200, format: 'jpeg',class: "tour-tour-photos-index" %>
-					<h3><%= tour.title %>    ¥ <%= number_with_delimiter(tour.price) %></h3>
-
-				<!----- ブックマーク機能 ----->
-					<div class = "show-book-mark">
-						<div id = "book_marks_<%= tour.id %>">
-							<%= render 'tourist/book_marks/book_mark', tour: tour %>
-						</div>
-					</div>
-				<!----- ブックマーク機能 ----->
-
-				<% end %>
-			</div>
-		<% end %>
+		<%= render 'tour_photos', tours: @tours %>
 	</div>
 </div>
 <!------ ツアー一覧  --------->

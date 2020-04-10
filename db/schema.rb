@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_142904) do
+ActiveRecord::Schema.define(version: 2020_04_10_000311) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_04_09_142904) do
     t.integer "status", default: 0
     t.integer "admin_sales"
     t.integer "guide_sales"
+    t.string "tour_genre"
+    t.integer "tour_price"
   end
 
   create_table "tour_photos", force: :cascade do |t|

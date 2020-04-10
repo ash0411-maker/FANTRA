@@ -1,0 +1,35 @@
+<div class = "container">
+	<div class = "row">
+		<h2>ガイド詳細</h2>
+		<div class = "col-xs-12">
+			<table class = "table">
+				<thead>
+					<tr class = "acitive">
+						<th>ID</th>
+						<th>氏名</th>
+						<th>国籍</th>
+						<th>電話番号</th>
+						<th>登録住所</th>
+						<th>ツアー提供数</th>
+						<th>注文受注数</th>
+						<th>身分証明書</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @guide.id %></td>
+						<td><%= @guide.family_name %> <%= @guide.name %></td>
+						<td><%= @guide.nationality %></td>
+						<td><%= @guide.phone_number %></td>
+						<td>〒<%= @guide.postal_code %><br/>
+							<%= @guide.address %>
+						</td>
+						<td><%= @guide.tours.count %>件</td>
+						<td><%= @guide.orders.count %>件</td>
+						<td><%= attachment_image_tag @guide, :identification_image, :fill, 150, 100, format: 'jpeg' %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

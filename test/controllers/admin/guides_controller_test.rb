@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class Admin::GuideControllerTest < ActionDispatch::IntegrationTest
+class Admin::GuidesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get admin_guide_index_url
+    get admin_guides_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get admin_guide_show_url
+    get admin_guides_show_url
     assert_response :success
   end
 
   test "should get edit" do
-    get admin_guide_edit_url
+    get admin_guides_edit_url
     assert_response :success
   end
 

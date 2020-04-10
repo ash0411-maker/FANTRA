@@ -3,13 +3,16 @@
 <!----- ツアー写真 ----->
 <div class = "tour-image-wrapper">
 
-	<!-- ブックマーク -->
-	<span class = "book_mark">
-		<div id = "book_marks_<%= @tour.id %>">
-			<%= render 'tourist/book_marks/book_mark', tour: @tour %>
-		</div>
-	</span>
-	<!-- ブックマーク -->
+<!-- ブックマーク -->
+	<% if tourist_signed_in? %>
+		<span class = "book_mark">
+			<div id = "book_marks_<%= @tour.id %>">
+				<%= render 'tourist/book_marks/book_mark', tour: @tour %>
+			</div>
+		</span>
+	<% end %>
+<!-- ブックマーク -->
+
 
 	<div class = "container">
 		<div class = "row">
@@ -72,7 +75,7 @@
 				<div class = "right-bar">
 					<table class = "table">
 						<thead>
-							<th class = "text-center"><h4>案内人</h4></th>
+							<th class = "text-center"><h4>ガイド</h4></th>
 							<th class = "text-center"><h4>定員</h4></th>
 							<th class = "text-center"><h4>一人当たりの価格</h4></th>
 							<th class = "text-center"><h4>価格に含まれるサービス</h4></th>
@@ -90,7 +93,11 @@
 			</div>
 			<div class = "col-xs-2">
 				<div class = "order-btn">
-					<%= link_to "予約に進む", new_tourist_tourist_order_path(current_tourist, tour_id: @tour.id), class: "btn btn-success btn-lg"  %>
+					<% if tourist_signed_in? %>
+						<%= link_to "予約に進む", new_tourist_tourist_order_path(current_tourist, tour_id: @tour.id), class: "btn btn-success btn-lg"  %>
+					<% else %>
+						<%= link_to "登録して予約しましょう", new_tourist_registration_path, class: "btn btn-success btn-lg"  %>
+					<% end %>
 				</div>
 			</div>
 		</div>

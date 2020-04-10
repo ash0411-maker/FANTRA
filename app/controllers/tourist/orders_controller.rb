@@ -48,7 +48,7 @@ class Tourist::OrdersController < ApplicationController
 
   private
   def order_params
-      params.require(:order).permit(:tourist_id, :tour_id, :guide_id, :tour_title, :tour_body, :price, :contents_of_price, :capacity, :companion, :total_people, :tour_time, :tour_city,:admin_sales, :guide_sales)
+      params.require(:order).permit(:tourist_id, :tour_id, :guide_id, :tour_title, :tour_body, :price, :contents_of_price, :capacity, :companion, :total_people, :tour_time, :tour_city,:admin_sales, :guide_sales, :tour_genre, :tour_price)
   end
 
 end

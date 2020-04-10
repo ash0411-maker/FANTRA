@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
 
 
-  namespace :admin do
-    get 'guide/index'
-    get 'guide/show'
-    get 'guide/edit'
-  end
-  namespace :admin do
-    get 'tousits/index'
-    get 'tousits/show'
-    get 'tousits/edit'
-  end
 	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
+
+
 
 	  devise_for :admins, controllers: {
 	  sessions:      'admins/sessions',
@@ -38,8 +30,11 @@ Rails.application.routes.draw do
 	# 管理者
 	namespace :admin do
 	    get 'home/top'
+	    get 'orders/today' => 'orders#today', as: 'orders_today'
 	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
+	    resources :guides, only: [:index, :edit, :show]
+	    resources :tourists, only: [:index, :edit, :show]
 	    resources :orders, only: [:index, :show]
 	    resources :tours, only: [:index, :show]
 	end
@@ -48,7 +43,6 @@ Rails.application.routes.draw do
 	# ツアーとツアーガイド
 	namespace :tour_guide do
 	    get 'top' => 'home#top'
-	    get 'tours/thanks' => 'tours#thanks', as: 'thanks'
 	    resources :guides, only: [:show, :edit, :update]
 	    resources :orders, only: [:index, :update]
 	    resources :tours do

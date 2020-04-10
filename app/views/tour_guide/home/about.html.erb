@@ -30,12 +30,6 @@
 		<h3 class = "tour-body-text">
 			新たな世界、未知なる経験を求めている方は<%= link_to "こちらから", new_tourist_registration_path %>ご登録ください。
 		</h3>
-		<% @tours.each do |tour| %>
-			<div class = "col-xs-4">
-				<% @tour_photos = tour.tour_photos %>
-				<%= attachment_image_tag @tour_photos[0], :image, :fill, 350, 200, format: 'jpeg',class: "tour-tour-photos-index" %>
-				<h3><%= tour.title %>    ¥ <%= number_with_delimiter(tour.price) %></h3>
-			</div>
-		<% end %>
+		<%= render 'tourist/tours/tour_photos', tours: @tours %>
 	</div>
 </div>
