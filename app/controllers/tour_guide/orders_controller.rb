@@ -10,6 +10,13 @@ class TourGuide::OrdersController < ApplicationController
   	end
   	@guide_total_sales = guide_total_sales.sum
   	@guide_total_sales = @guide_total_sales.floor
+
+    #自分が入ってるroomの相手のidを格納する
+    rooms = current_guide.rooms
+    @tourist_ids = []
+    rooms.each do |room|
+      @tourist_ids << room.tousit_id
+    end
   end
 
 

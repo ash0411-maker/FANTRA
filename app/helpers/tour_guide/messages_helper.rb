@@ -1,0 +1,2 @@
+module TourGuide::MessagesHelper
+end

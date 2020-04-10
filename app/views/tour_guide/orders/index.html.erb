@@ -1,8 +1,25 @@
-<h2>予約ステータスを変更しましょう！</h2>
 <div class = "container">
 	<div class = "row">
+		<h2>予約ステータスを変更しましょう！</h2>
+	<!------ 総利益 ------>
+		<div class = "col-xs-3">
+			<table class = "table table-bordered">
+				<tr>
+					<th class = "active">
+						<h3>総利益</h3>
+					</th>
+					<th>
+						<h3>¥ <%= number_with_delimiter(@guide_total_sales) %></h3>
+					</th>
+				</tr>
+			</table>
+		</div>
+	<!------ 総利益 ------>
 
-	<!------ 現在の予約状況 ------>
+	</div>
+
+<!------ 現在の予約状況 ------>
+	<div class = "row">
 		<div class = "col-xs-8">
 			<div class = "bg-success">
 				<h2>現在の予約</h2>
@@ -18,24 +35,8 @@
 				</table>
 			</div>
 		</div>
-	<!------ 現在の予約状況 ------>
-
-
-	<!------ 総売上 ------>
-		<div class = "col-xs-3">
-			<table class = "table table-bordered">
-				<tr>
-					<th class = "active">
-						<h3>総売上</h3>
-					</th>
-					<th>
-						<h3>¥ <%= number_with_delimiter(@guide_total_sales) %></h3>
-					</th>
-				</tr>
-			</table>
-		</div>
-	<!------ 総売上 ------>
 	</div>
+<!------ 現在の予約状況 ------>
 
 
 <!------ ツアー前日の予約 ------>

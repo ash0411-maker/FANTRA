@@ -13,7 +13,10 @@
 	</td>
 
 	<td>
-		¥ <%= number_with_delimiter(order.price) %>
+		¥ <%= number_with_delimiter(order.guide_sales) %>
+	</td>
+	<td>
+		
 	</td>
 	<td>
 		<%= form_for(order, url: tour_guide_order_path(order)) do |f| %>

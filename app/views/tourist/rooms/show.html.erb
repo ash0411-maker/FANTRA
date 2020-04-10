@@ -1,0 +1,41 @@
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-6 col-xs-offset-1">
+			<h3><%= @guide %>さんとのチャットルーム</h3>
+
+		<!-- チャットルーム -->
+			<div class = "chat-field">
+			  <% @messages.each do |message| %>
+			    <!-- メッセージがtouristによるものだったら -->
+			    <!-- メッセージを右に寄せる -->
+			    <% if message.is_tourist %>
+			      <div class = "text-right bg-info">
+			        <%= message.content %>
+			      </div>
+
+			    <!-- メッセージがguideによるものだったら -->
+			    <!-- メッセージを左に寄せる -->
+			    <% else %>
+			      <div class = "text-left">
+			        <%= message.content %>
+			      </div>
+			    <% end %>
+			  <% end %>
+			</div>
+		<!-- チャットルーム -->
+
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-xs-4 col-xs-offset-6">
+			<div class = "message-field">
+				<%= form_for [@room, @message], url: tourist_room_messages_path(@room) do |f| %>
+				  <%= f.text_field :content %>
+				  <%= f.submit "メッセージを送る"%>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+</div>

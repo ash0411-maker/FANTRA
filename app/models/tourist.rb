@@ -5,6 +5,7 @@ class Tourist < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
     has_many :orders
+    has_many :rooms
     has_many :book_marks, dependent: :destroy
 
     validates :family_name, presence: true
