@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_000311) do
+ActiveRecord::Schema.define(version: 2020_04_10_025115) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_000311) do
     t.index ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "room_id"
+    t.boolean "is_tourist"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "tourist_id", null: false
     t.integer "tour_id", null: false
@@ -87,6 +96,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_000311) do
     t.integer "guide_sales"
     t.string "tour_genre"
     t.integer "tour_price"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "tourist_id"
+    t.integer "guide_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guide_id"], name: "index_rooms_on_guide_id"
+    t.index ["tourist_id"], name: "index_rooms_on_tourist_id"
   end
 
   create_table "tour_photos", force: :cascade do |t|
