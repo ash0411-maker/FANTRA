@@ -25,6 +25,7 @@ class Tour < ApplicationRecord
   validates :capacity, presence: true
   validates :price, presence: true
   validates :contents_of_price, presence: true
+  validates :time, presence: true
 
 
   # ブックマーク機能

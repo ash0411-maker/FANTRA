@@ -8,7 +8,7 @@ class Guide < ApplicationRecord
   attachment :selfy_image
 
   has_many :orders
-  has_many :rooms
+  has_many :rooms, dependent: :destroy
   has_many :tours, dependent: :destroy
 
 

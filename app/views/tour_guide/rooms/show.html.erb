@@ -1,2 +1,41 @@
-<h1>TourGuide::Rooms#show</h1>
-<p>Find me in app/views/tour_guide/rooms/show.html.erb</p>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-8 col-xs-offset-1">
+			<h3><%= @tourist.name %>さんとのチャットルーム</h3>
+
+		<!-- チャットルーム -->
+			<div class = "chat-field">
+			  <% @messages.each do |message| %>
+			    <!-- メッセージがguideだったら -->
+			    <!-- メッセージを右に寄せる -->
+			    <% unless message.is_tourist %>
+				    <div class = "text-right">
+				    	<h4 class = "message bg-info"><%= message.content %>  :<%= current_guide.name %>さん</h4>
+				    </div>
+
+				<% else %>
+			    <!-- メッセージがtouristによるものだったら -->
+			    <!-- メッセージを左に寄せる -->
+			    	<div class = "text-left bg-warning">
+			    		<h4><%= @tourist.name %>さん:  <%= message.content %></h4>
+			    	</div>
+			    <% end %>
+			  <% end %>
+			</div>
+		<!-- チャットルーム -->
+
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-xs-4 col-xs-offset-6">
+			<div class = "message-field">
+				<%= form_for [@room, @message], url: tour_guide_room_messages_path(@room) do |f| %>
+				  <%= f.text_field :content %>
+				  <%= f.submit "メッセージを送る"%>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,4 +1,7 @@
 class Tourist::MessagesController < ApplicationController
+
+  # before_action :correct_tourist, only: [:create]
+
 	def create
     @room = Room.find(params[:room_id])
     @message = Message.new(message_params)
@@ -16,4 +19,11 @@ class Tourist::MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
+
+  # def correct_tourist
+  #   tourist = Tourist.find_by(id: session[:tourist_id])
+  #   if current_tourist =! tourist
+  #     redirect_to tourist_tourist_path(current_tourist)
+  #   end
+  # end
 end

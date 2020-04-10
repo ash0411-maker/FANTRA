@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
 
@@ -28,16 +29,15 @@ Rails.application.routes.draw do
 
 	# 管理者
 	namespace :admin do
-
 	    get 'home/top'
 	    get 'orders/today' => 'orders#today', as: 'orders_today'
 	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
+	    resources :rooms, only: [:show, :index, :destroy]
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
 	    resources :guides, only: [:index, :edit, :show]
 	    resources :tourists, only: [:index, :edit, :show]
 	    resources :orders, only: [:index, :show]
 	    resources :tours, only: [:index, :show]
-
 	end
 
 
@@ -45,7 +45,6 @@ Rails.application.routes.draw do
 
 	# ツアーとツアーガイド
 	namespace :tour_guide do
-
 	    get 'top' => 'home#top'
 	    resources :guides, only: [:show, :edit, :update]
 	    resources :orders, only: [:index, :update]
@@ -55,7 +54,6 @@ Rails.application.routes.draw do
 	    resources :tours do
 	    	resource :photos, only: [:new, :create]
 	    end
-
 	end
 
 
@@ -63,12 +61,11 @@ Rails.application.routes.draw do
 
 	# 観光客
 	namespace :tourist do
-
 		get 'search/search'
 		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
 		get 'orders/thanks' => 'orders#thanks', as: 'orders_thanks'
 
-		resources :rooms, only: [:show, :create] do
+		resources :rooms, only: [:index, :show, :create] do
 	    	resources :messages, only: [:create]
 	    end
 
@@ -80,7 +77,6 @@ Rails.application.routes.draw do
 		resources :tours, only: [:show, :index] do
 			resource :book_marks, only: [:create, :destroy]
 		end
-
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
