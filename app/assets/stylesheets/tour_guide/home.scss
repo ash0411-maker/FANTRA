@@ -11,6 +11,10 @@
 	position: relative;
 }
 
+.about-second-wrapper{
+	background-color: #F2F2F2;
+}
+
 .about-container{
 	color: white;
 	position: absolute;
@@ -29,7 +33,18 @@
 	height: 160px;
 }
 
+.about-us-introduction-title{
+	padding-top: 60px;
+}
+
+
 .tour-body-text{
+	margin-top: 50px;
+	line-height: 50px;
+}
+
+
+.about-body-text{
 	margin-top: 50px;
 	line-height: 50px;
 }

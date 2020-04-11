@@ -28,9 +28,9 @@ class TourGuide::ToursController < ApplicationController
   	@genres = Genre.all
   	if params[:genre_id]
   		@genre = Genre.find(params[:genre_id])
-  		@tours = @genre.tours.order(created_at: :desc)
+  		@tours = @genre.tours.order(created_at: :desc).page(params[:page]).per(8)
   	else
-  		@tours = Tour.all
+  		@tours = Tour.all.order(created_at: :desc).page(params[:page]).per(8)
   	end
   end
 

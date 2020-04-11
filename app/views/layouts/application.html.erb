@@ -106,7 +106,7 @@
         <% else %>
           <ul>
             <li>
-                <%= link_to "ツーリストログイン", tourist_session_path %>
+                <%= link_to "ログイン", tourist_session_path %>
             </li>
             <li>
                 <%= link_to "ツアーガイドログイン", guide_session_path %>
@@ -116,5 +116,8 @@
       </nav>
     </header>
     <%= yield %>
+    <footer>
+      <p></p>
+    </footer>
   </body>
 </html>

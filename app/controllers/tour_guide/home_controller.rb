@@ -4,6 +4,6 @@ class TourGuide::HomeController < ApplicationController
   end
 
   def about
-  	@tours = Tour.all.page(params[:page]).per(4)
+  	@tours = Tour.all.page(params[:page]).per(10)
   end
 end

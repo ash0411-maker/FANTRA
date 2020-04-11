@@ -41,3 +41,4 @@ class TourGuide::RoomsController < ApplicationController
 
 
 end
+
