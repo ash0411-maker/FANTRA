@@ -42,11 +42,6 @@
 
 			</div>
 		</div>
-		<% if @tour.is_active == false %>
-			<span class = "is_actice_false">
-				<h1 class = "is_actice_false_text">販売停止中</h1>
-			</span>
-		<% end %>
 	</div>
 <!----- ツアー写真 ----->
 
@@ -83,9 +78,9 @@
 				</div>
 			</div>
 			<div class = "col-xs-2">
-				<% if current_guide.id == @tour.guide.id %>
-					<%= link_to "編集", edit_tour_guide_guide_tour_path(current_guide, @tour), class: "btn btn-default btn-lg edit-tour-btn" %>
-				<% end %>
+				<div class = "order-btn">
+					<%= link_to "登録して予約しましょう", new_tourist_registration_path, class: "btn btn-success btn-lg"  %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,7 +94,6 @@
 			<div class = "guide-tour-details">
 				<div class = "col-xs-4">
 					<div class = "guide-body-title">
-						<h3><% flash[:notice] %></h3>
 						<h2>ツアー内容</h2>
 					</div>
 				</div>

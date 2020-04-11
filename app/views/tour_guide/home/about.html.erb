@@ -41,7 +41,32 @@
 				新たな世界、未知なる経験を求めている方は<%= link_to "こちらから", new_tourist_registration_path %>ご登録ください。
 			</h3>
 			<h4>あなただけの旅を見つけましょう。</h4>
-			<%= render 'tourist/tours/tour_photos', tours: @tours %>
+
+		<!----- ツアー写真 ----->
+			<% @tours.each do |tour| %>
+				<% if tour.is_active == true %>
+					<div class = "col-xs-4">
+						<% @tour_photos = tour.tour_photos %>
+						<%= link_to home_window_path(tour_id: tour) do %>
+							<%= attachment_image_tag @tour_photos[0], :image, :fill, 350, 200, format: 'jpeg',class: "tour-tour-photos-index" %>
+							<h3><%= tour.title %>    ¥ <%= number_with_delimiter(tour.price) %></h3>
+
+						<!----- ブックマーク機能 ----->
+							<% if tourist_signed_in? %>
+								<div class = "show-book-mark">
+									<div id = "book_marks_<%= tour.id %>">
+										<%= render 'tourist/book_marks/book_mark', tour: tour %>
+									</div>
+								</div>
+							<% end %>
+						<!----- ブックマーク機能 ----->
+
+						<% end %>
+					</div>
+				<% end %>
+			<% end %>
+		<!----- ツアー写真 ----->
+
 		</div>
 		<%= paginate @tours, class: "paginate" %>
 	</div>

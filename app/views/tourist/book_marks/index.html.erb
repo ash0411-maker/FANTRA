@@ -3,7 +3,7 @@
 		<% if @book_marks.count == 0  %>
 			<h1>気になったツアーをブックマーク登録しましょう！</h1>
 			<h1>
-				<%= link_to "ツアー情報ページ", tourist_tours_path, class: "btn btn-success btn-lg" %>
+				<%= link_to "ツアー情報ページ", tourist_tourist_tours_path(current_tourist), class: "btn btn-success btn-lg" %>
 			</h1>
 		<% else %>
 			<div class = "col-xs-8 col-xs-offset-1">
@@ -27,7 +27,7 @@
 								<td><%= book_mark.tour.capacity %>名</td>
 								<td>¥ <%= number_with_delimiter(book_mark.tour.price) %></td>
 								<td><%= book_mark.tour.time %></td>
-								<th><%= link_to "詳細", tourist_tour_path(book_mark.tour), class: "btn btn-success" %></th>
+								<th><%= link_to "詳細", tourist_tourist_tour_path(current_tourist, book_mark.tour), class: "btn btn-success" %></th>
 							</tr>
 						<% end %>
 					</tbody>

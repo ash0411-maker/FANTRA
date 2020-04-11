@@ -1,5 +1,7 @@
 class TourGuide::OrdersController < ApplicationController
+
   before_action :authenticate_guide!
+  before_action :correct_guide, only: [:index, :update]
 
 
   def index
@@ -23,7 +25,7 @@ class TourGuide::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      redirect_to tour_guide_orders_path
+      redirect_to tour_guide_guide_orders_path(current_guide)
     end
   end
 
@@ -32,6 +34,13 @@ class TourGuide::OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:status)
+  end
+
+  def correct_guide
+    guide = Guide.find(params[:guide_id])
+    if current_guide != guide
+      redirect_to tour_guide_guide_path(current_guide)
+    end
   end
 end
 

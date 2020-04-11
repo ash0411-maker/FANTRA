@@ -1,5 +1,8 @@
 class TourGuide::RoomsController < ApplicationController
 
+  before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
+  before_action :correct_guide, only: [:show, :index, :create]
+
   def index
     @rooms = current_guide.rooms.page(params[:page]).per(10)
   end
@@ -38,6 +41,14 @@ class TourGuide::RoomsController < ApplicationController
   def room_tourist_params
     params.require(:room).permit(:toursit_id)
   end
+
+  def correct_guide
+    guide = Guide.find(params[:guide_id])
+    if current_guide != guide
+      redirect_to tour_guide_guide_path(current_guide)
+    end
+  end
+
 
 
 end

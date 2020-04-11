@@ -3,7 +3,7 @@
 		<h1>ツアー新規投稿</h1>
 		<%= render 'errors', tour: @tour %>
 		<div>
-			<%= form_for(@tour, url: tour_guide_tours_path) do |f| %>
+			<%= form_for(@tour, url: tour_guide_guide_tours_path(current_guide)) do |f| %>
 				<%= render 'tour_form', f: f %>
 		    <% end %>
 		</div>

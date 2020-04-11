@@ -17,6 +17,7 @@
         <% if admin_signed_in? %>
           <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
 
+
       <!-- ツアーガイドロゴ -->
         <% elsif guide_signed_in? %>
           <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
@@ -29,17 +30,21 @@
             <% end %>
           </span>
 
+
       <!-- 観光客ロゴ -->
         <% elsif tourist_signed_in? %>
-          <%= link_to "FANTRA", tourist_tours_path, class: "logo" %>
+          <%= link_to "FANTRA", tourist_tourist_tours_path(current_tourist), class: "logo" %>
           <%= link_to tourist_tourist_path(current_tourist) do %>
             <span class = "login_name login_tourist_name"><%= current_tourist.name %>さんのマイページ</span>
           <% end %>
+
 
       <!-- ログイン前ロゴ -->
         <% else %>
           <%= link_to "FANTRA", root_path, class: "logo" %>
         <% end %>
+
+
 
       <!-- 管理者ログイン時 -->
         <% if admin_signed_in? %>
@@ -69,18 +74,21 @@
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li>
           </ul>
+      <!-- 管理者ログイン時 -->
+
+
 
       <!-- ガイドログイン時 -->
         <% elsif guide_signed_in? %>
           <ul>
             <li>
-              <%= link_to "予約一覧", tour_guide_orders_path %>
+              <%= link_to "予約一覧", tour_guide_guide_orders_path(current_guide) %>
             </li>
             <li>
-              <%= link_to "ツアー新規投稿", new_tour_guide_tour_path %>
+              <%= link_to "ツアー新規投稿", new_tour_guide_guide_tour_path(current_guide) %>
             </li>
             <li>
-              <%= link_to "ツアー一覧", tour_guide_tours_path %>
+              <%= link_to "ツアー一覧", tour_guide_guide_tours_path(current_guide) %>
             </li>
             <li>
               <%= link_to "チャット一覧", tour_guide_guide_rooms_path(current_guide) %>
@@ -89,6 +97,9 @@
               <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
             </li>
           </ul>
+      <!-- ガイドログイン時 -->
+
+
       <!-- 観光客ログイン時 -->
         <% elsif tourist_signed_in? %>
           <ul>
@@ -96,13 +107,17 @@
                 <%= link_to "チャット一覧", tourist_tourist_rooms_path(current_tourist) %>
             </li>
             <li>
-                <%= link_to "ブックマーク", tourist_book_mark_path %>
+                <%= link_to "ブックマーク", tourist_tourist_book_mark_path(current_tourist) %>
             </li>
             <li>
                 <%= link_to "ログアウト", destroy_tourist_session_path, method: :delete %>
             </li>
           </ul>
-        <!-- ログアウト時 -->
+      <!-- 観光客ログイン時 -->
+
+
+
+      <!-- ログアウト時 -->
         <% else %>
           <ul>
             <li>
@@ -113,6 +128,8 @@
             </li>
           </ul>
         <% end %>
+      <!-- ログアウト時 -->
+
       </nav>
     </header>
     <%= yield %>

@@ -1,4 +1,6 @@
 class TourGuide::GuidesController < ApplicationController
+
+    before_action :correct_guide_for_delete, only:[:delete]
     before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
     before_action :correct_guide, only: [:show, :edit, :update, :destroy]
 
@@ -45,7 +47,15 @@ class TourGuide::GuidesController < ApplicationController
     end
   end
 
+  def correct_guide_for_delete
+    guide = Guide.find(params[:guide_id])
+    if current_guide != guide
+      redirect_to tour_guide_guide_path(current_guide)
+    end
+  end
+
 
 
 end
+
 
