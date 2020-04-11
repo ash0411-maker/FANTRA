@@ -45,6 +45,7 @@
 		<h2>気になる写真をブックマークしましょう！</h2>
 		<%= render 'tour_photos', tours: @tours %>
 	</div>
+	<%= paginate @tours, class: "paginate" %>
 </div>
 <!------ ツアー一覧  --------->
 

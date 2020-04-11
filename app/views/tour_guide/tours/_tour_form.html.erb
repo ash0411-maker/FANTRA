@@ -1,0 +1,84 @@
+<div class = "row">
+		<div class = "form_field col-xs-3">
+		  <%= f.label :ツアーの題名 %><br/>
+		  <%= f.text_field :title %>
+		</div>
+
+		<div class = "form_field col-xs-2">
+		  <%= f.label :ジャンル %><br/>
+		  <%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--ジャンル--" %>
+		</div>
+
+		<div class = "form_field col-xs-2">
+		  <%= f.label :案内する都市 %><br/>
+		  <%= f.collection_select :city_id, City.all, :id, :name, :prompt => "--都市名--" %>
+		</div>
+
+		<div class = "col-xs-3">
+	    	<div class = "form_field">
+	    	  <%= f.label :販売ステータス %><br/>
+	    	  <%= f.select :is_active,[["販売中", "true"], ["販売停止", "false"]]  %>
+	    	</div>
+	    </div>
+	</div>
+	<div class = "row">
+	    <div class = "form_field col-xs-6">
+	      <%= f.label :ツアー説明 %>（500文字以内）<br/>
+	      <%= f.text_area :body, class: "tour-body" %>
+	    </div>
+
+	    <div class = "col-xs-3">
+	    	<div class = "right-bar">
+		    	<div class = "form_field">
+		    	  <%= f.label :定員 %><br/>
+		    	  <%= f.text_field :capacity %>人
+		    	</div>
+
+		    	<div class = "form_field">
+		    	  <%= f.label :所要時間 %><br/>
+		    	  <%= f.text_field :time, placeholder: "4時間、2日など" %>
+		    	</div>
+
+		    	<div class = "form_field">
+		    	  <%= f.label :ツア一１人あたりの価格 %><br/>
+		    	  <%= f.text_field :price %>円
+		    	</div>
+
+		    	<div class = "form_field">
+		    	  <%= f.label :価格に含まれるサービス %><br/>
+		    	  <%= f.text_area :contents_of_price, class: "contents_of_price", placeholder: "移動費、食費、入場料等" %>
+		    	</div>
+		    </div>
+	    </div>
+	    <div class = "form_field col-xs-3">
+		  <%= f.submit  "保存", class: "btn btn-success btn-lg" %>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-xs-3">
+			<div class = "form_field">
+		    	  <%= f.label :集合場所の説明 %><br/>
+		    	  <%= f.text_area :meetingpoint_introduction %>
+			</div>
+		</div>
+		<div class = "col-xs-3">
+			<div class = "form_field">
+		    	  <%= f.label :集合場所住所 %><br/>
+		    	  <%= f.text_area :meetingpoint_address, placeholder: "郵便番号の記載は必要ありません" %>
+			</div>
+		</div>
+		<div class = "form_field col-xs-4">
+	    	<div id = "tour_photos">
+	        	<div class = "col-xs-8">
+				    <%= f.fields_for :tour_photos do |tour_photo| %>
+				   		<%= f.label "ツアー写真(５枚選んでください)" %>
+				    	<%= render 'tour_photo_fields', f: tour_photo %>
+				    <% end %>
+				    <div id = "links">
+				    	<%= link_to_add_association '写真を追加',f, :tour_photos, class: "btn btn-info add-photo-btn" %>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>

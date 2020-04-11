@@ -9,9 +9,9 @@
 			    <!-- メッセージがtouristによるものだったら -->
 			    <!-- メッセージを右に寄せる -->
 			    <% if message.is_tourist %>
-			      <div class = "text-right">
+			      	<div class = "text-right">
 			        	<h4 class = "message bg-info"><%= message.content %>  :<%= current_tourist.name %>さん</h4>
-			      </div>
+			      	</div>
 
 			    <!-- メッセージがguideによるものだったら -->
 			    <!-- メッセージを左に寄せる -->
@@ -31,8 +31,8 @@
 		<div class = "col-xs-4 col-xs-offset-6">
 			<div class = "message-field">
 				<%= form_for [@room, @message], url: tourist_room_messages_path(@room) do |f| %>
-				  <%= f.text_field :content %>
-				  <%= f.submit "メッセージを送る"%>
+					<%= f.text_field :content %>
+				 	<%= f.submit "メッセージを送る"%>
 				<% end %>
 			</div>
 		</div>

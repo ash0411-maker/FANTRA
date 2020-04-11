@@ -1,5 +1,5 @@
 class Tourist::TouristsController < ApplicationController
-  before_action :authenticate_tourist!
+  before_action :authenticate_tourist!, only: [:show, :edit, :update, :destroy]
   before_action :correct_tourist, only: [:show, :edit, :update, :destroy]
 
 
@@ -19,6 +19,19 @@ class Tourist::TouristsController < ApplicationController
   		render 'edit'
   	end
   end
+
+  def destroy
+    @tourist = Tourist.find(params[:id])
+    @tourist.destroy
+    redirect_to tourist_tourist_thanks_path
+  end
+
+  def delete
+  end
+
+  def thanks
+  end
+
 
   private
   def tourist_params

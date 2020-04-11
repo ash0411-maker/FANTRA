@@ -1,6 +1,6 @@
 class TourGuide::GuidesController < ApplicationController
-    before_action :authenticate_guide!
-    before_action :correct_guide, only: [:show, :edit, :update]
+    before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
+    before_action :correct_guide, only: [:show, :edit, :update, :destroy]
 
   def show
   	@guide = Guide.find(params[:id])
@@ -20,6 +20,19 @@ class TourGuide::GuidesController < ApplicationController
   	end
   end
 
+  def destroy
+    @guide = Guide.find(params[:id])
+    @guide.destroy
+    redirect_to tour_guide_guide_thanks_path
+  end
+
+  def delete
+  end
+
+  def thanks
+  end
+
+
   private
   def guide_params
     params.require(:guide).permit(:family_name, :name, :address, :postal_code, :email, :phone_number, :identification_image, :selfy_image, :introduction_image, :introduction)
@@ -31,4 +44,8 @@ class TourGuide::GuidesController < ApplicationController
       redirect_to tour_guide_guide_path(current_guide)
     end
   end
+
+
+
 end
+

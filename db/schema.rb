@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_025115) do
+ActiveRecord::Schema.define(version: 2020_04_10_100012) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_04_10_025115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "selfy_image_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_guides_on_deleted_at"
     t.index ["email"], name: "index_guides_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
   end
@@ -131,6 +133,8 @@ ActiveRecord::Schema.define(version: 2020_04_10_025115) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_tourists_on_deleted_at"
     t.index ["email"], name: "index_tourists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_tourists_on_reset_password_token", unique: true
   end

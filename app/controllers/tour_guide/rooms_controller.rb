@@ -1,7 +1,7 @@
 class TourGuide::RoomsController < ApplicationController
 
   def index
-    @rooms = current_guide.rooms
+    @rooms = current_guide.rooms.page(params[:page]).per(10)
   end
 
   def show

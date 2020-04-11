@@ -15,7 +15,7 @@ class TourGuide::OrdersController < ApplicationController
     rooms = current_guide.rooms
     @tourist_ids = []
     rooms.each do |room|
-      @tourist_ids << room.tousit_id
+      @tourist_ids << room.tourist_id
     end
   end
 

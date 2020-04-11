@@ -1,5 +1,4 @@
 <div class = "nested-fields">
-    <%= f.label "ツアー写真" %>
     <%= f.attachment_field :image %>
-    <%= link_to_remove_association "写真を削除", f %>
+    <%= link_to_remove_association "写真を削除", f, class: "btn btn-danger remove-photo-btn" %>
 </div>

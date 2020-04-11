@@ -5,20 +5,24 @@
 		<table class = "table">
 			<thead>
 				<tr class= "active">
-					<th>会員ID</th>
-					<th>氏名</th>
-					<th>メールアドレス</th>
-					<th>ステータス</th>
-					<th></th>
+					<th class = "text-center">会員ID</th>
+					<th class = "text-center">氏名</th>
+					<th class = "text-center">メールアドレス</th>
+					<th class = "text-center">ステータス</th>
+					<th class = "text-center"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @guides.each do |guide| %>
-				<tr>
+				<tr class = "text-center">
 					<td><%= guide.id %></td>
-					<td><%= link_to admin_guide_path(guide) do %><%= guide.family_name %> <%= guide.name %><% end %></td>
+					<td><%= guide.family_name %> <%= guide.name %></td>
 					<td><%= guide.email %></td>
-					<td></td>
+					<% if guide.deleted_at == nil %>
+						<td>有効</td>
+					<% else %>
+						<td>退会済み</td>
+					<% end %>
 					<td><%= link_to "詳細へ", admin_guide_path(guide), class: "btn btn-default" %></td>
 				</tr>
 				<%end%>
@@ -27,3 +31,4 @@
       </div>
 	</div>
 </div>
+

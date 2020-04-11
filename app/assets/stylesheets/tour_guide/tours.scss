@@ -43,6 +43,7 @@
 	height: 400px;
 	padding: 30px 0 0 150px;
 	background-color: black;
+	position: relative;
 }
 
 .tour-img-1 {
@@ -63,6 +64,18 @@
 
 .tour-img-5 {
 	padding-left: 15px;
+}
+
+.is_actice_false {
+	position: absolute;
+	top: 130px;
+	left: 280px;
+}
+
+.is_actice_false_text {
+	font-size: 180px;
+	color: red;
+	transform: rotate(-25deg);
 }
 // ----- ツアー写真 -----
 
@@ -127,5 +140,11 @@
 
 
 // ツアー編集
+.add-photo-btn{
+	margin-top: 10px;
+}
 
+.remove-photo-btn{
+	margin-top: 10px;
+}
 // ツアー編集

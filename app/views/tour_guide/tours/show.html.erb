@@ -42,6 +42,11 @@
 
 			</div>
 		</div>
+		<% if @tour.is_active == false %>
+			<span class = "is_actice_false">
+				<h1 class = "is_actice_false_text">販売停止中</h1>
+			</span>
+		<% end %>
 	</div>
 <!----- ツアー写真 ----->
 

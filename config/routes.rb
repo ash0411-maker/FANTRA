@@ -34,19 +34,20 @@ Rails.application.routes.draw do
 	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
 	    resources :rooms, only: [:show, :index, :destroy]
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
-	    resources :guides, only: [:index, :edit, :show]
-	    resources :tourists, only: [:index, :edit, :show]
+	    resources :guides, only: [:index, :show, :destroy, :update]
+	    resources :tourists, only: [:index, :show, :update, :destroy]
 	    resources :orders, only: [:index, :show]
 	    resources :tours, only: [:index, :show]
 	end
 
 
 
-
 	# ツアーとツアーガイド
 	namespace :tour_guide do
 	    get 'top' => 'home#top'
-	    resources :guides, only: [:show, :edit, :update]
+	    get 'tourists/delete' => 'guides#delete', as: 'guide_delete'
+		get 'guides/thanks' => 'guides#thanks', as: 'guide_thanks'
+	    resources :guides, only: [:show, :edit, :update, :destroy]
 	    resources :orders, only: [:index, :update]
 	    resources :rooms, only: [:index, :show, :create] do
 	    	resources :messages, only: [:create]
@@ -64,12 +65,14 @@ Rails.application.routes.draw do
 		get 'search/search'
 		get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
 		get 'orders/thanks' => 'orders#thanks', as: 'orders_thanks'
+		get 'tourists/delete' => 'tourists#delete', as: 'tourist_delete'
+		get 'tourists/thanks' => 'tourists#thanks', as: 'tourist_thanks'
 
 		resources :rooms, only: [:index, :show, :create] do
 	    	resources :messages, only: [:create]
 	    end
 
-		resources :tourists, only: [:show, :edit, :update] do
+		resources :tourists, only: [:show, :edit, :update, :destroy] do
 			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 			resources :orders, only: [:show, :new, :create, :destroy]
 		end
