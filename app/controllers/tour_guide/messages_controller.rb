@@ -6,9 +6,10 @@ class TourGuide::MessagesController < ApplicationController
     @message.is_tourist = false
     @message.room_id = @room.id
     if @message.save
-      redirect_to tour_guide_room_path(@room)
+      redirect_to tour_guide_guide_room_path(current_guide, @room)
     else
-      redirect_to tour_guide_room_path(@room)
+      flash[:warning] = "メッセージを入力してください"
+      redirect_to tour_guide_guide_room_path(current_guide, @room)
     end
   end
 

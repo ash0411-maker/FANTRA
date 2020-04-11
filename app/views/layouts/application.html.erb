@@ -83,7 +83,7 @@
               <%= link_to "ツアー一覧", tour_guide_tours_path %>
             </li>
             <li>
-              <%= link_to "チャット一覧", tour_guide_rooms_path %>
+              <%= link_to "チャット一覧", tour_guide_guide_rooms_path(current_guide) %>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
@@ -93,7 +93,7 @@
         <% elsif tourist_signed_in? %>
           <ul>
             <li>
-                <%= link_to "チャット一覧", tourist_rooms_path %>
+                <%= link_to "チャット一覧", tourist_tourist_rooms_path(current_tourist) %>
             </li>
             <li>
                 <%= link_to "ブックマーク", tourist_book_mark_path %>

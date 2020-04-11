@@ -25,7 +25,7 @@ class TourGuide::RoomsController < ApplicationController
     end
 
     if @room.save
-      redirect_to tour_guide_room_path(@room)
+      redirect_to tour_guide_guide_room_path(@room)
     else
       redirect_to root_path
     end
@@ -41,4 +41,6 @@ class TourGuide::RoomsController < ApplicationController
 
 
 end
+
+
 

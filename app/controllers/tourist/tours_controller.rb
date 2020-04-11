@@ -22,6 +22,7 @@ class Tourist::ToursController < ApplicationController
         @guide_ids << room.guide_id
       end
     end
+
   end
 
 end

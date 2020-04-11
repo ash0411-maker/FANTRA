@@ -1,6 +1,7 @@
 class Tourist::OrdersController < ApplicationController
 
   before_action :authenticate_tourist!
+  before_action :correct_tourist, only: [:new, :confirm, :create, :destroy]
 
   def new
   	@tourist = Tourist.find_by(id: params[:tourist_id])
@@ -46,10 +47,19 @@ class Tourist::OrdersController < ApplicationController
   end
 
 
+
   private
   def order_params
       params.require(:order).permit(:tourist_id, :tour_id, :guide_id, :tour_title, :tour_body, :price, :contents_of_price, :capacity, :companion, :total_people, :tour_time, :tour_city,:admin_sales, :guide_sales, :tour_genre, :tour_price)
   end
+
+  def correct_tourist
+    tourist = Tourist.find(params[:tourist_id])
+    if current_tourist != tourist
+      redirect_to tourist_tourist_path(current_tourist)
+    end
+  end
+
 
 
 end

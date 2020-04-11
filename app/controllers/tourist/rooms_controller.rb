@@ -1,7 +1,7 @@
 class Tourist::RoomsController < ApplicationController
 
   before_action :authenticate_tourist!
-  # before_action :correct_tourist, only: [:index, :show, :create, :destroy]
+  before_action :correct_tourist, only: [:index, :show, :create, :destroy]
 
   def index
     @rooms = current_tourist.rooms
@@ -22,7 +22,7 @@ class Tourist::RoomsController < ApplicationController
     @room = Room.new(room_guide_params)
     @room.tourist_id = current_tourist.id
     if @room.save
-      redirect_to tourist_room_path(@room)
+      redirect_to tourist_tourist_room_path(current_tourist, @room)
     else
       redirect_to tourist_tourist_path(current_tourist)
     end
@@ -34,12 +34,12 @@ class Tourist::RoomsController < ApplicationController
     params.require(:room).permit(:guide_id)
   end
 
-  # def correct_tourist
-  #   tourist = Tourist.find_by(id: session[:tourist_id])
-  #   if current_tourist =! tourist
-  #     redirect_to tourist_tourist_path(current_tourist)
-  #   end
-  # end
+  def correct_tourist
+    tourist = Tourist.find(params[:tourist_id])
+    if current_tourist != tourist
+      redirect_to tourist_tourist_path(current_tourist)
+    end
+  end
 
 end
 

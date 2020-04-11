@@ -47,11 +47,12 @@ Rails.application.routes.draw do
 	    get 'top' => 'home#top'
 	    get 'tourists/delete' => 'guides#delete', as: 'guide_delete'
 		get 'guides/thanks' => 'guides#thanks', as: 'guide_thanks'
-	    resources :guides, only: [:show, :edit, :update, :destroy]
-	    resources :orders, only: [:index, :update]
-	    resources :rooms, only: [:index, :show, :create] do
+	    resources :guides, only: [:show, :edit, :update, :destroy] do
+	    	resources :rooms, only: [:index, :show, :create] do
 	    	resources :messages, only: [:create]
 	    end
+	    end
+	    resources :orders, only: [:index, :update]
 	    resources :tours do
 	    	resource :photos, only: [:new, :create]
 	    end
@@ -68,12 +69,11 @@ Rails.application.routes.draw do
 		get 'tourists/delete' => 'tourists#delete', as: 'tourist_delete'
 		get 'tourists/thanks' => 'tourists#thanks', as: 'tourist_thanks'
 
-		resources :rooms, only: [:index, :show, :create] do
-	    	resources :messages, only: [:create]
-	    end
-
 		resources :tourists, only: [:show, :edit, :update, :destroy] do
 			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
+			resources :rooms, only: [:index, :show, :create] do
+		    	resources :messages, only: [:create]
+		    end
 			resources :orders, only: [:show, :new, :create, :destroy]
 		end
 

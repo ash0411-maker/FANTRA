@@ -17,9 +17,9 @@
 	</td>
 	<td>
 		<% if @tourist_ids.include?(order.tourist.id) %>
-		    <%= link_to "チャットへ", tour_guide_room_path(current_guide.rooms.find_by(tourist_id: order.tourist.id)), class: "btn btn-default" %>
+		    <%= link_to "チャットへ", tour_guide_guide_room_path(current_guide, current_guide.rooms.find_by(tourist_id: order.tourist.id)), class: "btn btn-default" %>
 		  <% else %>
-		    <%= form_for(Room.new, url: tour_guide_rooms_path) do |f| %>
+		    <%= form_for(Room.new, url: tour_guide_guide_rooms_path(current_guide)) do |f| %>
 		      <%= f.hidden_field :guide_id, :value => order.guide.id %>
 		      <%= f.submit "チャットへ", class: "btn btn-default" %>
 		    <% end %>

@@ -21,6 +21,7 @@
 					<thead>
 						<tr class = "active">
 							<th class = "text-center">チャット相手</th>
+							<th class = "text-center">チャット件数</th>
 							<th class = "text-center">チャットルーム</th>
 						</tr>
 					</thead>
@@ -28,7 +29,8 @@
 						<% @rooms.each do |room| %>
 							<tr class = "text-center">
 								<td><%= room.tourist.family_name %> <%= room.tourist.name %></td>
-								<td><%= link_to "メッセージ確認", tour_guide_room_path(room), class: "btn btn-default" %></td>
+								<td><%= room.messages.count %>件</td>
+								<td><%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %></td>
 							</tr>
 						<% end %>
 					</tbody>
@@ -38,4 +40,5 @@
 		</div>
 	</div>
 <% end %>
+
 
