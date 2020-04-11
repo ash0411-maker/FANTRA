@@ -8,26 +8,26 @@
 			<% end %>
 			<h3 class = "vacant-message"><%= flash[:warning] %></h3>
 
-		<!-- チャットルーム -->
+		<!------- チャットルーム ------->
 			<div class = "chat-field">
 			  <% @messages.each do |message| %>
-			    <!-- メッセージがtouristによるものだったら -->
-			    <!-- メッセージを右に寄せる -->
+			    <!-- メッセージがtouristによるものだったら、メッセージを右に寄せる -->
 			    <% if message.is_tourist %>
-			      	<div class = "text-right">
-			        	<h4 class = "message bg-info"><%= message.content %>  :<%= current_tourist.name %>さん</h4>
+			      	<div class = "text-right  bg-info">
+			        	<h4 class = "message"><%= message.content %>  :<%= current_tourist.name %>さん</h4>
+			        	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
 			      	</div>
 
-			    <!-- メッセージがguideによるものだったら -->
-			    <!-- メッセージを左に寄せる -->
+			    <!-- メッセージがguideによるものだったら、メッセージを左に寄せる -->
 			    <% else %>
 			    	<div class = "text-left  bg-warning">
 			    	  	<h4><%= @guide %>さん:  <%= message.content %></h4>
+			    	  	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
 			    	</div>
 			    <% end %>
 			  <% end %>
 			</div>
-		<!-- チャットルーム -->
+		<!------- チャットルーム ------->
 
 		</div>
 	</div>

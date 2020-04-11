@@ -3,18 +3,16 @@
 		<div class = "col-xs-8">
 			<h3><%= @room.guide.name %>さんと<%= @room.tourist.name %>のチャットルーム</h3>
 
-		<!-- チャットルーム -->
+		<!------ チャットルーム ------>
 			<div class = "chat-field">
 			  <% @messages.each do |message| %>
-			    <!-- メッセージがtouristによるものだったら -->
-			    <!-- メッセージを右に寄せる -->
+			    <!-- メッセージがtouristによるものだったら、メッセージを右に寄せる -->
 			    <% if message.is_tourist %>
 			      <div class = "text-right">
 			        	<h4 class = "message bg-info"><%= message.content %>  :<%= message.room.tourist.name %>さん(ツーリスト)</h4>
 			      </div>
 
-			    <!-- メッセージがguideによるものだったら -->
-			    <!-- メッセージを左に寄せる -->
+			    <!-- メッセージがguideによるものだったら、メッセージを左に寄せる -->
 			    <% else %>
 			    	<div class = "text-left  bg-warning">
 			    	  	<h4><%= message.room.guide.name %>さん(ガイド):  <%= message.content %></h4>
@@ -22,7 +20,7 @@
 			    <% end %>
 			  <% end %>
 			</div>
-		<!-- チャットルーム -->
+		<!------ チャットルーム ------>
 
 		</div>
 	</div>

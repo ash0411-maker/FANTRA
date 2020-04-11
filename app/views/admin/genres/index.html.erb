@@ -1,6 +1,9 @@
 <div class = "container">
 	<div class = "row">
+
 		<%= render 'admin/genres/errors', genre: @genre %>
+
+	<!----- ジャンル新規登録 ----->
 		<div class = "col-xs-2 col-xs-offset-1">
 			<div class = "form">
 				<h3>ジャンル登録</h3>
@@ -15,6 +18,10 @@
 				<% end %>
 			</div>
 		</div>
+	<!----- ジャンル新規登録 ----->
+
+
+	<!----- ジャンル一覧 ----->
 		<div class = "col-xs-6 col-xs-offset-1">
 			<h3 class = "flash"><%=flash[:notice]%></h3>
 			<h2>ジャンル一覧</h2>
@@ -33,5 +40,7 @@
 				<% end %>
 			</table>
 		</div>
+	<!----- ジャンル一覧 ----->
+
 	</div>
 </div>

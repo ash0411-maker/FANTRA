@@ -7,31 +7,36 @@
 			<% else %>
 				<h3><%= @tourist.name %>さんとのチャットルーム</h3>
 			<% end %>
+
+
+		<!------- チャットルーム ------->
 			<h3 class = "vacant-message"><%= flash[:warning] %></h3>
-		<!-- チャットルーム -->
 			<div class = "chat-field">
 			  <% @messages.each do |message| %>
-			    <!-- メッセージがguideだったら -->
-			    <!-- メッセージを右に寄せる -->
+			    <!-- メッセージがguideだったら、メッセージを右に寄せる -->
 			    <% unless message.is_tourist %>
-				    <div class = "text-right">
-				    	<h4 class = "message bg-info"><%= message.content %>  :<%= current_guide.name %>さん</h4>
+				    <div class = "text-right bg-info">
+				    	<h4 class = "message"><%= message.content %>  :<%= current_guide.name %>さん</h4>
+				    	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
 				    </div>
 
 				<% else %>
-			    <!-- メッセージがtouristによるものだったら -->
-			    <!-- メッセージを左に寄せる -->
+			    <!-- メッセージがtouristによるものだったら、メッセージを左に寄せる -->
 			    	<div class = "text-left bg-warning">
 			    		<h4><%= @tourist.name %>さん:  <%= message.content %></h4>
+			    		<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
 			    	</div>
 			    <% end %>
 			  <% end %>
 			</div>
-		<!-- チャットルーム -->
+		<!------- チャットルーム ------->
+
 
 		</div>
 	</div>
 
+
+<!------- メッセージ送信 ------->
 	<div class = "row">
 		<div class = "col-xs-4 col-xs-offset-6">
 			<div class = "message-field">
@@ -42,6 +47,7 @@
 			</div>
 		</div>
 	</div>
+<!------- メッセージ送信 ------->
 
 </div>
 

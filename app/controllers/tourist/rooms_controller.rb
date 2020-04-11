@@ -4,7 +4,7 @@ class Tourist::RoomsController < ApplicationController
   before_action :correct_tourist, only: [:index, :show, :create, :destroy]
 
   def index
-    @rooms = current_tourist.rooms
+    @rooms = current_tourist.rooms.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
@@ -42,4 +42,5 @@ class Tourist::RoomsController < ApplicationController
   end
 
 end
+
 

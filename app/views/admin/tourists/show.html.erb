@@ -17,9 +17,12 @@
 					<h4>
 					<h4>注文数 ： <%= @tourist.orders.count %>件<h4>
 				</div>
+
+
+			<!------ ツーリスト会員ステータス更新 ------>
 				<div class = "panel-body">
-				<h4 class = "flash"><%= flash[:notice] %></h4>
-				<h4>会員ステータス</h4>
+					<h4 class = "flash"><%= flash[:notice] %></h4>
+					<h4>会員ステータス</h4>
 					<%= form_for(@tourist, url: admin_tourist_path(@tourist)) do |f| %>
 						<% if @tourist.deleted_at == nil %>
 							<span class="col-xs-3">
@@ -44,6 +47,9 @@
 						<span><%= f.submit "更新", class: "btn btn-success" %></span>
 					<% end %>
 				</div>
+			<!------ ツーリスト会員ステータス更新 ------>
+
+
 			</div>
 		</div>
 	</div>

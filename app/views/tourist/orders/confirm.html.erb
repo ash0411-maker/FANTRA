@@ -2,6 +2,8 @@
 	<div class = "row">
 		<div class = "confirm-box">
 			<div class = "col-xs-3 col-xs-offset-1">
+
+			<!------- 予約するツアー内容 ------->
 				<div class="panel panel-default">
 					<div class="panel-heading text-center">
 				    	<h3 class="panel-title">ツアー内容</h3>
@@ -51,6 +53,10 @@
 					    </p>
 					</div>
 				</div>
+			<!------- 予約するツアー内容 ------->
+
+
+		<!------- orderへ保存 ------->
 				<%= form_for(@order, url: tourist_tourist_orders_path) do |f| %>
 
 					<%= f.hidden_field :tourist_id, :value => current_tourist.id %>
@@ -78,6 +84,10 @@
 
 				<% end %>
 			</div>
+		<!------- orderへ保存 ------->
+
+
+		<!------- 注意事項 ------->
 			<div class = "col-xs-7">
 				<h2>ツアー説明</h2>
 				<h4 class = "order-confirm-body"><%= @order.tour_body %></h4>
@@ -90,6 +100,8 @@
 					<h4>ツアー前日からのキャンセルは予約内容に記載されている料金の100%を請求させていただきます。</h4>
 				</div>
 			</div>
+		<!------- 注意事項 ------->
+
 		</div>
 	</div>
 </div>

@@ -1,6 +1,8 @@
 <div class = "container">
 	<div class = "row">
+
 		<%= render 'admin/cities/errors', city: @city %>
+
 		<div class = "col-xs-6 col-xs-offset-3">
 			<h2 class = "genre-edit-headline">ジャンル編集画面</h2>
 			<%= form_for(@city, url: admin_city_path(@city)) do |f| %>
@@ -13,5 +15,6 @@
 			    </div>
 			<% end %>
 		</div>
+
 	</div>
 </div>

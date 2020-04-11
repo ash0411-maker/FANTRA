@@ -1,5 +1,7 @@
 <h1>ツアー前日はキャンセルできません</h1>
 <div class = "tourist-tourist-order-container" >
+
+		<!------- ツアー開始前一覧 ------->
 			<div class = "tourist-tourist-order-table">
 				<h2><strong><%= current_tourist.name %>さん</strong>が予約している旅行リスト</h2>
 				<table class = "table">
@@ -26,8 +28,10 @@
 					</tbody>
 				</table>
 			</div>
+		<!------- ツアー開始前一覧 ------->
 
 
+		<!------- 明日のツアー一覧 ------->
 			<div class = "tourist-tourist-order-table">
 				<h2><strong><%= current_tourist.name %>さん</strong>さんの明日のツアー</h2>
 				<table class = "table">
@@ -41,7 +45,10 @@
 					</tbody>
 				</table>
 			</div>
+		<!------- 明日のツアー一覧 ------->
 
+
+		<!------- 今日のツアー一覧 ------->
 			<div class = "tourist-tourist-order-table">
 				<h2><strong><%= current_tourist.name %>さん</strong>さんの今日のツアー</h2>
 				<table class = "table">
@@ -55,10 +62,10 @@
 					</tbody>
 				</table>
 			</div>
+		<!------- 今日のツアー一覧 ------->
 
 
-
-
+		<!------- ツアー済み一覧 ------->
 			<div class = "tourist-tourist-order-table">
 				<h2><strong><%= current_tourist.name %>さん</strong>のツアー済みリスト</h2>
 				<table class = "table">
@@ -72,6 +79,7 @@
 					</tbody>
 				</table>
 			</div>
+		<!------- ツアー済み一覧 ------->
 		</div>
 	</div>
 </div>

@@ -2,6 +2,8 @@
 <div class = "container">
 	<div class = "row">
 		<div class = "col-xs-9">
+
+		<!------- エラーメッセージ ------->
 			<% if @tourist.errors.any? %>
 			    <div id="error_explanation">
 			      <h2><%= @tourist.errors.count %>件のエラーが発生しました。</h2>
@@ -12,9 +14,14 @@
 			      </ul>
 			    </div>
 		    <% end %>
+		<!------- エラーメッセージ ------->
+
+
 			<h1><%= @tourist.name %>さんの情報変更画面</h1>
 			<%= form_for(@tourist, url: tourist_tourist_path(@tourist)) do |f| %>
 
+
+			<!------- 名前、性別 ------->
 				<div class = "tourist-edit-box">
 					<div class = "row">
 						<div class="field col-xs-3">
@@ -33,7 +40,10 @@
 						</div>
 					</div>
 				</div>
+			<!------- 名前、性別 ------->
 
+
+			<!------- 生まれ年、電話番号、メアド ------->
 				<div class = "tourist-edit-box">
 					<div class = "row">
 						<div class="field col-xs-3">
@@ -52,7 +62,10 @@
 						</div>
 					</div>
 				</div>
+			<!------- 生まれ年、電話番号、メアド ------->
 
+
+			<!------- 国籍、郵便番号、住所 ------->
 				<div class = "tourist-edit-box">
 					<div class = "row">
 						<div class="field col-xs-3">
@@ -71,6 +84,7 @@
 						</div>
 					</div>
 				</div>
+			<!------- 国籍、郵便番号、住所 ------->
 
 
 				<div class = "row">
@@ -80,9 +94,12 @@
 						</div>
 					</div>
 
+
+			<!------- 退会ページ ------->
 					<div class = "col-xs-3 col-xs-offset-5">
 						<%= link_to "退会手続きへ", tourist_tourist_tourist_delete_path(current_tourist), class: "btn btn-danger delete-btn" %>
 					</div>
+			<!------- 退会ページ ------->
 				</div>
 
 			<% end %>

@@ -1,3 +1,4 @@
+<!------- メッセージが０件だった場合 ------->
 <% if @rooms.count == 0 %>
 	<div class = "container">
 		<div class = "row">
@@ -12,6 +13,11 @@
 			</div>
 		</div>
 	</div>
+<!------- メッセージが０件だった場合 ------->
+
+
+
+<!------- メッセージがあった場合 ------->
 <% else %>
 	<div class = "container">
 		<div class = "row">
@@ -25,6 +31,8 @@
 							<th class = "text-center">チャットルーム</th>
 						</tr>
 					</thead>
+
+				<!------- チャットルームへ ------->
 					<tbody>
 						<% @rooms.each do |room| %>
 							<tr class = "text-center">
@@ -34,8 +42,12 @@
 							</tr>
 						<% end %>
 					</tbody>
+				<!------- チャットルームへ ------->
+
 				</table>
+				<%= paginate @rooms, class: "paginate" %>
 			</div>
 		</div>
 	</div>
 <% end %>
+<!------- メッセージがあった場合 ------->
