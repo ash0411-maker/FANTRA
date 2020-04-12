@@ -3,13 +3,18 @@ class Tourist < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
   acts_as_paranoid
+
 
   has_many :orders
   has_many :rooms, dependent: :destroy
   has_many :book_marks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-    validates :family_name, presence: true
+
+  validates :family_name, presence: true
 	validates :name, presence: true
 	validates :birth_year, presence: true, length: { is: 4 }
 	validates :nationality, presence: true

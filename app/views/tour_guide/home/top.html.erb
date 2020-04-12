@@ -4,7 +4,7 @@
 			<div>
 				<h1>
 					今日に入った予約件数は
-					<%= link_to tour_guide_orders_path do %>
+					<%= link_to tour_guide_guide_orders_path(current_guide) do %>
 						<%= current_guide.orders.where(created_at: Time.zone.now.all_day).count %>件です
 					<% end %>
 				</h1>

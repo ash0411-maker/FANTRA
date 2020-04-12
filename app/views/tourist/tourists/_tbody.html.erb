@@ -3,6 +3,5 @@
 	<td><%= order.tour_city %></td>
 	<td><%= order.total_people %>名</td>
 	<td>¥ <%= number_with_delimiter(order.price) %></td>
-	<td><%= order.guide.family_name %> <%= order.guide.name %></td>
 	<td><%= link_to "ツアー詳細へ", tourist_tourist_tour_path(current_tourist, order.tour_id), class: "btn btn-default" %></td>
 </tr>

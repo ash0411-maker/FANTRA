@@ -13,6 +13,7 @@ class Tourist::ToursController < ApplicationController
   def show
   	@tour = Tour.find(params[:id])
     @tour_photos = @tour.tour_photos
+    @comments = @tour.comments
 
     #自分が入ってるroomの相手のidを格納する
     if tourist_signed_in?

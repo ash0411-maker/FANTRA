@@ -34,8 +34,12 @@ class Tourist::OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @tourist = @order.tourist
-    @order.destroy
-    redirect_to tourist_tourist_path(@tourist)
+    if @order.status == "ツアー開始前"
+      @order.destroy
+      redirect_to tourist_tourist_path(@tourist)
+    else
+      redirect_to tourist_tourist_path(@tourist)
+    end
   end
 
 

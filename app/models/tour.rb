@@ -5,6 +5,7 @@ class Tour < ApplicationRecord
 	belongs_to :city
   has_many :book_marks, dependent: :destroy
   has_many :tour_photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # ビューからデータを送る際に、ツアーと一緒にツアー写真を送るための記述
   # reject_if => 指定した条件下においてvalidationを無効にする
