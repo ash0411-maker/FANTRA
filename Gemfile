@@ -92,6 +92,7 @@ gem 'geocoder'
 #複数のデータを同時保存
 gem 'cocoon'
 
+gem 'dotenv-rails'
 
 
 
