@@ -7,6 +7,7 @@ class Tourist::RoomsController < ApplicationController
     @rooms = current_tourist.rooms.order(created_at: :desc).page(params[:page]).per(5)
   end
 
+
   def show
   	@room = Room.find(params[:id]) #ルーム情報の取得
     @message = Message.new #新規メッセージ投稿
@@ -18,6 +19,7 @@ class Tourist::RoomsController < ApplicationController
     end
   end
 
+
   def create
     @room = Room.new(room_guide_params)
     @room.tourist_id = current_tourist.id
@@ -27,6 +29,8 @@ class Tourist::RoomsController < ApplicationController
       redirect_to tourist_tourist_path(current_tourist)
     end
   end
+
+
 
 
   private
@@ -42,5 +46,6 @@ class Tourist::RoomsController < ApplicationController
   end
 
 end
+
 
 

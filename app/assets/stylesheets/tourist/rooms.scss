@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.room-wrapper{
+	position: relative;
+}
 
-.message-field {
-	margin-top: 50px;
+
+
+.message-form-field{
+	z-index: 500px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
 }
 
 .message-time{
 	font-size: 10px;
+}
+
+.message{
+	margin: 20px 0 20px;
 }

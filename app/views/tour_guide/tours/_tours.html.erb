@@ -8,7 +8,7 @@
 				<div class = "panel-body" >
 					<% genres.each do |genre| %>
 						<p>
-							<%= link_to tour_guide_tours_path(genre_id: genre.id) do %>
+							<%= link_to tour_guide_guide_tours_path(current_guide, genre_id: genre.id) do %>
 								<%= genre.name %>
 							<% end %>
 						</p>
@@ -37,7 +37,7 @@
 						<% end %>
 						<td><%= tour.city.name %></td>
 						<td><%= tour.genre.name %></td>
-						<td><%= link_to "ツアー詳細へ", tour_guide_tour_path(tour), class: "btn btn-default" %></td>
+						<td><%= link_to "ツアー詳細へ", tour_guide_guide_tour_path(current_guide, tour), class: "btn btn-default" %></td>
 					</tbody>
 				<% end %>
 			</table>

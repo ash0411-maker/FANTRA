@@ -50,25 +50,25 @@
         <% if admin_signed_in? %>
           <ul>
             <li>
-              <%= link_to "チャット一覧", admin_rooms_path %>
+              <%= link_to "チャット", admin_rooms_path %>
             </li>
             <li>
-              <%= link_to "注文一覧", admin_orders_path %>
+              <%= link_to "注文", admin_orders_path %>
             </li>
             <li>
-              <%= link_to "ツアー一覧", admin_tours_path %>
+              <%= link_to "ツアー", admin_tours_path %>
             </li>
             <li>
-              <%= link_to "ジャンル画面", admin_genres_path %>
+              <%= link_to "ジャンル", admin_genres_path %>
             </li>
             <li>
-              <%= link_to "都市画面", admin_cities_path %>
+              <%= link_to "都市", admin_cities_path %>
             </li>
             <li>
-              <%= link_to "ガイド一覧", admin_guides_path %>
+              <%= link_to "ガイド", admin_guides_path %>
             </li>
             <li>
-              <%= link_to "ツーリスト一覧", admin_tourists_path %>
+              <%= link_to "ツーリスト", admin_tourists_path %>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
@@ -82,16 +82,16 @@
         <% elsif guide_signed_in? %>
           <ul>
             <li>
-              <%= link_to "予約一覧", tour_guide_guide_orders_path(current_guide) %>
+              <%= link_to "予約", tour_guide_guide_orders_path(current_guide) %>
             </li>
             <li>
               <%= link_to "ツアー新規投稿", new_tour_guide_guide_tour_path(current_guide) %>
             </li>
             <li>
-              <%= link_to "ツアー一覧", tour_guide_guide_tours_path(current_guide) %>
+              <%= link_to "ツアー", tour_guide_guide_tours_path(current_guide) %>
             </li>
             <li>
-              <%= link_to "チャット一覧", tour_guide_guide_rooms_path(current_guide) %>
+              <%= link_to "チャット", tour_guide_guide_rooms_path(current_guide) %>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
@@ -104,7 +104,7 @@
         <% elsif tourist_signed_in? %>
           <ul>
             <li>
-                <%= link_to "チャット一覧", tourist_tourist_rooms_path(current_tourist) %>
+                <%= link_to "チャット", tourist_tourist_rooms_path(current_tourist) %>
             </li>
             <li>
                 <%= link_to "ブックマーク", tourist_tourist_book_mark_path(current_tourist) %>

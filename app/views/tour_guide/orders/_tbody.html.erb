@@ -6,6 +6,9 @@
 		<%= order.tourist.family_name %> <%= order.tourist.name %>
 	</td>
 	<td>
+		<%= order.tourist.sex %>
+	</td>
+	<td>
 		<%= order.tourist.nationality %>
 	</td>
 	<td>
@@ -16,18 +19,22 @@
 		¥ <%= number_with_delimiter(order.guide_sales) %>
 	</td>
 
+
+
 <!----- チャット機能 ----->
 	<td>
 		<% if @tourist_ids.include?(order.tourist.id) %>
 		    <%= link_to "チャットへ", tour_guide_guide_room_path(current_guide, current_guide.rooms.find_by(tourist_id: order.tourist.id)), class: "btn btn-default" %>
 		  <% else %>
 		    <%= form_for(Room.new, url: tour_guide_guide_rooms_path(current_guide)) do |f| %>
-		      <%= f.hidden_field :guide_id, :value => order.guide.id %>
+		      <%= f.hidden_field :tourist_id, :value => order.tourist.id %>
 		      <%= f.submit "チャットへ", class: "btn btn-default" %>
 		    <% end %>
 		<% end %>
 	</td>
 <!----- チャット機能 ----->
+
+
 
 
 <!----- 注文ステータス更新欄 ----->

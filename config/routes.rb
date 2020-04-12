@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 	# 管理者
 	namespace :admin do
 	    get 'home/top'
+	    get 'search/search'
 	    get 'orders/today' => 'orders#today', as: 'orders_today'
+	    resources :comments, only: [:destroy]
 	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
 	    resources :rooms, only: [:show, :index, :destroy]
 	    resources :genres, only: [:create, :index, :edit, :update, :destroy]

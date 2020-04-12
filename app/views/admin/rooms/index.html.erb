@@ -22,7 +22,8 @@
 							<td>
 								<%= link_to "チャットルーム詳細", admin_room_path(room), class: "btn btn-default" %>
 							</td>
-							<td><%= link_to "チャットルーム削除", admin_room_path(room), method: :delete, data: {confirm:'このチャットルームを削除してよろしいですか？。'}, class: "btn btn-danger" %>
+							<td>
+								<%= link_to "チャットルーム削除", admin_room_path(room), method: :delete, data: {confirm:'このチャットルームを削除してよろしいですか？。'}, class: "btn btn-danger" %>
 							</td>
 						</tr>
 					<% end %>

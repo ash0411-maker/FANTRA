@@ -3,9 +3,11 @@ class TourGuide::RoomsController < ApplicationController
   before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
   before_action :correct_guide, only: [:show, :index, :create]
 
+
   def index
     @rooms = current_guide.rooms.page(params[:page]).per(10)
   end
+
 
   def show
   	@room = Room.find(params[:id]) #ルーム情報の取得
@@ -18,29 +20,24 @@ class TourGuide::RoomsController < ApplicationController
     end
   end
 
-  def create
-    if guide_signed_in?
-      #ガイドがログインしてたらguide_idを@roomにいれる
-      @room = Room.new(room_tourist_params)
-      @room.guide_id = current_guide.id
-    else
-      redirect_to root_path
-    end
 
+
+  def create
+    @room = Room.new(room_tourist_params)
+    @room.guide_id = current_guide.id
     if @room.save
-      redirect_to tour_guide_guide_room_path(@room)
+      redirect_to tour_guide_guide_room_path(current_guide, @room)
     else
-      redirect_to root_path
+      redirect_to tour_guide_guide_orders_path(current_guide)
     end
   end
-
-
 
 
   private
   def room_tourist_params
-    params.require(:room).permit(:toursit_id)
+    params.require(:room).permit(:tourist_id)
   end
+
 
   def correct_guide
     guide = Guide.find(params[:guide_id])
@@ -48,6 +45,9 @@ class TourGuide::RoomsController < ApplicationController
       redirect_to tour_guide_guide_path(current_guide)
     end
   end
+
+
+
 
 
 

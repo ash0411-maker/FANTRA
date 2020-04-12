@@ -197,24 +197,7 @@
 
 
 	<!----------- レビュー一覧 ------------>
-		<div class = "row">
-			<div class = "guide-tour-details">
-				<div class = "col-xs-4">
-					<div class = "guide-body-title">
-						<h2>レビュー一覧</h2>
-					</div>
-				</div>
-				<div class = "col-xs-8">
-					<div class = "tour-body-wrapper">
-						<% @comments.each do |comment| %>
-							<h4 class = "guide-body-text">
-								<%= comment %>
-							</h4>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%= render 'review', comments: @comments %>
 	<!----------- レビュー一覧 ------------>
 
 

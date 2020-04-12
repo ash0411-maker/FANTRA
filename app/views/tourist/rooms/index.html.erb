@@ -27,7 +27,7 @@
 					<thead>
 						<tr class = "active">
 							<th class = "text-center">チャット相手</th>
-							<th class = "text-center">メッセージ件数</th>
+							<th class = "text-center">チャット件数</th>
 							<th class = "text-center">最新メッセージ</th>
 							<th class = "text-center">チャットルーム</th>
 						</tr>
@@ -45,9 +45,9 @@
 									<% messages << message.content %>
 								<% end %>
 								<% message =  messages[-1] %>
-								<td><%= message.present? ?  message[0..8] << "..." : "" %></td>
+								<td><%= message.present? ?  message[0..10] << "..." : "" %></td>
 
-								<td><%= link_to "メッセージ確認", tourist_tourist_room_path(current_tourist, room), class: "btn btn-default" %></td>
+								<td><%= link_to "チャット確認", tourist_tourist_room_path(current_tourist, room), class: "btn btn-default" %></td>
 							</tr>
 						<% end %>
 					</tbody>

@@ -16,7 +16,6 @@
 <!------ チャット件数が０だった場合 ------>
 
 
-
 <!------ チャットをしていた場合 ------>
 <% else %>
 	<div class = "container">
@@ -28,6 +27,7 @@
 						<tr class = "active">
 							<th class = "text-center">チャット相手</th>
 							<th class = "text-center">チャット件数</th>
+							<th class = "text-center">最新メッセージ</th>
 							<th class = "text-center">チャットルーム</th>
 						</tr>
 					</thead>
@@ -36,7 +36,16 @@
 							<tr class = "text-center">
 								<td><%= room.tourist.family_name %> <%= room.tourist.name %></td>
 								<td><%= room.messages.count %>件</td>
-								<td><%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %></td>
+
+								<% messages = [] %>
+								<% room.messages.each do |message| %>
+									<% messages << message.content %>
+								<% end %>
+								<% message =  messages[-1] %>
+								<td><%= message.present? ?  message[0..10] << "..." : "" %></td>
+
+								<td><%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %>
+								</td>
 							</tr>
 						<% end %>
 					</tbody>

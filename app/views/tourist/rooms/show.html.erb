@@ -1,46 +1,56 @@
-<div class = "container">
-	<div class = "row">
-		<div class = "col-xs-8">
-			<% if @room.messages.count == 0 %>
-				<h3>まだメッセージはありません</h3>
-			<% else %>
-				<h3><%= @guide %>さんとのチャットルーム</h3>
-			<% end %>
-			<h3 class = "vacant-message"><%= flash[:warning] %></h3>
-
-		<!------- チャットルーム ------->
-			<div class = "chat-field">
-			  <% @messages.each do |message| %>
-			    <!-- メッセージがtouristによるものだったら、メッセージを右に寄せる -->
-			    <% if message.is_tourist %>
-			      	<div class = "text-right  bg-info">
-			        	<h4 class = "message"><%= message.content %>  :<%= current_tourist.name %>さん</h4>
-			        	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
-			      	</div>
-
-			    <!-- メッセージがguideによるものだったら、メッセージを左に寄せる -->
-			    <% else %>
-			    	<div class = "text-left  bg-warning">
-			    	  	<h4><%= @guide %>さん:  <%= message.content %></h4>
-			    	  	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
-			    	</div>
-			    <% end %>
-			  <% end %>
-			</div>
-		<!------- チャットルーム ------->
-
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-xs-4 col-xs-offset-6">
-			<div class = "message-field">
-				<%= form_for [@room, @message], url: tourist_tourist_room_messages_path(current_tourist, @room) do |f| %>
-					<%= f.text_field :content %>
-				 	<%= f.submit "メッセージを送る"%>
+<div class = "room-wrapper">
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-xs-8">
+				<% if @room.messages.count == 0 %>
+					<h3>まだメッセージはありません</h3>
+				<% else %>
+					<h3><%= @guide %>さんとのチャットルーム</h3>
 				<% end %>
+				<h3 class = "vacant-message"><%= flash[:warning] %></h3>
+
+			<!------- チャットルーム ------->
+				<div class = "chat-field">
+				  <% @messages.each do |message| %>
+				    <!-- メッセージがtouristによるものだったら、メッセージを右に寄せる -->
+				    <% if message.is_tourist %>
+				      	<div class = "text-right  bg-info">
+				        	<h4 class = "message"><%= message.content %>  :<%= current_tourist.name %>さん</h4>
+				        	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
+				      	</div>
+
+				    <!-- メッセージがguideによるものだったら、メッセージを左に寄せる -->
+				    <% else %>
+				    	<div class = "text-left  bg-warning">
+				    	  	<h4 class = "message"><%= @guide %>さん:  <%= message.content %></h4>
+				    	  	<span class = "message-time">（<%= message.created_at.to_s(:datetime_jp) %>）</span>
+				    	</div>
+				    <% end %>
+				  <% end %>
+				</div>
+			<!------- チャットルーム ------->
+
 			</div>
 		</div>
 	</div>
+
+
+<!------ メッセージ送信 ------->
+	<div class = "message-form-field">
+		<div class = "contaienr">
+			<div class = "row">
+				<div class = "col-xs-4 col-xs-offset-8">
+					<div class = "message-form">
+						<%= form_for [@room, @message], url: tourist_tourist_room_messages_path(current_tourist, @room) do |f| %>
+							<%= f.text_field :content %>
+						 	<%= f.submit "メッセージを送る", class: "btn btn-success"%>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!------ メッセージ送信 ------->
+
 
 </div>

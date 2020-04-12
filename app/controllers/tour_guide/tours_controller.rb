@@ -23,6 +23,7 @@ class TourGuide::ToursController < ApplicationController
   def show
   	@tour = Tour.find(params[:id])
     @tour_photos = @tour.tour_photos
+    @comments = @tour.comments
   end
 
 
