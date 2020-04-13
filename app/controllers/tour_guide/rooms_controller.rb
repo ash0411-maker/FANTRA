@@ -1,11 +1,11 @@
 class TourGuide::RoomsController < ApplicationController
 
-  before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_guide!
   before_action :correct_guide, only: [:show, :index, :create]
 
 
   def index
-    @rooms = current_guide.rooms.page(params[:page]).per(10)
+    @rooms = current_guide.rooms.order(created_at: :desc).page(params[:page]).per(10)
   end
 
 

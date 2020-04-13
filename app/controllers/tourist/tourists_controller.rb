@@ -1,4 +1,5 @@
 class Tourist::TouristsController < ApplicationController
+
   before_action :authenticate_tourist!, only: [:show, :edit, :update, :destroy]
   before_action :correct_tourist, only: [:show, :edit, :update, :destroy]
   before_action :correct_tourist_for_delete, only: [:delete]

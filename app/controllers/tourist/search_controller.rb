@@ -1,4 +1,5 @@
 class Tourist::SearchController < ApplicationController
+
   before_action :authenticate_tourist!
 
   def search

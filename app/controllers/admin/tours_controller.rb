@@ -11,9 +11,25 @@ class Admin::ToursController < ApplicationController
   	end
   end
 
+
   def show
   	@tour = Tour.find(params[:id])
     @tour_photos = @tour.tour_photos
     @comments = @tour.comments
   end
+
+
+  def update
+    @tour = Tour.find(params[:id])
+    @tour.update(tour_params)
+    redirect_to admin_tour_path(@tour)
+  end
+
+
+
+  private
+  def tour_params
+    params.require(:tour).permit(:is_active)
+  end
+
 end

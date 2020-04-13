@@ -16,16 +16,16 @@ class Admin::GuidesController < ApplicationController
       if @guide.update(guide_params)
         if guide_params[:deleted_at].to_i == 0
            @guide.restore
-           flash[:notice] = "情報を更新しました"
+           flash[:notice] = "会員を再開させました"
            redirect_to admin_guide_path(@guide)
         else
            @guide.destroy
-           flash[:notice] = "情報を更新しました"
+           flash[:notice] = "退会させました"
            redirect_to admin_guide_path(@guide)
         end
       else
-         render 'edit'
-         flash[:notice] = "情報の更新に失敗しました"
+        flash[:notice] = "情報の更新に失敗しました"
+        render 'show'
       end
   end
 
@@ -35,3 +35,4 @@ class Admin::GuidesController < ApplicationController
     params.require(:guide).permit(:deleted_at)
   end
 end
+

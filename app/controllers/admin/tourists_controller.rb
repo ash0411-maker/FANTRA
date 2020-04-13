@@ -1,5 +1,7 @@
 class Admin::TouristsController < ApplicationController
+
 	before_action :authenticate_admin!
+
 
   def index
   	@tourists = Tourist.all.with_deleted

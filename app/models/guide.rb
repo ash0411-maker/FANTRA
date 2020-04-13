@@ -8,7 +8,7 @@ class Guide < ApplicationRecord
   attachment :identification_image
   attachment :selfy_image
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :rooms, dependent: :destroy
   has_many :tours, dependent: :destroy
 
@@ -23,3 +23,4 @@ class Guide < ApplicationRecord
   validates :introduction, presence: true, length: { maximum: 250 }
 
 end
+

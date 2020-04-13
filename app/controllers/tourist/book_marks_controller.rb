@@ -24,10 +24,10 @@ class Tourist::BookMarksController < ApplicationController
 
     private
     def correct_tourist
-    tourist = Tourist.find(params[:tourist_id])
-    if current_tourist != tourist
-      redirect_to tourist_tourist_path(current_tourist)
+        tourist = Tourist.find(params[:tourist_id])
+        if current_tourist != tourist
+          redirect_to tourist_tourist_path(current_tourist)
+        end
     end
-  end
 
 end

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 	    resources :guides, only: [:index, :show, :destroy, :update]
 	    resources :tourists, only: [:index, :show, :update, :destroy]
 	    resources :orders, only: [:index, :show]
-	    resources :tours, only: [:index, :show]
+	    resources :tours, only: [:index, :show, :update]
 	end
 
 

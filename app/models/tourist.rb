@@ -8,7 +8,7 @@ class Tourist < ApplicationRecord
   acts_as_paranoid
 
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :rooms, dependent: :destroy
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy

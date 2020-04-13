@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//-------------- 一覧ページ ---------------
 .admin-tours-index {
 	position: ralative;
 }
@@ -10,3 +12,32 @@
 	position: absolute;
 	right: 100px;
 }
+
+.tour_is_active-tbody {
+	color: red;
+	background-color: pink;
+}
+
+.admin_genre_btn{
+	margin-top: 30px;
+}
+//-------------- 一覧ページ ---------------
+
+
+
+
+
+//-------------- 詳細ページ ---------------
+// 販売停止中メッセージ表示
+.admin_tour_is_actice_false {
+	position: absolute;
+	top: 200px;
+	left: 280px;
+}
+
+.admin_tour_is_actice_false_text {
+	font-size: 180px;
+	color: red;
+	transform: rotate(-20deg);
+}
+//-------------- 詳細ページ ---------------

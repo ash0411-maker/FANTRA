@@ -2,27 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tourist-info-text{
+.tourist-info-text {
 	border-bottom: solid 1px gray;
 	padding-bottom: 10px;
 	margin-bottom: -5px;
 }
 
 
-.tourist-tourist-order-container{
+.tourist-tourist-order-container {
 	float: left;
 }
 
-.tourist-tourist-order-table{
+
+.tourist-tourist-order-table {
 	padding: 50px 90px 30px 200px;
 }
 
-.tourist-info-container{
+
+.tourist-info-container {
 	float: left;
 	padding-top: 50px;
 }
 
 
-.tourist-edit-box{
+.tourist-edit-box {
 	padding: 25px;
+}
+
+
+//レビューのエラーフラッシュメッセージ
+.review-flash-messages {
+	color: red;
 }

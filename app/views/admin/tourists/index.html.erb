@@ -14,20 +14,28 @@
 			</thead>
 			<tbody>
 				<% @tourists.each do |tour| %>
-				<tr class = "text-center">
-					<td><%= tour.id %></td>
-					<td><%= link_to admin_tour_path(tour) do %><%= tour.family_name %> <%= tour.name %><% end %></td>
-					<td><%= tour.email %></td>
 					<% if tour.deleted_at == nil %>
-						<td>有効</td>
+						<tr class = "text-center">
+							<td><%= tour.id %></td>
+							<td><%= tour.family_name %> <%= tour.name %></td>
+							<td><%= tour.email %></td>
+							<td>有効</td>
+							<td><%= link_to "詳細へ", admin_tourist_path(tour), class: "btn btn-default" %></td>
+						</tr>
 					<% else %>
-						<td>退会済み</td>
+						<tr class = "text-center admin_tour_deleted_at">
+							<td><%= tour.id %></td>
+							<td><%= link_to admin_tour_path(tour) do %><%= tour.family_name %> <%= tour.name %><% end %></td>
+							<td><%= tour.email %></td>
+							<td>退会</td>
+							<td><%= link_to "詳細へ", admin_tourist_path(tour), class: "btn btn-default" %></td>
+						</tr>
 					<% end %>
-					<td><%= link_to "詳細へ", admin_tourist_path(tour), class: "btn btn-default" %></td>
-				</tr>
 				<%end%>
 			</tbody>
 		</table>
       </div>
 	</div>
 </div>
+
+

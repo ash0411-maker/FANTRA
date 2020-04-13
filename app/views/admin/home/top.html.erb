@@ -1,14 +1,15 @@
-<h1>管理者トップ画面</h1>
 
-<h2><%= flash[:notice] %></h2>
+
+<h2 class = "admin-flash-message"><%= flash[:notice] %></h2>
 <div class = "container">
 
 	<div class = "row">
-		<h3>
+		<h1>管理者トップ画面</h1>
+		<h2>
 			<%= link_to admin_orders_today_path do %>
 				本日入った予約数 <%= Order.where(created_at: Time.zone.now.all_day).count %> 件
 			<% end %>
-		</h3>
+		</h2>
 	</div>
 
 </div>

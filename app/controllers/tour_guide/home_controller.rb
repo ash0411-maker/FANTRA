@@ -1,4 +1,7 @@
 class TourGuide::HomeController < ApplicationController
+
+  before_action :authenticate_guide!, only: [:top]
+
   def top
   	@orders = current_guide.orders
   end

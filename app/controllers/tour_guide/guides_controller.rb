@@ -1,8 +1,9 @@
 class TourGuide::GuidesController < ApplicationController
 
     before_action :correct_guide_for_delete, only:[:delete]
-    before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
     before_action :correct_guide, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_guide!, only: [:show, :edit, :update, :destroy]
+
 
   def show
   	@guide = Guide.find(params[:id])

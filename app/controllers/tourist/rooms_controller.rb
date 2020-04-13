@@ -3,8 +3,9 @@ class Tourist::RoomsController < ApplicationController
   before_action :authenticate_tourist!
   before_action :correct_tourist, only: [:index, :show, :create, :destroy]
 
+
   def index
-    @rooms = current_tourist.rooms.order(created_at: :desc).page(params[:page]).per(5)
+    @rooms = current_tourist.rooms.order(created_at: :desc).page(params[:page]).per(10)
   end
 
 

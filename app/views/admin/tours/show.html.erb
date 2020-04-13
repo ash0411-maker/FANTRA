@@ -77,8 +77,38 @@
 					</table>
 				</div>
 			</div>
+			<div class = "col-xs-2">
+				<%= form_for(@tour, url: admin_tour_path(@tour)) do |f| %>
+					<% if @tour.is_active == true %>
+						<span class="col-xs-3">
+							<%= f.radio_button :is_active, true , checked: true %>
+							<%= f.label :is_active, "販売" %>
+						</span>
+						<span class="col-xs-4">
+							<%= f.radio_button :is_active, false, checked: false %>
+							<%= f.label :is_active, "販売停止" %>
+						</span>
+						<span class="col-xs-5">
+				    <% else %>
+						<span class="col-xs-3">
+							<%= f.radio_button :is_active, true , checked: false %>
+							<%= f.label :is_active, "販売" %>
+						</span>
+						<span class="col-xs-4">
+							<%= f.radio_button :is_active, true, checked: true %>
+							<%= f.label :is_active, "販売停止" %>
+						</span>
+					<% end %>
+					<span><%= f.submit "更新", class: "btn btn-success" %></span>
+				<% end %>
+			</div>
 		</div>
 	</div>
+	<% if @tour.is_active == false %>
+		<span class = "admin_tour_is_actice_false">
+			<h1 class = "admin_tour_is_actice_false_text">販売停止中</h1>
+		</span>
+	<% end %>
 </div>
 
 <div class = "guide-tour-body-wrapper">
