@@ -35,7 +35,10 @@
         <% elsif tourist_signed_in? %>
           <%= link_to "FANTRA", tourist_tourist_tours_path(current_tourist), class: "logo" %>
           <%= link_to tourist_tourist_path(current_tourist) do %>
-            <span class = "login_name login_tourist_name"><%= current_tourist.name %>さんのマイページ</span>
+            <span class = "login_name login_tourist_name">
+              <i class="fas fa-address-card fa-2x"></i>
+              <%= current_tourist.name %>さんのマイページ
+            </span>
           <% end %>
 
 
@@ -76,19 +79,34 @@
         <% elsif guide_signed_in? %>
           <ul>
             <li>
-              <%= link_to "予約", tour_guide_guide_orders_path(current_guide) %>
+              <%= link_to tour_guide_guide_orders_path(current_guide) do %>
+                <i class="far fa-calendar-check fa-2x"></i>
+                予約
+              <% end %>
             </li>
             <li>
-              <%= link_to "ツアー新規投稿", new_tour_guide_guide_tour_path(current_guide) %>
+              <%= link_to new_tour_guide_guide_tour_path(current_guide) do %>
+                <i class="fas fa-file-signature fa-2x"></i>
+                ツアー新規投稿
+              <% end %>
             </li>
             <li>
-              <%= link_to "ツアー", tour_guide_guide_tours_path(current_guide) %>
+              <%= link_to tour_guide_guide_tours_path(current_guide) do %>
+                <i class="fas fa-hiking fa-2x"></i>
+                ツアー
+              <% end %>
             </li>
             <li>
-              <%= link_to "チャット", tour_guide_guide_rooms_path(current_guide) %>
+              <%= link_to tour_guide_guide_rooms_path(current_guide) do %>
+                <i class="far fa-comment fa-2x"></i>
+                チャット
+              <% end %>
             </li>
             <li>
-              <%= link_to "ログアウト", destroy_guide_session_path, method: :delete %>
+              <%= link_to destroy_guide_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt fa-2x"></i>
+                ログアウト
+              <% end %>
             </li>
           </ul>
       <!-- ガイドログイン時 -->
@@ -98,13 +116,22 @@
         <% elsif tourist_signed_in? %>
           <ul>
             <li>
-                <%= link_to "チャット", tourist_tourist_rooms_path(current_tourist) %>
+                <%= link_to tourist_tourist_rooms_path(current_tourist) do %>
+                  <i class="far fa-comment fa-2x"></i>
+                  チャット
+                <% end %>
             </li>
             <li>
-                <%= link_to "ブックマーク", tourist_tourist_book_mark_path(current_tourist) %>
+                <%= link_to tourist_tourist_book_mark_path(current_tourist) do %>
+                  <i class="fas fa-flag fa-2x"></i>
+                  ブックマーク
+                <% end %>
             </li>
             <li>
-                <%= link_to "ログアウト", destroy_tourist_session_path, method: :delete %>
+                <%= link_to  destroy_tourist_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                  ログアウト
+                <% end %>
             </li>
           </ul>
       <!-- 観光客ログイン時 -->
@@ -115,10 +142,16 @@
         <% else %>
           <ul>
             <li>
-                <%= link_to "ログイン", tourist_session_path %>
+                <%= link_to guide_session_path do %>
+                  <i class="fas fa-hiking fa-2x"></i>
+                  ツアーガイドログイン
+                <% end %>
             </li>
             <li>
-                <%= link_to "ツアーガイドログイン", guide_session_path %>
+                <%= link_to tourist_session_path do %>
+                  <i class="fas fa-sign-in-alt fa-2x"></i>
+                  ログイン
+                <% end %>
             </li>
           </ul>
         <% end %>

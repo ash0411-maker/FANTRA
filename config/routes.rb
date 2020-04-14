@@ -73,6 +73,7 @@ Rails.application.routes.draw do
 
 		resources :tourists, only: [:show, :edit, :update, :destroy] do
 			get 'tours/bookmarks' => 'book_marks#index', as: 'book_mark'
+			get 'tours/my_account' => 'tourist#my_account', as: 'my_account'
 			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 			get 'tourists/delete' => 'tourists#delete', as: 'tourist_delete'
 			resources :orders, only: [:show, :new, :create, :destroy]
@@ -80,7 +81,7 @@ Rails.application.routes.draw do
 		    	resources :messages, only: [:create]
 		    end
 		    resources :tours, only: [:show, :index] do
-		    	resource :comments, only: [:create]
+		    	resources :comments, only: [:create, :edit, :update]
 				resource :book_marks, only: [:create, :destroy]
 			end
 		end
