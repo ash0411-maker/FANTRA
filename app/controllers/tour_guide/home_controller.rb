@@ -7,7 +7,7 @@ class TourGuide::HomeController < ApplicationController
   end
 
   def about
-  	@tours = Tour.all.order(created_at: :desc).page(params[:page]).per(10)
+  	@tours = Tour.all.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def window

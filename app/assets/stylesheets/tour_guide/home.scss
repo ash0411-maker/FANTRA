@@ -2,29 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.about-first-wrapper{
-	height: 400px;
-	position: relative;
+.about-first-wrapper {
+	background-color: black;
 }
 
-.imag1 {
+#theTarget {
+	height: 400px;
+	margin-top: -90;
+}
+
+.img1 {
 	background-image: image-url("chari.jpeg");
 	background-size: cover;
 	background-position: center;
 }
 
-.imag2 {
+.img2 {
 	background-image: image-url("viet.jpeg");
 	background-size: cover;
 	background-position: center;
 }
 
-.imag3 {
+.img3 {
 	background-image: image-url("IMG_0028.jpeg");
 	background-size: cover;
 	background-position: center;
 }
+
+.img4 {
+	background-image: image-url("cam1.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img5 {
+	background-image: image-url("cam.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img6 {
+	background-image: image-url("oki.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img7 {
+	background-image: image-url("thai.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
 
 
 .about-second-wrapper{
