@@ -34,13 +34,13 @@ Rails.application.routes.draw do
 	    get 'search/search'
 	    get 'orders/today' => 'orders#today', as: 'orders_today'
 	    resources :comments, only: [:destroy]
-	    resources :cities, only: [:create, :index, :edit, :update, :destroy]
+	    resources :cities, only: [:index, :create, :edit, :update, :destroy]
 	    resources :rooms, only: [:show, :index, :destroy]
-	    resources :genres, only: [:create, :index, :edit, :update, :destroy]
-	    resources :guides, only: [:index, :show, :destroy, :update]
-	    resources :tourists, only: [:index, :show, :update, :destroy]
-	    resources :orders, only: [:index, :show]
-	    resources :tours, only: [:index, :show, :update]
+	    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+	    resources :guides, only: [:show, :index, :update, :destroy,]
+	    resources :tourists, only: [:show, :index, :update, :destroy]
+	    resources :orders, only: [:show, :index]
+	    resources :tours, only: [:show, :index, :update]
 	end
 
 
@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 	    resources :guides, only: [:show, :edit, :update, :destroy] do
 	    	get 'tourists/delete' => 'guides#delete', as: 'guide_delete'
 	    	resources :orders, only: [:index, :update]
-	    	resources :rooms, only: [:index, :show, :create] do
+	    	resources :rooms, only: [:show, :index, :create] do
 	    		resources :messages, only: [:create]
 	    	end
 	    	resources :tours do
@@ -76,12 +76,12 @@ Rails.application.routes.draw do
 			get 'tours/my_account' => 'tourist#my_account', as: 'my_account'
 			get 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 			get 'tourists/delete' => 'tourists#delete', as: 'tourist_delete'
-			resources :orders, only: [:show, :new, :create, :destroy]
-			resources :rooms, only: [:index, :show, :create] do
+			resources :orders, only: [:show, :index, :new, :create, :destroy]
+			resources :rooms, only: [:show, :index, :create] do
 		    	resources :messages, only: [:create]
 		    end
 		    resources :tours, only: [:show, :index] do
-		    	resources :comments, only: [:create, :edit, :update]
+		    	resources :comments, only: [:index, :create, :edit, :update]
 				resource :book_marks, only: [:create, :destroy]
 			end
 		end

@@ -4,12 +4,28 @@
 
 
 .about-first-wrapper{
-	background-image: image-url("chari.jpeg");
-	background-size: cover;
-	background-position: center;
 	height: 400px;
 	position: relative;
 }
+
+.imag1 {
+	background-image: image-url("chari.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.imag2 {
+	background-image: image-url("viet.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.imag3 {
+	background-image: image-url("IMG_0028.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
 
 .about-second-wrapper{
 	background-color: #F2F2F2;

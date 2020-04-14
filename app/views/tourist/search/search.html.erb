@@ -22,7 +22,7 @@
 								<td>¥ <%= number_with_delimiter(tour.price) %></td>
 								<td><%= tour.capacity %>名</td>
 								<td><%= tour.contents_of_price %></td>
-								<td><%= link_to "詳細", tourist_tour_path(tour), class: "btn btn-primary" %></td>
+								<td><%= link_to "詳細", tourist_tourist_tour_path(current_tourist, tour), class: "btn btn-primary" %></td>
 							</tr>
 						<% end %>
 					</tbody>

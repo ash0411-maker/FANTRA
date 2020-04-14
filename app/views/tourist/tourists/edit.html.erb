@@ -90,18 +90,15 @@
 				<div class = "row">
 					<div class = "col-xs-3">
 						<div class="actions">
-						  <%= f.submit "情報更新", class: "btn btn-success" %>
+						  <%= f.submit "情報更新", class: "btn btn-success btn-lg" %>
 						</div>
 					</div>
-
-
-			<!------- 退会ページ ------->
-					<div class = "col-xs-3 col-xs-offset-5">
-						<%= link_to "退会手続きへ", tourist_tourist_tourist_delete_path(current_tourist), class: "btn btn-danger delete-btn" %>
+				</div>
+				<!------- 退会ページ ------->
+					<div class = "col-xs-1">
+						<%= link_to "退会手続きへ", tourist_tourist_tourist_delete_path(current_tourist), class: "btn btn-danger delete-btn btn-xs" %>
 					</div>
 			<!------- 退会ページ ------->
-				</div>
-
 			<% end %>
 		</div>
 	</div>

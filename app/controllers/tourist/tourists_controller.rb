@@ -6,8 +6,6 @@ class Tourist::TouristsController < ApplicationController
 
 
   def show
-  	@orders = current_tourist.orders
-    @comment = Comment.new
   end
 
   def edit

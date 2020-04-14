@@ -40,6 +40,14 @@
               <%= current_tourist.name %>さんのマイページ
             </span>
           <% end %>
+      <!-- 検索 -->
+          <span class = "header-city-search">
+            <%= form_tag(tourist_search_search_path, method: :get) do %>
+              <%= text_field_tag 'search[content]' %>
+              <%= button_tag '<i class="fa fa-search"></i>都市検索'.html_safe, :type => "submit",:class =>"btn btn-default" %>
+            <% end %>
+          </span>
+      <!-- 検索 -->
 
 
       <!-- ログイン前ロゴ -->
@@ -115,18 +123,6 @@
       <!-- 観光客ログイン時 -->
         <% elsif tourist_signed_in? %>
           <ul>
-            <li>
-                <%= link_to tourist_tourist_rooms_path(current_tourist) do %>
-                  <i class="far fa-comment fa-2x"></i>
-                  チャット
-                <% end %>
-            </li>
-            <li>
-                <%= link_to tourist_tourist_book_mark_path(current_tourist) do %>
-                  <i class="fas fa-flag fa-2x"></i>
-                  ブックマーク
-                <% end %>
-            </li>
             <li>
                 <%= link_to  destroy_tourist_session_path, method: :delete do %>
                   <i class="fas fa-sign-out-alt fa-2x"></i>

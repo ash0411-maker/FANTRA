@@ -1,93 +1,32 @@
 <div class = "contaienr">
 	<div class = "row">
-		<div class = "col-xs-2">
-			<%= link_to  edit_tourist_tourist_path(current_tourist), class: "btn btn-success btn-lg" do %>
+		<div class = "col-xs-4 col-xs-offset-3">
+			<%= link_to  edit_tourist_tourist_path(current_tourist), class: "btn btn-lg" do %>
 				<i class="fas fa-address-card fa-10x"></i>
 				<h3>個人情報変更</h3>
 			<% end %>
 		</div>
-
-		<div class = "col-xs-8 col-xs-offset-1">
-			<h2>今後の予約一覧</h2>
-			<table class = "table table-bordered">
-				<tr class = "active text-center">
-					<th class = "text-center">内容</th>
-					<th class = "text-center">合計金額</th>
-					<th class = "text-center">ツアー詳細</th>
-					<th class = "text-center">前日からはキャンセルできません</th>
-				</tr>
-				<% @orders.each do |order| %>
-					<% unless order.status == "ツアー終了" %>
-						<tr class = "text-center">
-							<td>
-								<h4><%= order.tour_title %></h4>
-								<h4>¥ <%= number_with_delimiter(order.tour_price) %></h4>
-								<h4><%= order.tour_city %></h4>
-								<h4><%= order.tour_genre %></h4>
-							</td>
-							<td>
-								<h3>¥ <%= number_with_delimiter(order.tour_price) %> × <%= order.total_people %>名</h3>
-								<h3> ＝ ¥ <%= number_with_delimiter(order.price) %></h3>
-							</td>
-							<td><h3><%= link_to "ツアー詳細へ", tourist_tourist_tour_path(current_tourist, order.tour_id), class: "btn btn-default btn-lg" %></h3></td>
-							<td>
-								<% if order.status == "ツアー開始前" %>
-									<h3><%= link_to "キャンセル", tourist_tourist_order_path(current_tourist,order), method: :delete,data: {confirm:'このツアーを本当にキャンセルしてもよろしいですか？キャンセル料が発生する可能性があります。'}, class: "btn btn-danger btn-lg" %></h3>
-								<% else %>
-									<h3>ツアー前日以降はキャセルできません。</h3>
-								<% end %>
-							</td>
-						</tr>
-					<% end %>
-				<% end %>
-			</table>
+		<div class = "col-xs-4">
+			<%= link_to  tourist_tourist_orders_path(current_tourist), class: "btn btn-lg" do %>
+				<i class="far fa-calendar-check fa-10x"></i>
+				<h3>予約一覧</h3>
+			<% end %>
 		</div>
 	</div>
-
-
 	<div class = "row">
-		<div class = "col-xs-8 col-xs-offset-3">
-			<h2>過去の予約</h2>
-			<table class = "table table-bordered">
-				<tr class = "active text-center">
-					<th class = "text-center">内容</th>
-					<th class = "text-center">合計金額</th>
-					<th class = "text-center">ツアー詳細</th>
-					<th class = "text-center">レビュー作成</th>
-				</tr>
-
-
-				<% @orders.each do |order| %>
-					<% if order.status == "ツアー終了" %>
-						<tr class = "text-center">
-							<td>
-								<h4><%= order.tour_title %></h4>
-								<h4>¥ <%= number_with_delimiter(order.tour_price) %></h4>
-								<h4><%= order.tour_city %></h4>
-								<h4><%= order.tour_genre %></h4>
-							</td>
-							<td>
-								<h3>¥ <%= number_with_delimiter(order.tour_price) %> × <%= order.total_people %>名</h3>
-								<h3> ＝ ¥ <%= number_with_delimiter(order.price) %></h3>
-							</td>
-							<td><h3><%= link_to "ツアー詳細へ", tourist_tourist_tour_path(current_tourist, order.tour_id), class: "btn btn-default btn-lg" %></h3></td>
-							<td>
-								<%= form_for(@comment, url: tourist_tourist_tour_comments_path(current_tourist, order.tour_id, tour_id: order.tour_id)) do |f| %>
-									<div>
-										<%= f.text_area :content, class: "review-text-field" %>
-									</div>
-									<div>
-										<%= f.submit "送信", class: "btn btn-success" %>
-									</div>
-								<% end %>
-							</td>
-						</tr>
-					<% end %>
-				<% end %>
-			</table>
+		<div class = "col-xs-4 col-xs-offset-3">
+			<%= link_to tourist_tourist_rooms_path(current_tourist) do %>
+                <i class="far fa-comments fa-10x"></i>
+                <h2>チャット</h2>
+            <% end %>
+		</div>
+		<div class = "col-xs-4">
+			<%= link_to tourist_tourist_book_mark_path(current_tourist) do %>
+                <i class="fas fa-flag fa-10x"></i>
+                <h3>ブックマーク</h3>
+            <% end %>
 		</div>
 	</div>
-
 </div>
 
 

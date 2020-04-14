@@ -1,7 +1,12 @@
 class Tourist::OrdersController < ApplicationController
 
   before_action :authenticate_tourist!
-  before_action :correct_tourist, only: [:new, :confirm, :create, :destroy]
+  before_action :correct_tourist, only: [:new, :confirm, :create, :destroy, :index]
+
+  def index
+    @orders = current_tourist.orders
+    @comment = Comment.new
+  end
 
   def new
   	@tourist = Tourist.find_by(id: params[:tourist_id])
