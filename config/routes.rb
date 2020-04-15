@@ -52,6 +52,10 @@ Rails.application.routes.draw do
 
 	    resources :guides, only: [:show, :edit, :update, :destroy] do
 	    	get 'tourists/delete' => 'guides#delete', as: 'guide_delete'
+	    	get 'orders/new_order' => 'orders#new_order', as: 'new_order'
+	    	get 'orders/around_touring' => 'ordersaround_touring', as: 'around_touring'
+	    	get 'orders/finished_tour' => 'orders#finished_tour', as: 'finished_tour'
+	    	get 'orders/reviewed_tour' => 'orders#reviewed_tour', as: 'reviewed_tour'
 	    	resources :orders, only: [:index, :update]
 	    	resources :rooms, only: [:show, :index, :create] do
 	    		resources :messages, only: [:create]

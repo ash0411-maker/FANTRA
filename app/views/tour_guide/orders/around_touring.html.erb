@@ -1,0 +1,19 @@
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-9">
+			<div>
+				<h3>（<span style= "color: blue">青＝ツアー前日</span>  /  <span style= "color: red">赤＝ツアー当日</span>  /  <span style= "color: green">緑＝ツアー中</span>）</h3>
+				<table class = "table">
+					<%= render 'thead' %>
+					<tbody>
+						<% @orders.each do |order| %>
+							<% if order.status == "ツアー前日" or order.status == "ツアー当日" or order.status == "ツアー中" %>
+								<%= render 'tbody', order: order %>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

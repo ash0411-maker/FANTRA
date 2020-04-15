@@ -19,73 +19,50 @@
 
 			<h1><%= @tourist.name %>さんの情報変更画面</h1>
 			<%= form_for(@tourist, url: tourist_tourist_path(@tourist)) do |f| %>
+				<table class = "table table-bordered">
+
+		        <!-- 氏名 -->
+		          <tr class = "text-center">
+		            <td class = "active">お名前・国籍</td>
+		            <td>
+		              <%= f.label :姓 %><br/><%= f.text_field :family_name %>
+		            </td>
+		            <td>
+		              <%= f.label :名 %><br/><%= f.text_field :name %>
+		            </td>
+		            <td>
+		              <%= f.label :性別 %><br/><%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
+		            </td>
+		          </tr>
+		        <!-- 氏名 -->
 
 
-			<!------- 名前、性別 ------->
-				<div class = "tourist-edit-box">
-					<div class = "row">
-						<div class="field col-xs-3">
-						    <%= f.label :姓 %><br />
-						    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
-					  	</div>
-
-						<div class="field col-xs-3">
-						  <%= f.label :名 %><br />
-						  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-						</div>
-
-						<div class="field col-xs-3">
-							<%= f.label :性別 %><br />
-						  <%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
-						</div>
-					</div>
-				</div>
-			<!------- 名前、性別 ------->
+		        <!-- 住所 -->
+		          <tr class = "text-center">
+		            <td class = "active">生まれ年・国籍・電話番号</td>
+		            <td>
+		              <%= f.label :生まれ年 %>(西暦)<br/><%= f.text_field :birth_year %>年
+		            </td>
+		            <td>
+		              <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
+		            </td>
+		            <td>
+		              <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
+		            </td>
+		          </tr>
+		        <!-- 住所 -->
 
 
-			<!------- 生まれ年、電話番号、メアド ------->
-				<div class = "tourist-edit-box">
-					<div class = "row">
-						<div class="field col-xs-3">
-						  <%= f.label :生まれ年（西暦） %><br />
-						 <%= f.text_field :birth_year, autofocus: true, autocomplete: "birth_year" %>年
-						</div>
+		        <!-- 電話番号、メアド -->
+		          <tr class = "text-center">
+		            <td class = "active">メールアドレス</td>
+		            <td>
+		              <%= f.label :メールアドレス %><br/><%= f.text_field :email %>
+		            </td>
+		          </tr>
+		        <!-- 電話番号、メアド -->
 
-						<div class="field col-xs-3">
-						  <%= f.label :電話番号 %><br />
-						  <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-						</div>
-
-						<div class="field col-xs-3">
-						  <%= f.label :email %><br />
-						  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-						</div>
-					</div>
-				</div>
-			<!------- 生まれ年、電話番号、メアド ------->
-
-
-			<!------- 国籍、郵便番号、住所 ------->
-				<div class = "tourist-edit-box">
-					<div class = "row">
-						<div class="field col-xs-3">
-						  <%= f.label :国籍 %><br />
-						  <%= f.text_field :nationality, autofocus: true, autocomplete: "nationality" %>
-						</div>
-
-						<div class="field col-xs-3">
-						  <%= f.label :郵便番号 %><br />
-						  <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-						</div>
-
-						<div class="field col-xs-3">
-						  <%= f.label :住所 %><br />
-						  <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-						</div>
-					</div>
-				</div>
-			<!------- 国籍、郵便番号、住所 ------->
-
+		        </table>
 
 				<div class = "row">
 					<div class = "col-xs-3">

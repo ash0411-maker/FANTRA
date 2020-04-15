@@ -596,4 +596,11 @@ Welcome to [1mUbuntu 18.04.3 LTS[0m!
 
 Ubuntu 18.04.3 LTS ubuntu-bionic ttyS0
 
-ubuntu-bionic login: 
+ubuntu-bionic login: [52996.200507] Out of memory: Kill process 4007 (ruby2.5) score 163 or sacrifice child
+[52996.340505] Killed process 4049 (convert) total-vm:208700kB, anon-rss:120916kB, file-rss:56kB, shmem-rss:0kB
+[53050.351246] Out of memory: Kill process 4007 (ruby2.5) score 189 or sacrifice child
+[53050.353133] Killed process 4126 (convert) total-vm:208716kB, anon-rss:119336kB, file-rss:0kB, shmem-rss:0kB
+[53078.870363] Out of memory: Kill process 4007 (ruby2.5) score 185 or sacrifice child
+[53078.872598] Killed process 4184 (convert) total-vm:208688kB, anon-rss:116164kB, file-rss:4kB, shmem-rss:0kB
+[62090.927410] Out of memory: Kill process 6005 (ruby2.5) score 149 or sacrifice child
+[62090.931732] Killed process 6028 (convert) total-vm:208700kB, anon-rss:121116kB, file-rss:96kB, shmem-rss:0kB
