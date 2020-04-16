@@ -7,12 +7,14 @@ class TourGuide::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
+      flash[:notice] = "予約ステータスを更新しました"
       redirect_to tour_guide_guide_orders_path(current_guide)
     end
   end
 
   def index
     @orders = current_guide.orders
+    @todays_orders = current_guide.orders.where(created_at: Time.zone.now.all_day)
     guide_total_sales = []
     @orders.each do |order|
       guide_total_sales << order.guide_sales

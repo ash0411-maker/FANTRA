@@ -1,6 +1,10 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-xs-10">
+      <h1>新規登録画面</h1>
+      <div class = "tourist-registration-warning">
+        <h2>※全て入力必須です</h2>
+      </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <table class = "table table-bordered">

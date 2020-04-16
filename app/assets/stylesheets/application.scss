@@ -37,6 +37,7 @@ header {
 
 li{
 	list-style: none;
+	margin-top: 5px;
 }
 
 nav ul{
@@ -105,6 +106,11 @@ nav li a{
 }
 
 
+.guide-introduction-area {
+	width: 100%;
+}
+
+
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
@@ -116,4 +122,11 @@ nav li a{
 .pagination>.active>a {
   background: #93c9ff;
   border-radius: 15px;
+}
+
+
+.tourist-registration-warning{
+	background-color: red;
+	color: white;
+	width: 30%;
 }

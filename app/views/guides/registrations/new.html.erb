@@ -2,6 +2,9 @@
   <div class = "row">
     <div class = "col-xs-11">
       <h2>ツアーガイド新規登録</h2>
+      <div class = "tourist-registration-warning">
+        <h2>※全て入力必須です</h2>
+      </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <table class = "table table-bordered">
@@ -77,12 +80,16 @@
           </tr>
         <!-- 国籍・身分証明書 -->
         </table>
-        <div class =  "panel panel-default">
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-9">
+      <div class =  "panel panel-default">
           <div class="panel-heading text-center">
             <h3 class="panel-title">自己紹介(250文字以内)</h3>
           </div>
           <div class = "panel-body" >
-            <%= f.text_area :introduction, class: "guide-introduction-area" %>
+            <%= f.text_area :introduction, class: "guide-introduction-area", placeholder: "この文字量で250文字です。この本と出会ったきっかけは日本の純文学の本を買いあさっていてこの赤表紙に心惹かれました。この赤の切ない日本の和風の絵にすぐに買ってしまいました。そこでこの本を読むことになりますが、結構昔の生活の様子が書かれていて時代背景も学べて面白いです。純文学に心惹かれる自分がすごくいて、23才くらいにすごく大人の雰囲気を学ぶチャンスがあるなと思い、本を通じて自分の中のインスピレーションを養うではないですが、ここで文学の奥深さや凄さを身近に感じることが出来ました。その中でもこの本は" %>
           </div>
         </div>
         <div class="actions">

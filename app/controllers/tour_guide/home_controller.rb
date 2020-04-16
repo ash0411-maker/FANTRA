@@ -3,7 +3,7 @@ class TourGuide::HomeController < ApplicationController
   before_action :authenticate_guide!, only: [:top]
 
   def top
-  	@orders = current_guide.orders
+  	@orders = current_guide.orders.where(created_at: Time.zone.now.all_day)
   end
 
   def about
@@ -17,5 +17,6 @@ class TourGuide::HomeController < ApplicationController
   end
 
 end
+
 
 

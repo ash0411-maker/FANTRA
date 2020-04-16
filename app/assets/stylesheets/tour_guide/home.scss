@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.guide_signin_text {
+	color: blue;
+}
+
 .about-first-wrapper {
 	background-color: black;
 }
 
 #theTarget {
-	height: 400px;
-	margin-top: -90;
+	height: 480px;
 }
 
 .img1 {
@@ -49,6 +52,24 @@
 
 .img7 {
 	background-image: image-url("thai.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img8 {
+	background-image: image-url("rocky.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img9 {
+	background-image: image-url("cuba.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+.img10 {
+	background-image: image-url("rocky2.jpeg");
 	background-size: cover;
 	background-position: center;
 }

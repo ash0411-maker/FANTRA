@@ -1,11 +1,12 @@
 <div class = "container">
 	<div class = "row">
 		<div class = "col-xs-8 col-xs-offset-2">
+			<h1 class = "guide_signin_text"><%= flash[:notice] %></h1>
 			<div>
 				<h1>
-					今日に入った予約件数は
+					本日に入った予約件数は
 					<%= link_to tour_guide_guide_orders_path(current_guide) do %>
-						<%= current_guide.orders.where(created_at: Time.zone.now.all_day).count %>件です
+						<%= @orders.count %>件です
 					<% end %>
 				</h1>
 			</div>

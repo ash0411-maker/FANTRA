@@ -23,6 +23,11 @@
 .tour-photo-submit {
 	margin-top: 40px;
 }
+
+.meetingpoint_introduction_text_area {
+	height: 180px;
+	width: 100%;
+}
 // ------------ ツアー新規投稿 ------------ 
 
 
@@ -120,7 +125,7 @@
 }
 
 .guide-body-text{
-	line-height: 40px;
+	line-height: 50px;
 }
 
 .guide-tour-guide-introduction{
@@ -130,10 +135,6 @@
 //------------- ツアー詳細 ------------------
 
 
-
-.tour-body{
-	line-height: 50px;
-}
 
 
 
@@ -146,5 +147,11 @@
 
 .remove-photo-btn{
 	margin-top: 10px;
+}
+
+.guide-tour-body-text {
+	line-height: 30px;
+	width: 100%;
+	height: 300px;
 }
 // ツアー編集

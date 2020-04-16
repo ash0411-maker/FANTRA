@@ -41,7 +41,7 @@
 									<% if order.status == "ツアー開始前" %>
 										<h3><%= link_to "キャンセル", tourist_tourist_order_path(current_tourist,order), method: :delete,data: {confirm:'このツアーを本当にキャンセルしてもよろしいですか？キャンセル料が発生する可能性があります。'}, class: "btn btn-danger btn-lg" %></h3>
 									<% else %>
-										<h3>ツアー前日以降はキャセルできません。</h3>
+										<h3>ツアー前日以降ですので、<br/>キャセルできません。</h3>
 									<% end %>
 								</td>
 							</tr>

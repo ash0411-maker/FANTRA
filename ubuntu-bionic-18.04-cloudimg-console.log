@@ -604,3 +604,5 @@ ubuntu-bionic login: [52996.200507] Out of memory: Kill process 4007 (ruby2.5) s
 [53078.872598] Killed process 4184 (convert) total-vm:208688kB, anon-rss:116164kB, file-rss:4kB, shmem-rss:0kB
 [62090.927410] Out of memory: Kill process 6005 (ruby2.5) score 149 or sacrifice child
 [62090.931732] Killed process 6028 (convert) total-vm:208700kB, anon-rss:121116kB, file-rss:96kB, shmem-rss:0kB
+[78007.677558] Out of memory: Kill process 6874 (ruby2.5) score 158 or sacrifice child
+[78007.691245] Killed process 6986 (convert) total-vm:208716kB, anon-rss:130336kB, file-rss:68kB, shmem-rss:0kB
