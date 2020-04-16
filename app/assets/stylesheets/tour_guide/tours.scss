@@ -40,8 +40,18 @@
 	height: 600px;
 	background-color: black;
 	color: white;
+	position: relative;
 }
 
+.guide_book_marks {
+	position: absolute;
+	right: 60px;
+	top: 80px;
+}
+
+.guide_book_marks_numbers {
+	font-size: 50px;
+}
 
 // ----- ツアー写真 -----
 .tour-image-wrapper {

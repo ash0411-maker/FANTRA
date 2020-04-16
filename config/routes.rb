@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
 	  #管理者以外のログインアウト後
 	  root to: 'tour_guide/home#about'
 	  get 'tour_guide/window' => 'tour_guide/home#window', as: 'home_window'
@@ -56,6 +57,7 @@ Rails.application.routes.draw do
 	    	get 'orders/around_touring' => 'ordersaround_touring', as: 'around_touring'
 	    	get 'orders/finished_tour' => 'orders#finished_tour', as: 'finished_tour'
 	    	get 'orders/reviewed_tour' => 'orders#reviewed_tour', as: 'reviewed_tour'
+	    	resources :notifications, only: [:index]
 	    	resources :orders, only: [:index, :update]
 	    	resources :rooms, only: [:show, :index, :create] do
 	    		resources :messages, only: [:create]

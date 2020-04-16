@@ -111,6 +111,12 @@
               <% end %>
             </li>
             <li>
+              <%= link_to tour_guide_guide_notifications_path(current_guide) do %>
+                <i class="far fa-bell fa-2x"></i>
+                通知
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_guide_session_path, method: :delete do %>
                 <i class="fas fa-sign-out-alt fa-2x"></i>
                 ログアウト
@@ -156,8 +162,18 @@
       </nav>
     </header>
     <%= yield %>
+
+<!----- footer ----->
     <footer>
-      <p>お問い合わせ</p>
+      <div class = "container">
+        <div class = "row">
+          <div class = "col-xs-4 col-xs-offset-1">
+            <p>お問い合わせ</p>
+          </div>
+        </div>
+      </div>
     </footer>
+<!----- footer ----->
+
   </body>
 </html>

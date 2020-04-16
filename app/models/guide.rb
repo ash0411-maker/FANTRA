@@ -11,6 +11,7 @@ class Guide < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :rooms, dependent: :destroy
   has_many :tours, dependent: :destroy
+  has_many :notifications, foreign_key: 'visited_id', dependent: :destroy
 
 
   validates :name, presence: true

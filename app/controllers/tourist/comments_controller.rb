@@ -10,6 +10,7 @@ class Tourist::CommentsController < ApplicationController
 		if comment.save
 			order = Order.find(params[:order_id])
 			order.update(status: "レビュー済み")
+			@tour.create_notification_comment!(current_tourist, comment.id)
 			redirect_to tourist_tourist_tour_path(current_tourist, @tour)
 		else
 			flash[:notice] = "レビューコメントを入力してください"

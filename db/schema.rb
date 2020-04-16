@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_105917) do
+ActiveRecord::Schema.define(version: 2020_04_16_131844) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -89,13 +89,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_105917) do
     t.index ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
   end
 
-  create_table "inquiries", force: :cascade do |t|
-    t.string "name"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.integer "room_id"
     t.boolean "is_tourist"
@@ -103,6 +96,19 @@ ActiveRecord::Schema.define(version: 2020_04_12_105917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "tour_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tourist_id"
+    t.integer "guide_id"
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["tour_id"], name: "index_notifications_on_tour_id"
   end
 
   create_table "orders", force: :cascade do |t|
