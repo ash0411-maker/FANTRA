@@ -12,7 +12,7 @@ class Tourist < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :notifications, foreign_key: 'visitor_id', dependent: :destroy
+  has_many :notifications, foreign_key: 'tourist_id', dependent: :destroy
 
 
 

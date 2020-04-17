@@ -38,24 +38,24 @@ class Tour < ApplicationRecord
 
 
 
-  # 通知機能
-  def create_notification_like!(current_tourist)
-    # すでに「ブックマーク」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and tour_id = ? and action = ? ", current_tourist.id, guide_id, id, 'like'])
-    # ブックマークされていない場合のみ、通知レコードを作成
-    if temp.blank?
-      notification = current_tourist.active_notifications.new(
-        post_id: id,
-        visited_id: guide_id,
-        action: 'like'
-      )
-      # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
-    end
-  end
+  # # 通知機能
+  # def create_notification_like!(current_tourist)
+  #   # すでに「ブックマーク」されているか検索
+  #   temp = Notification.where(["visitor_id = ? and visited_id = ? and tour_id = ? and action = ? ", current_tourist.id, guide_id, id, 'like'])
+  #   # ブックマークされていない場合のみ、通知レコードを作成
+  #   if temp.blank?
+  #     notification = current_tourist.new(
+  #       post_id: id,
+  #       visited_id: guide_id,
+  #       action: 'like'
+  #     )
+  #     # 自分の投稿に対するいいねの場合は、通知済みとする
+  #     if notification.visitor_id == notification.visited_id
+  #       notification.checked = true
+  #     end
+  #     notification.save if notification.valid?
+  #   end
+  # end
 
 
 

@@ -1,5 +1,5 @@
 <div class = "row">
-	<div class = "col-xs-10">
+	<div class = "col-xs-9">
 		<table class = "table table-bordered">
 			<tr class = "text-center">
 				<td>
@@ -60,16 +60,14 @@
 				</tr>
 			</tbody>
 		</table>
-	</div><div class = "form_field col-xs-2">
+	</div><div class = "form_field col-xs-3">
     	<div id = "tour_photos">
-        	<div class = "col-xs-8">
-			    <%= f.fields_for :tour_photos do |tour_photo| %>
-			   		<%= f.label "ツアー写真(５枚選んでください)" %>
-			    	<%= render 'tour_photo_fields', f: tour_photo %>
-			    <% end %>
-			    <div id = "links">
-			    	<%= link_to_add_association '写真を追加',f, :tour_photos, class: "btn btn-info add-photo-btn" %>
-			    </div>
+			<%= f.fields_for :tour_photos do |tour_photo| %>
+				<%= f.label "ツアー写真(５枚選んでください)" %>
+				<%= render 'tour_photo_fields', f: tour_photo %>
+			<% end %>
+			<div id = "links">
+				<%= link_to_add_association '写真を追加',f, :tour_photos, class: "btn btn-info add-photo-btn" %>
 			</div>
 		</div>
 	</div>

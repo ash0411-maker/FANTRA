@@ -5,7 +5,30 @@
 				<h1>通知はありません</h1>
 			<% else %>
 				<h1>通知一覧</h1>
-				<%= render 'notifications', notifications: @notifications %>
+				<% @notifications.each do |notice| %>
+					<div class = "notice_box">
+						<h4></h4>
+						<% case notice.action %>
+							<% when 'book_mark' then %>
+								<h4>
+									<strong><%= notice.tourist.name %></strong>さんが
+									<%= link_to tour_guide_guide_tour_path(current_guide, notice.tour) do  %>
+										<%= notice.tour.title %>
+									<% end %>
+									をブックマークしました。
+								</h4>
+							<% when 'comment' then %>
+								<h4>
+									<strong><%= notice.tourist.name %></strong>さんが
+									<%= link_to tour_guide_guide_tour_path(current_guide, notice.tour) do  %>
+										<%= notice.tour.title %>
+									<% end %>
+									にレビューを書きました。
+								</h4>
+						<% end %>
+						<span><%= time_ago_in_words(notice.created_at) %> ago</span>
+					</div>
+				<% end %>
 				<%= paginate @notifications, class: "paginate" %>
 			<% end %>
 		</div>

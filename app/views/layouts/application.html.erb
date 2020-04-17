@@ -13,12 +13,12 @@
     <header>
       <nav>
 
-      <!-- 管理者ロゴ -->
+      <!----- 管理者ロゴ ----->
         <% if admin_signed_in? %>
           <%= link_to "FANTRA", admin_home_top_path, class: "logo" %>
 
 
-      <!-- ツアーガイドロゴ -->
+      <!----- ツアーガイドロゴ ----->
         <% elsif guide_signed_in? %>
           <%= link_to "FANTRA", tour_guide_top_path, class: "logo" %>
           <span class = "guide-my-page-link">
@@ -31,7 +31,7 @@
           </span>
 
 
-      <!-- 観光客ロゴ -->
+      <!----- 観光客ロゴ ----->
         <% elsif tourist_signed_in? %>
           <%= link_to "FANTRA", tourist_tourist_tours_path(current_tourist), class: "logo" %>
           <%= link_to tourist_tourist_path(current_tourist) do %>
@@ -40,24 +40,24 @@
               <%= current_tourist.name %>さんのマイページ
             </span>
           <% end %>
-      <!-- 検索 -->
+      <!----- 検索 ----->
           <span class = "header-city-search">
             <%= form_tag(tourist_search_search_path, method: :get) do %>
               <%= text_field_tag 'search[content]' %>
               <%= button_tag '<i class="fa fa-search"></i>都市検索'.html_safe, :type => "submit",:class =>"btn btn-default" %>
             <% end %>
           </span>
-      <!-- 検索 -->
+      <!----- 検索 ----->
 
 
-      <!-- ログイン前ロゴ -->
+      <!----- ログイン前ロゴ ----->
         <% else %>
           <%= link_to "FANTRA", root_path, class: "logo" %>
         <% end %>
 
 
 
-      <!-- 管理者ログイン時 -->
+      <!----- 管理者ログイン時 ----->
         <% if admin_signed_in? %>
           <ul>
             <li>
@@ -79,11 +79,11 @@
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li>
           </ul>
-      <!-- 管理者ログイン時 -->
+      <!----- 管理者ログイン時 ----->
 
 
 
-      <!-- ガイドログイン時 -->
+      <!----- ガイドログイン時 ----->
         <% elsif guide_signed_in? %>
           <ul>
             <li>
@@ -112,7 +112,16 @@
             </li>
             <li>
               <%= link_to tour_guide_guide_notifications_path(current_guide) do %>
-                <i class="far fa-bell fa-2x"></i>
+                <% if unchecked_notifications.any? %>
+                  <span class = "bell">
+                    <i class="far fa-bell fa-2x"></i>
+                      <span class = "circle">
+                        <i class="fas fa-circle" style = "color: orange;"></i>
+                      </span>
+                  </span>
+                <% else %>
+                  <i class="far fa-bell fa-2x"></i>
+                <% end %>
                 通知
               <% end %>
             </li>
@@ -123,10 +132,10 @@
               <% end %>
             </li>
           </ul>
-      <!-- ガイドログイン時 -->
+      <!----- ガイドログイン時 ----->
 
 
-      <!-- 観光客ログイン時 -->
+      <!----- 観光客ログイン時 ----->
         <% elsif tourist_signed_in? %>
           <ul>
             <li>
@@ -136,11 +145,11 @@
                 <% end %>
             </li>
           </ul>
-      <!-- 観光客ログイン時 -->
+      <!----- 観光客ログイン時 ----->
 
 
 
-      <!-- ログアウト時 -->
+      <!----- ログアウト時 ----->
         <% else %>
           <ul>
             <li>
@@ -157,7 +166,7 @@
             </li>
           </ul>
         <% end %>
-      <!-- ログアウト時 -->
+      <!----- ログアウト時 ----->
 
       </nav>
     </header>

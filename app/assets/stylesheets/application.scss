@@ -102,6 +102,17 @@ nav li a{
 	margin-left: 10px;
 }
 
+// ツアーガイドの通知サイン
+.bell {
+	position: relative;
+}
+
+.circle {
+	position: absolute;
+	left: 18px;
+	bottom: -30px;
+}
+
 // 検索
 .header-city-search {
 	height: 40px;
