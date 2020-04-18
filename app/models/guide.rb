@@ -12,6 +12,8 @@ class Guide < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :tours, dependent: :destroy
   has_many :notifications, foreign_key: 'guide_id', dependent: :destroy
+  has_many :guide_active_notices, class_name: 'ChatNotice', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :guide_passive_notices, class_name: 'ChatNotice', foreign_key: 'visited_id', dependent: :destroy
 
 
   validates :name, presence: true

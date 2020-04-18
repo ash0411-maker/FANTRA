@@ -20,11 +20,12 @@
 <% else %>
 	<div class = "container">
 		<div class = "row">
-			<div class = "col-xs-8 col-xs-offset-1">
+			<div class = "col-xs-9">
 				<h2>チャット一覧</h2>
 				<table class = "table">
 					<thead>
 						<tr class = "active">
+							<th></th>
 							<th class = "text-center">チャット相手</th>
 							<th class = "text-center">チャット件数</th>
 							<th class = "text-center">最新メッセージ</th>
@@ -34,18 +35,41 @@
 					<tbody>
 						<% @rooms.each do |room| %>
 							<tr class = "text-center">
-								<td><%= room.tourist.family_name %> <%= room.tourist.name %></td>
-								<td><%= room.messages.count %>件</td>
+							<!------ 未読がある場合に表示するオレンジボール ------>
+								<td>
+									<% room.messages.each do |message| %>
+										<% if message.is_tourist == true %>
+											<% message.chat_notices.each do |notice| %>
+												<% if notice.checked == false %>
+									            		<i class="fas fa-circle" style = "color: orange;"></i>
+									          	<% end %>
+									        <% end %>
+						        	    <% end %>
+					                <% end %>
+					            </td>
+					        <!------ 未読がある場合に表示するオレンジボール ------>
+
+								<td>
+									<%= room.tourist.family_name %> <%= room.tourist.name %>
+								</td>
+
+								<td>
+									<%= room.messages.count %>件
+								</td>
 
 								<% messages = [] %>
 								<% room.messages.each do |message| %>
 									<% messages << message.content %>
 								<% end %>
 								<% message =  messages[-1] %>
-								<td><%= message.present? ?  message[0..10] << "..." : "" %></td>
-
-								<td><%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %>
+								<td>
+									<%= message.present? ?  message[0..10] << "..." : "" %>
 								</td>
+
+								<td>
+									<%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %>
+								</td>
+
 							</tr>
 						<% end %>
 					</tbody>

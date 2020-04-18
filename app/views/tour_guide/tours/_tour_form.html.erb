@@ -15,7 +15,7 @@
 	  				<%= f.collection_select :city_id, City.all, :id, :name, :prompt => "--都市名--" %>
 	  			</td>
 	  			<td>
-	  				<%= f.label :すぐツアーの公開をしますか？ %><br/>
+	  				<%= f.label :ツアーを公開をしますか？ %><br/>
     	  			<%= f.select :is_active,[["はい", "true"], ["いいえ", "false"]]  %>
 	  			</td>
 			</tr>

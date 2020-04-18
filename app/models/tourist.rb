@@ -13,6 +13,8 @@ class Tourist < ApplicationRecord
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, foreign_key: 'tourist_id', dependent: :destroy
+  has_many :tourist_active_notices, class_name: 'ChatNotice', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :tourist_passive_notices, class_name: 'ChatNotice', foreign_key: 'visited_id', dependent: :destroy
 
 
 
@@ -24,4 +26,5 @@ class Tourist < ApplicationRecord
 	validates :sex, presence: true
 	validates :postal_code, presence: true
 	validates :address, presence: true
+
 end

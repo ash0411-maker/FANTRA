@@ -106,7 +106,16 @@
             </li>
             <li>
               <%= link_to tour_guide_guide_rooms_path(current_guide) do %>
-                <i class="far fa-comment fa-2x"></i>
+                <% if unchecked_guide_chat_notices.any? %>
+                  <span class = "bell">
+                    <i class="far fa-comment fa-2x"></i>
+                    <span class = "circle">
+                      <i class="fas fa-circle" style = "color: orange;"></i>
+                    </span>
+                  </span>
+                <% else %>
+                  <i class="far fa-comment fa-2x"></i>
+                <% end %>
                 チャット
               <% end %>
             </li>
@@ -115,9 +124,9 @@
                 <% if unchecked_notifications.any? %>
                   <span class = "bell">
                     <i class="far fa-bell fa-2x"></i>
-                      <span class = "circle">
-                        <i class="fas fa-circle" style = "color: orange;"></i>
-                      </span>
+                    <span class = "circle">
+                      <i class="fas fa-circle" style = "color: orange;"></i>
+                    </span>
                   </span>
                 <% else %>
                   <i class="far fa-bell fa-2x"></i>
@@ -138,6 +147,21 @@
       <!----- 観光客ログイン時 ----->
         <% elsif tourist_signed_in? %>
           <ul>
+            <li>
+              <%= link_to tourist_tourist_chat_notices_path(current_tourist) do %>
+                <% if unchecked_tourist_chat_notices.any? %>
+                  <span class = "bell">
+                    <i class="far fa-bell fa-2x"></i>
+                      <span class = "circle">
+                        <i class="fas fa-circle" style = "color: orange;"></i>
+                      </span>
+                  </span>
+                <% else %>
+                  <i class="far fa-bell fa-2x"></i>
+                <% end %>
+                通知
+              <% end %>
+            </li>
             <li>
                 <%= link_to  destroy_tourist_session_path, method: :delete do %>
                   <i class="fas fa-sign-out-alt fa-2x"></i>

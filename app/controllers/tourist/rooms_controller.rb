@@ -13,11 +13,24 @@ class Tourist::RoomsController < ApplicationController
   	@room = Room.find(params[:id]) #ルーム情報の取得
     @message = Message.new #新規メッセージ投稿
     @messages = @room.messages #このルームのメッセージを全て取得
+
+  # ------ チャット通知機能 -----
+    @messages.each do |message|
+      if message.is_tourist == false
+        message.chat_notices.each do |chat_notice|
+          chat_notice.update_attributes(checked: true)
+        end
+      end
+    end
+  # ------ チャット通知機能 -----
+
+
     if @room.tourist.id == current_tourist.id
       @guide = @room.guide.name
     else
       redirect_to tourist_tourist_path(current_tourist)
     end
+
   end
 
 
