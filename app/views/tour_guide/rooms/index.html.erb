@@ -41,7 +41,7 @@
 										<% if message.is_tourist == true %>
 											<% message.chat_notices.each do |notice| %>
 												<% if notice.checked == false %>
-									            		<i class="fas fa-circle" style = "color: orange;"></i>
+									            	<i class="fas fa-circle" style = "color: orange;"></i>
 									          	<% end %>
 									        <% end %>
 						        	    <% end %>
@@ -57,6 +57,7 @@
 									<%= room.messages.count %>件
 								</td>
 
+							<!------ 先頭の11文字を表示させる ------>
 								<% messages = [] %>
 								<% room.messages.each do |message| %>
 									<% messages << message.content %>
@@ -65,6 +66,7 @@
 								<td>
 									<%= message.present? ?  message[0..10] << "..." : "" %>
 								</td>
+							<!------ 先頭の11文字を表示させる ------>
 
 								<td>
 									<%= link_to "メッセージ確認", tour_guide_guide_room_path(current_guide, room), class: "btn btn-default" %>

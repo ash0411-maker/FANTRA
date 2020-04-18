@@ -41,7 +41,11 @@
 		<div class = "contaienr">
 			<div class = "row">
 				<div class = "col-xs-3 col-xs-offset-9">
+					<div class = "btn-to-rooms">
+						<%= link_to "チャット一覧へ戻る", tour_guide_guide_rooms_path(current_guide), class: "btn btn-warning" %>
+					</div>
 					<div class = "message-form">
+
 						<%= form_for [@room, @message], url: tour_guide_guide_room_messages_path(current_guide, @room) do |f| %>
 							<%= f.text_field :content %>
 						 	<%= f.submit "メッセージを送る", class: "btn btn-success"%>
