@@ -23,7 +23,7 @@ class Guide < ApplicationRecord
   validates :identification_image, presence: true
   validates :selfy_image, presence: true
   validates :phone_number, presence: true
-  validates :introduction, presence: true, length: { maximum: 250 }
+  validates :introduction, length: { maximum: 250 }
 
 end
 
