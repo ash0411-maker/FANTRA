@@ -16,10 +16,20 @@
 	<div class = "row">
 		<div class = "col-xs-4 col-xs-offset-3">
 			<%= link_to tourist_tourist_rooms_path(current_tourist) do %>
-                <i class="far fa-comments fa-10x"></i>
-                <h2>チャット</h2>
-            <% end %>
-		</div>
+				<% if unchecked_tourist_chat_notices.any? %>
+		          <span class = "tourist-chats-mark">
+		            <i class="far fa-comments fa-10x"></i>
+		            <h2>チャット</h2>
+		              <span class = "tourist-chats-mark-circle">
+		                <i class="fas fa-circle fa-3x" style = "color: orange;"></i>
+		              </span>
+		          </span>
+		        <% else %>
+		        	<i class="far fa-comments fa-10x"></i>
+		        	<h2>チャット</h2>
+		        <% end %>
+		    <% end %>
+	    </div>
 		<div class = "col-xs-4">
 			<%= link_to tourist_tourist_book_mark_path(current_tourist) do %>
                 <i class="fas fa-flag fa-10x"></i>

@@ -47,6 +47,17 @@
 	padding: 25px;
 }
 
+// チャットマーク
+.tourist-chats-mark {
+	position: relative;
+}
+
+.tourist-chats-mark-circle {
+	position: absolute;
+	top: 1px;
+	left: 120px;
+}
+
 
 //レビューのエラーフラッシュメッセージ
 .review-flash-messages {

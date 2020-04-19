@@ -8,6 +8,17 @@ end
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # @chat_notices = []
 # chat_notices.each do |notice|
 # 	if notice.message.is_tourist == false
@@ -15,9 +26,6 @@ end
 # 	end
 # end
 # @chat_notices.page(params[:page]).per(20)
-
-
-
 
 
 # @chat_notices = current_tourist.tourist_passive_notices.page(params[:page]).per(20)

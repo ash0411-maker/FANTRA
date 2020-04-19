@@ -1,5 +1,6 @@
 class ChatNotice < ApplicationRecord
 
+	# default_scope デフォルトの並び順を「作成日時の降順」で指定
 	default_scope -> { order(created_at: :desc) }
 	belongs_to :message, optional: true
 	belongs_to :room, optional: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_083736) do
+ActiveRecord::Schema.define(version: 2020_04_19_041627) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 2020_04_17_083736) do
     t.datetime "updated_at", null: false
     t.index ["tour_id"], name: "index_commments_on_tour_id"
     t.index ["tourist_id"], name: "index_commments_on_tourist_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.text "message"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'contacts/index'
+    get 'contacts/show'
+  end
+	# mailer
+	resources :contacts, only: [:new, :create]
 
 
-
-	  #管理者以外のログインアウト後
-	  root to: 'tour_guide/home#about'
-	  get 'tour_guide/window' => 'tour_guide/home#window', as: 'home_window'
+	#管理者以外のログインアウト後
+	root to: 'tour_guide/home#about'
+	get 'tour_guide/window' => 'tour_guide/home#window', as: 'home_window'
 
 
 
