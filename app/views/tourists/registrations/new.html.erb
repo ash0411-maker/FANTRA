@@ -11,7 +11,7 @@
 
           <!-- 氏名 -->
             <tr class = "text-center">
-              <td class = "active">お名前・国籍</td>
+              <td class = "active">お名前・国籍・生まれ年</td>
               <td>
                 <%= f.label :姓 %><br/><%= f.text_field :family_name %>
               </td>
@@ -21,27 +21,33 @@
               <td>
                 <%= f.label :性別 %><br/><%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
               </td>
+              <td>
+                <%= f.label :生まれ年 %>(西暦)<br/><%= f.text_field :birth_year %>年
+              </td>
             </tr>
           <!-- 氏名 -->
 
 
           <!-- 住所 -->
             <tr class = "text-center">
-              <td class = "active">生まれ年・国籍・電話番号</td>
-              <td>
-                <%= f.label :生まれ年 %>(西暦)<br/><%= f.text_field :birth_year %>年
-              </td>
+              <td class = "active">国籍・電話番号・住所</td>
               <td>
                 <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
               </td>
               <td>
                 <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
               </td>
+              <td>
+                <%= f.label :郵便番号 %><br/><%= f.text_field :postal_code %>
+              </td>
+              <td>
+                <%= f.label :住所 %><br/><%= f.text_field :address %>
+              </td>
             </tr>
           <!-- 住所 -->
 
 
-          <!-- 電話番号、メアド -->
+          <!-- パスワード -->
             <tr class = "text-center">
               <td class = "active">メールアドレス・パスワード</td>
               <td>
@@ -59,7 +65,9 @@
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </td>
             </tr>
-          <!-- 電話番号、メアド -->
+          <!-- パスワード -->
+
+
 
           </table>
           <div class="actions">

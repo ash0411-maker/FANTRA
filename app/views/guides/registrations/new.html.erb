@@ -1,105 +1,106 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col-xs-11">
-      <h2>ツアーガイド新規登録</h2>
-      <div class = "tourist-registration-warning">
-        <h2>※全て入力必須です</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-xs-11">
+        <h2>ツアーガイド新規登録</h2>
+        <div class = "tourist-registration-warning">
+          <h2>※全て入力必須です</h2>
+        </div>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <table class = "table table-bordered">
+  
+          <!-- 氏名 -->
+            <tr class = "text-center">
+              <td class = "active">お名前</td>
+              <td>
+                <%= f.label :姓 %><br/><%= f.text_field :family_name %>
+              </td>
+              <td>
+                <%= f.label :名 %><br/><%= f.text_field :name %>
+              </td>
+              <td>
+                <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
+              </td>
+            </tr>
+          <!-- 氏名 -->
+  
+          <!-- 住所 -->
+            <tr class = "text-center">
+              <td class = "active">住所</td>
+              <td>
+                <%= f.label :郵便番号 %><br/><%= f.text_field :postal_code %>
+              </td>
+              <td>
+                <%= f.label :住所 %><br/><%= f.text_field :address %>
+              </td>
+            </tr>
+          <!-- 住所 -->
+  
+  
+          <!-- 電話番号、メアド -->
+            <tr class = "text-center">
+              <td class = "active">住所</td>
+              <td>
+                <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
+              </td>
+              <td>
+                <%= f.label :メールアドレス %><br/><%= f.text_field :email %>
+              </td>
+            </tr>
+          <!-- 電話番号、メアド -->
+  
+  
+  
+          <!-- 国籍・身分証明書 -->
+            <tr class = "text-center">
+              <td class = "active">プロフィール写真。身分証明書</td>
+              <td>
+                <%= f.label :あなたが写っている写真 %><br/><%= f.attachment_field :selfy_image %>
+              </td>
+              <td>
+                <%= f.label :身分証明書 %><br/><%= f.attachment_field :identification_image %>
+              </td>
+            </tr>
+          <!-- 国籍・身分証明書 -->
+  
+          <!-- 国籍・身分証明書 -->
+            <tr class = "text-center">
+              <td class = "active">プロフィール写真。身分証明書</td>
+              <td>
+                <%= f.label :パスワード %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>文字以上)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
+              </td>
+              <td>
+                <%= f.label :パスワード確認 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </td>
+            </tr>
+          <!-- 国籍・身分証明書 -->
+          </table>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <table class = "table table-bordered">
-
-        <!-- 氏名 -->
-          <tr class = "text-center">
-            <td class = "active">お名前</td>
-            <td>
-              <%= f.label :姓 %><br/><%= f.text_field :family_name %>
-            </td>
-            <td>
-              <%= f.label :名 %><br/><%= f.text_field :name %>
-            </td>
-            <td>
-              <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
-            </td>
-          </tr>
-        <!-- 氏名 -->
-
-        <!-- 住所 -->
-          <tr class = "text-center">
-            <td class = "active">住所</td>
-            <td>
-              <%= f.label :郵便番号 %><br/><%= f.text_field :postal_code %>
-            </td>
-            <td>
-              <%= f.label :住所 %><br/><%= f.text_field :address %>
-            </td>
-          </tr>
-        <!-- 住所 -->
-
-
-        <!-- 電話番号、メアド -->
-          <tr class = "text-center">
-            <td class = "active">住所</td>
-            <td>
-              <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
-            </td>
-            <td>
-              <%= f.label :メールアドレス %><br/><%= f.text_field :email %>
-            </td>
-          </tr>
-        <!-- 電話番号、メアド -->
-
-
-
-        <!-- 国籍・身分証明書 -->
-          <tr class = "text-center">
-            <td class = "active">プロフィール写真。身分証明書</td>
-            <td>
-              <%= f.label :あなたが写っている写真 %><br/><%= f.attachment_field :selfy_image %>
-            </td>
-            <td>
-              <%= f.label :身分証明書 %><br/><%= f.attachment_field :identification_image %>
-            </td>
-          </tr>
-        <!-- 国籍・身分証明書 -->
-
-        <!-- 国籍・身分証明書 -->
-          <tr class = "text-center">
-            <td class = "active">プロフィール写真。身分証明書</td>
-            <td>
-              <%= f.label :パスワード %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>文字以上)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
-            </td>
-            <td>
-              <%= f.label :パスワード確認 %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </td>
-          </tr>
-        <!-- 国籍・身分証明書 -->
-        </table>
+    </div>
+    <div class = "row">
+      <div class = "col-xs-9">
+        <div class =  "panel panel-default">
+            <div class="panel-heading text-center">
+              <h3 class="panel-title">自己紹介(250文字以内)</h3>
+            </div>
+            <div class = "panel-body" >
+              <%= f.text_area :introduction, class: "guide-introduction-area", placeholder: "この文字量で250文字です。この本と出会ったきっかけは日本  の純文学の本を買いあさっていてこの赤表紙に心惹かれました。この赤の切ない日本の和風の絵にすぐに買ってしまいました。そこでこの本を読むことになりますが  、結構昔の生活の様子が書かれていて時代背景も学べて面白いです。純文学に心惹かれる自分がすごくいて、23才くらいにすごく大人の雰囲気を学ぶチャンスがある なと思い、本を通じて自分の中のインスピレーションを養うではないですが、ここで文学の奥深さや凄さを身近に感じることが出来ました。その中でもこの本は" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
+          </div>
+          <%= render "guides/shared/links" %>
+      </div>
     </div>
   </div>
-  <div class = "row">
-    <div class = "col-xs-9">
-      <div class =  "panel panel-default">
-          <div class="panel-heading text-center">
-            <h3 class="panel-title">自己紹介(250文字以内)</h3>
-          </div>
-          <div class = "panel-body" >
-            <%= f.text_area :introduction, class: "guide-introduction-area", placeholder: "この文字量で250文字です。この本と出会ったきっかけは日本の純文学の本を買いあさっていてこの赤表紙に心惹かれました。この赤の切ない日本の和風の絵にすぐに買ってしまいました。そこでこの本を読むことになりますが、結構昔の生活の様子が書かれていて時代背景も学べて面白いです。純文学に心惹かれる自分がすごくいて、23才くらいにすごく大人の雰囲気を学ぶチャンスがあるなと思い、本を通じて自分の中のインスピレーションを養うではないですが、ここで文学の奥深さや凄さを身近に感じることが出来ました。その中でもこの本は" %>
-          </div>
-        </div>
-        <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
-        </div>
-      <% end %>
-      <%= render "guides/shared/links" %>
-    </div>
-  </div>
-</div>
+<% end %>
+
 
 
 
