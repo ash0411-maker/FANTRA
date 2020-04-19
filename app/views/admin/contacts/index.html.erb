@@ -1,2 +1,24 @@
-<h1>Admin::Contacts#index</h1>
-<p>Find me in app/views/admin/contacts/index.html.erb</p>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-xs-9 col-xs-offset-1">
+			<table class = "table">
+				<thead>
+					<tr class = "active">
+						<th>お客様氏名</th>
+						<th>メールアドレス</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @contacts.each do |contact| %>
+						<tr>
+							<td><%= contact.name %></td>
+							<td><%= contact.email %></td>
+							<td><%= link_to "回答する", edit_admin_contact_path(contact, class: "btn btn-sucess") %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

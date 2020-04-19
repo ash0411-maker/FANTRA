@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'contacts/index'
-    get 'contacts/show'
-  end
-	# mailer
-	resources :contacts, only: [:new, :create]
-
 
 	#管理者以外のログインアウト後
 	root to: 'tour_guide/home#about'
@@ -40,6 +33,8 @@ Rails.application.routes.draw do
 	    get 'home/top'
 	    get 'search/search'
 	    get 'orders/today' => 'orders#today', as: 'orders_today'
+	    get 'contacts/thanks' => 'contacts#thanks', as: 'contact_thanks'
+	    resources :contacts, only: [:index, :new, :edit, :update, :create]
 	    resources :comments, only: [:destroy]
 	    resources :cities, only: [:index, :create, :edit, :update, :destroy]
 	    resources :rooms, only: [:show, :index, :destroy]

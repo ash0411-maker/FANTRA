@@ -61,6 +61,9 @@
         <% if admin_signed_in? %>
           <ul>
             <li>
+              <%= link_to "お問い合わせ", admin_contacts_path %>
+            </li>
+            <li>
               <%= link_to "チャット", admin_rooms_path %>
             </li>
             <li>
@@ -201,7 +204,7 @@
       <div class = "container">
         <div class = "row">
           <div class = "col-xs-4 col-xs-offset-1">
-            <p><%= link_to "お問い合わせ", new_contact_path %></p>
+            <p><%= link_to "お問い合わせ", new_admin_contact_path %></p>
           </div>
         </div>
       </div>
