@@ -83,20 +83,10 @@
       </div>
     </div>
     <div class = "row">
-      <div class = "col-xs-9">
-        <div class =  "panel panel-default">
-            <div class="panel-heading text-center">
-              <h3 class="panel-title">自己紹介(250文字以内)</h3>
-            </div>
-            <div class = "panel-body" >
-              <%= f.text_area :introduction, class: "guide-introduction-area", placeholder: "この文字量で250文字です。この本と出会ったきっかけは日本  の純文学の本を買いあさっていてこの赤表紙に心惹かれました。この赤の切ない日本の和風の絵にすぐに買ってしまいました。そこでこの本を読むことになりますが  、結構昔の生活の様子が書かれていて時代背景も学べて面白いです。純文学に心惹かれる自分がすごくいて、23才くらいにすごく大人の雰囲気を学ぶチャンスがある なと思い、本を通じて自分の中のインスピレーションを養うではないですが、ここで文学の奥深さや凄さを身近に感じることが出来ました。その中でもこの本は" %>
-            </div>
-          </div>
-          <div class="actions">
-            <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
-          </div>
-          <%= render "guides/shared/links" %>
+      <div class="actions">
+        <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
       </div>
+      <%= render "guides/shared/links" %>
     </div>
   </div>
 <% end %>
