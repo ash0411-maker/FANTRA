@@ -600,4 +600,5 @@ Welcome to [1mUbuntu 18.04.3 LTS[0m!
 
 Ubuntu 18.04.3 LTS ubuntu-bionic ttyS0
 
-ubuntu-bionic login: 
+ubuntu-bionic login: [40233.914491] Out of memory: Kill process 4589 (ruby2.5) score 165 or sacrifice child
+[40233.917330] Killed process 4736 (convert) total-vm:208728kB, anon-rss:132104kB, file-rss:0kB, shmem-rss:0kB

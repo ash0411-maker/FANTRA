@@ -58,8 +58,14 @@
 						<th class = "col-xs-4 active text-center guide-identification">
 							<h4>自己紹介</h4>
 						</th>
-						<th>
-							<p class = "guide-introduction"><%= @guide.introduction %></p>
+						<th class = "text-center">
+							<% if @guide.introduction.blank? %>
+								<p class = "guide-introduction-blank">登録情報編集から追加しましょう！</p>
+							<% else %>
+								<p class = "guide-introduction">
+									<%= @guide.introduction %>
+								</p>
+							<% end %>
 						</th>
 					</tr>
 

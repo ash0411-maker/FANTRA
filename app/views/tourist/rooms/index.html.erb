@@ -38,7 +38,7 @@
 					<tbody>
 						<% @rooms.each do |room| %>
 							<tr class = "text-center">
-								<!------ 未読がある場合に表示するオレンジボール ------>
+						<!------ 未読がある場合に表示するオレンジボール ------>
 								<td>
 									<% room.messages.each do |message| %>
 										<% if message.is_tourist == false %>
@@ -50,18 +50,25 @@
 						        	    <% end %>
 					                <% end %>
 					            </td>
-					        <!------ 未読がある場合に表示するオレンジボール ------>
+					    <!------ 未読がある場合に表示するオレンジボール ------>
 								<td><%= room.guide.family_name %> <%= room.guide.name %>さん</td>
 								<td><%= room.messages.count %>件</td>
 
+
+						<!------ メッセージの一部分を見せる ------>
 								<% messages = [] %>
 								<% room.messages.each do |message| %>
 									<% messages << message.content %>
 								<% end %>
 								<% message =  messages[-1] %>
-								<td><%= message.present? ?  message[0..10] << "..." : "" %></td>
+								<td>
+									<%= message.present? ?  message[0..10] << "..." : "" %>
+								</td>
+						<!------ メッセージの一部分を見せる ------>
 
-								<td><%= link_to "チャット確認", tourist_tourist_room_path(current_tourist, room), class: "btn btn-default" %></td>
+								<td>
+									<%= link_to "チャット確認", tourist_tourist_room_path(current_tourist, room), class: "btn btn-default" %>
+								</td>
 							</tr>
 						<% end %>
 					</tbody>

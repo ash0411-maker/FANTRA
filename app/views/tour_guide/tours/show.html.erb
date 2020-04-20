@@ -129,7 +129,16 @@
 				</div>
 				<div class = "col-xs-8">
 					<div class = "tour-body-wrapper">
-						<h4 class = "guide-body-text"><%= @tour.guide.introduction %></h4>
+						<% if @tour.guide.introduction.blank? %>
+							<h4 class = "guide-body-text guide-tour-introduction">
+								自分の紹介文を入力しましょう！
+								<%= link_to "入力へ", edit_tour_guide_guide_path(current_guide), class: "btn btn-danger" %>
+							</h4>
+						<% else %>
+							<h4 class = "guide-body-text">
+								<%= @tour.guide.introduction %>
+							</h4>
+						<% end %>
 					</div>
 				</div>
 			</div>
