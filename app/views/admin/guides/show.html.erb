@@ -41,7 +41,7 @@
 							</span>
 							<span class="col-xs-4">
 								<%= f.radio_button :deleted_at, 1, checked: false %>
-								<%= f.label :deleted_at, "退会済み" %>
+								<%= f.label :deleted_at, "退会" %>
 							</span>
 							<span class="col-xs-5">
 					    <% else %>
@@ -51,7 +51,7 @@
 							</span>
 							<span class="col-xs-4">
 								<%= f.radio_button :deleted_at, 1, checked: true %>
-								<%= f.label :deleted_at, "退会済み" %>
+								<%= f.label :deleted_at, "退会" %>
 							</span>
 						<% end %>
 						<span><%= f.submit "更新", class: "btn btn-success" %></span>

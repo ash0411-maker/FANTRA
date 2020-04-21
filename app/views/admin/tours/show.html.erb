@@ -46,6 +46,7 @@
 <!----- ツアー写真 ----->
 
 
+
 	<div class = "container">
 		<div class = "row">
 			<div class = "col-xs-3">
@@ -104,15 +105,15 @@
 			</div>
 		</div>
 	</div>
-	<% if @tour.is_active == false %>
-		<span class = "admin_tour_is_actice_false">
-			<h1 class = "admin_tour_is_actice_false_text">販売停止中</h1>
-		</span>
-	<% end %>
 </div>
 
 <div class = "guide-tour-body-wrapper">
 	<div class = "container">
+		<% if @tour.is_active == false %>
+			<span class = "admin_tour_is_active_false">
+				<h1 class = "admin_tour_is_active_false_text">販売停止中</h1>
+			</span>
+		<% end %>
 
 	<!------- ツアー内容説明 -------->
 		<div class = "row">
