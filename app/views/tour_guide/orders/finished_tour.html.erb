@@ -1,19 +1,17 @@
 <div class = "container">
 	<div class = "row">
-		<div class = "col-xs-9">
-			<div>
-				<h2>終了済みのツアー</h2>
-				<table class = "table">
-					<%= render 'thead' %>
-					<tbody>
-						<% @orders.each do |order| %>
-							<% if order.status == "ツアー終了" or order.status == "レビュー済み" %>
-								<%= render 'tbody', order: order %>
-							<% end %>
+		<div class = "col-xs-12">
+			<h2>終了済みのツアー</h2>
+			<table class = "table">
+				<%= render 'thead' %>
+				<tbody>
+					<% @orders.each do |order| %>
+						<% if order.status == "ツアー終了" or order.status == "レビュー済み" %>
+							<%= render 'tbody', order: order %>
 						<% end %>
-					</tbody>
-				</table>
-			</div>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
