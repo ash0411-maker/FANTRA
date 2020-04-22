@@ -27,7 +27,6 @@ Rails.application.routes.draw do
 
 
 
-
 	# 管理者
 	namespace :admin do
 	    get 'home/top'
