@@ -9,6 +9,7 @@ class Admin::TouristsController < ApplicationController
 
   def show
   	@tourist = Tourist.with_deleted.find(params[:id])
+    @orders = @tourist.orders
   end
 
   def update
