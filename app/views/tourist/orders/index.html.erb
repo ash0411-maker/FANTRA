@@ -15,6 +15,7 @@
 				<h2>今後の予約一覧</h2>
 				<table class = "table table-bordered">
 					<tr class = "active text-center">
+						<th class = "text-center">予約番号</th>
 						<th class = "text-center">内容</th>
 						<th class = "text-center">支払い金額</th>
 						<th class = "text-center">ツアー詳細</th>
@@ -23,6 +24,7 @@
 					<% @orders.each do |order| %>
 						<% unless order.status == "ツアー終了" or order.status == "レビュー済み" %>
 							<tr class = "text-center">
+								<td><%= order.id %></td>
 								<td>
 									<h4><%= order.tour_title %></h4>
 									<h4>¥ <%= number_with_delimiter(order.tour_price) %></h4>
@@ -59,6 +61,7 @@
 				<h2>レビュー待ちの過去の予約</h2>
 				<table class = "table table-bordered">
 					<tr class = "active text-center">
+						<th class = "text-center">予約番号</th>
 						<th class = "text-center">内容</th>
 						<th class = "text-center">支払い金額</th>
 						<th class = "text-center">ツアー詳細</th>
@@ -67,6 +70,7 @@
 					<% @orders.each do |order| %>
 						<% if order.status == "ツアー終了" %>
 							<tr class = "text-center">
+								<td><%= order.id %></td>
 								<td>
 									<h4><%= order.tour_title %></h4>
 									<h4>¥ <%= number_with_delimiter(order.tour_price) %></h4>
@@ -104,6 +108,7 @@
 				<h2>レビュー済みの旅行</h2>
 				<table class = "table table-bordered">
 					<tr class = "active text-center">
+						<th class = "text-center">予約番号</th>
 						<th class = "text-center">内容</th>
 						<th class = "text-center">支払い金額</th>
 						<th class = "text-center">ツアー詳細</th>
@@ -112,6 +117,7 @@
 					<% @orders.each do |order| %>
 						<% if order.status == "レビュー済み" %>
 							<tr class = "text-center">
+								<td><%= order.id %></td>
 								<td>
 									<h4><%= order.tour_title %></h4>
 									<h4>¥ <%= number_with_delimiter(order.tour_price) %></h4>

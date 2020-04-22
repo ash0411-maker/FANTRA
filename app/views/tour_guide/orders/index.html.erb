@@ -59,15 +59,17 @@
 			<table class = "table">
 				<thead>
 					<tr class = "active">
-						<th>予約者</th>
-						<th>参加人数</th>
-						<th>売り上げ</th>
-						<th>利益</th>
+						<th class = "text-center">予約番号</th>
+						<th class = "text-center">予約者</th>
+						<th class = "text-center">参加人数</th>
+						<th class = "text-center">売り上げ</th>
+						<th class = "text-center">利益</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @todays_orders.each do |order| %>
-						<tr>
+						<tr class = "text-center">
+							<td><%= order.id %></td>
 							<td><%= order.tourist.family_name %> <%= order.tourist.name %></td>
 							<td><%= order.total_people %>名</td>
 							<td>¥ <%= number_with_delimiter(order.price) %></td>

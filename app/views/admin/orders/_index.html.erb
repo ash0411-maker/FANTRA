@@ -22,6 +22,7 @@
 		<table class = "table">
 			<thead>
 				<tr class = "active">
+					<th class = "text-center">予約番号</th>
 					<th class = "text-center">予約された日</th>
 					<th class = "text-center">ツアー価格</th>
 					<th class = "text-center">管理者売り上げ</th>
@@ -31,6 +32,7 @@
 			<tbody>
 				<% orders.each do |order| %>
 					<tr class = "text-center">
+						<td><%= order.id %></td>
 						<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
 						<td>¥ <%= number_with_delimiter(order.tour_price) %></td>
 						<td>¥ <%= number_with_delimiter(order.admin_sales.floor) %></td>
