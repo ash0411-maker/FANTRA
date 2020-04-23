@@ -1,8 +1,8 @@
 class Tour < ApplicationRecord
 
-	belongs_to :guide
-	belongs_to :genre
-	belongs_to :city
+	belongs_to :guide, optional: true
+	belongs_to :genre, optional: true
+	belongs_to :city, optional: true
   has_many :book_marks, dependent: :destroy
   has_many :tour_photos, dependent: :destroy
   has_many :comments, dependent: :destroy
