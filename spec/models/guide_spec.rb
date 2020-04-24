@@ -5,7 +5,7 @@ RSpec.describe Guide, type: :model do
 	let(:guide) { create(:guide) }
 
 
-	describe '保存のテスト' do
+	describe 'Guide保存のテスト' do
         context 'ガイドが正しく保存される' do
 		    it '全て入力されているので保存' do
 		      expect(guide).to be_valid
@@ -14,7 +14,7 @@ RSpec.describe Guide, type: :model do
     end
 
 
-    describe 'バリデーションのテスト' do
+    describe 'Guideバリデーションのテスト' do
         context 'family_nameカラム' do
 		    it '空欄でないこと' do
 		      guide.family_name = ''
@@ -65,7 +65,9 @@ RSpec.describe Guide, type: :model do
     	end
     end
 
-    describe 'アソシエーションのテスト' do
+    
+
+    describe 'Guideアソシエーションのテスト' do
 		context 'Tourモデルとの関係' do
 		  it '1:Nとなっている' do
 		    expect(Guide.reflect_on_association(:tours).macro).to eq :has_many

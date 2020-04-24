@@ -6,7 +6,7 @@ RSpec.describe Tourist, type: :model do
 
 
 
-	describe '保存のテスト' do
+	describe 'Tourist保存のテスト' do
         context 'ガイドが正しく保存される' do
 		    it '全て入力されているので保存' do
 		      expect(tourist).to be_valid
@@ -16,7 +16,7 @@ RSpec.describe Tourist, type: :model do
 
 
 
-    describe 'バリデーションのテスト' do
+    describe 'Touristバリデーションのテスト' do
         context 'family_nameカラム' do
 		    it '空欄でないこと' do
 		      tourist.family_name = ''
@@ -31,11 +31,11 @@ RSpec.describe Tourist, type: :model do
     	end
     	context 'birth_yearカラム' do
 		    it '４桁であること' do
-		      tourist.name = Faker::Number.number(digits:5)
+		      tourist.birth_year = Faker::Number.number(digits:5)
 		      expect(tourist.valid?).to eq false;
 		    end
 		    it '空欄でないこと' do
-		      tourist.phone_number = ''
+		      tourist.birth_year = ''
 		      expect(tourist.valid?).to eq false;
 		    end
     	end
@@ -73,7 +73,7 @@ RSpec.describe Tourist, type: :model do
 
 
 
-    describe 'アソシエーションのテスト' do
+    describe 'Touristアソシエーションのテスト' do
 		context 'Orderモデルとの関係' do
 		  it '1:Nとなっている' do
 		    expect(Tourist.reflect_on_association(:orders).macro).to eq :has_many

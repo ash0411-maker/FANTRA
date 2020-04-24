@@ -11,8 +11,17 @@ RSpec.describe ChatNotice, type: :model do
 	let!(:chat_notice) { build(:chat_notice, message_id: message.id, visited_id: tourist_visited.id, visitor_id: guide_visitor.id) }
 
 
+	describe 'ChatNotice保存テスト' do
+        context 'チャット通知が正しく保存される' do
+		    it '全て入力されているので保存' do
+		      expect(chat_notice).to be_valid
+		    end
+    	end
+    end
 
-    describe 'アソシエーションのテスト' do
+
+
+    describe 'ChatNoticeアソシエーションのテスト' do
 	  context 'Tourist_visitorモデルとの関係' do
 	    it '1:Nとなっている' do
 	      expect(ChatNotice.reflect_on_association(:tourist_visitor).macro).to eq :belongs_to
