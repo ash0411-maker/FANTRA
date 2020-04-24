@@ -99,6 +99,8 @@ gem 'cocoon'
 
 gem 'dotenv-rails'
 
+gem "refile-s3"
+
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano3-puma'
