@@ -9,8 +9,11 @@ class Admin::ContactsController < ApplicationController
 
   def create
   	@contact = Contact.new(contact_params)
-  	@contact.save
-  	redirect_to admin_contact_thanks_path
+  	if @contact.save
+  	  redirect_to admin_contact_thanks_path
+    else
+      render 'new'
+    end
   end
 
   def thanks
@@ -31,4 +34,5 @@ class Admin::ContactsController < ApplicationController
   def contact_params
   	params.require(:contact).permit(:name, :email, :user_text, :admin_text)
   end
+
 end

@@ -2,8 +2,6 @@ require 'rails_helper'
 
 
 RSpec.describe ChatNotice, type: :model do
-	# let(:tourist) { create(:tourist) }
-	# let(:gudie) { create(:guide) }
 	let(:message) { create(:message) }
 	let(:room) { create(:room) }
 	let(:guide_visitor) { create(:guide) }

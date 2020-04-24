@@ -5,4 +5,3 @@ FactoryBot.define do
     room_id { Faker::Number.number(digits:1) }
   end
 end
-
