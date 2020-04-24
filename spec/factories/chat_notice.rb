@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :chat_notice do
-    name { Faker::Lorem.characters(number:10) }
+    checked { Faker::Boolean.boolean }
   end
 end
