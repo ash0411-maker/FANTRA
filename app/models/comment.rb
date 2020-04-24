@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
   belongs_to :tour
   has_many :notifications, dependent: :destroy
 
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 200 }
 
 end
