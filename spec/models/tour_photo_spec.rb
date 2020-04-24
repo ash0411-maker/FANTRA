@@ -6,7 +6,7 @@ RSpec.describe TourPhoto, type: :model do
 	let!(:tour_photo) { build(:tour_photo, tour_id: tour.id) }
 
 
-	describe '保存のテスト' do
+	describe 'TourPhoto保存のテスト' do
         context 'ツアー写真が正しく保存される' do
 		    it '全て入力されているので保存' do
 		      expect(tour_photo).to be_valid
@@ -15,7 +15,7 @@ RSpec.describe TourPhoto, type: :model do
     end
 
 
-    describe 'バリデーションのテスト' do
+    describe 'TourPhotoバリデーションのテスト' do
     	context 'image_idカラム' do
 		    it '空欄でないこと' do
 		      tour_photo.image_id = ''
@@ -25,7 +25,7 @@ RSpec.describe TourPhoto, type: :model do
     end
 
 
-    describe 'アソシエーションのテスト' do
+    describe 'TourPhotoアソシエーションのテスト' do
 		context 'Tourモデルとの関係' do
 		  it '1:Nとなっている' do
 		    expect(TourPhoto.reflect_on_association(:tour).macro).to eq :belongs_to

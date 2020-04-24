@@ -5,6 +5,8 @@ RSpec.describe Message, type: :model do
 	let(:room) { create(:room) }
     let!(:message) { build(:message, room_id: room.id) }
 
+
+
     describe 'Message保存のテスト' do
         context 'メッセージが正しく保存される' do
 		    it '全て入力されているので保存' do
@@ -23,6 +25,7 @@ RSpec.describe Message, type: :model do
 		    end
     	end
     end
+
 
     describe 'Messageアソシエーションのテスト' do
 	  context 'ChatNoticeモデルとの関係' do
