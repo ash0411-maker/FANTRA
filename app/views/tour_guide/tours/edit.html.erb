@@ -2,7 +2,7 @@
 	<div class = "row">
 		<%= render 'errors', tour: @tour %>
 		<div class = "col-xs-12">
-			<%= form_with(model: @tour, url: tour_guide_guide_tour_path(current_guide, @tour)) do |f| %>
+			<%= form_with(model: @tour, url: tour_guide_guide_tour_path(current_guide, @tour), local: true) do |f| %>
 				<div class = "col-xs-4">
 					<h1>ツアー内容編集画面</h1>
 				</div>
