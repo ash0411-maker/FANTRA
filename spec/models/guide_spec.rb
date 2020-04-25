@@ -57,6 +57,12 @@ RSpec.describe Guide, type: :model do
 		      expect(guide.valid?).to eq false;
 		    end
     	end
+    	context 'nationalityカラム' do
+		    it '空欄でないこと' do
+		      guide.nationality = ''
+		      expect(guide.valid?).to eq false;
+		    end
+    	end
     	context 'introductionカラム' do
 		    it '250文字以下であること' do
 		      guide.introduction = Faker::Lorem.characters(number:251)
