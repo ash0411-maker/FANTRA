@@ -4,15 +4,15 @@
 			<table class = "table">
 				<thead>
 					<tr class = "active">
-						<th>お問い合わせ番号</th>
-						<th>お客様氏名</th>
-						<th>メールアドレス</th>
-						<th></th>
+						<th class = "active">お問い合わせ番号</th>
+						<th class = "active">お客様氏名</th>
+						<th class = "active">メールアドレス</th>
+						<th class = "active"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @contacts.each do |contact| %>
-						<tr>
+						<tr class = "active">
 							<td><%= contact.id %></td>
 							<td><%= contact.name %></td>
 							<td><%= contact.email %></td>
