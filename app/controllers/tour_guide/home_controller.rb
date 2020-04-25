@@ -7,7 +7,7 @@ class TourGuide::HomeController < ApplicationController
   end
 
   def about
-  	@tours = Tour.all.order("RANDOM()").page(params[:page]).per(9)
+  	@tours = Tour.order("RANDOM()").all.page(params[:page]).per(9)
   end
 
   def window
