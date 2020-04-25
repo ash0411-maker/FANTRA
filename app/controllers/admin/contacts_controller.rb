@@ -25,8 +25,13 @@ class Admin::ContactsController < ApplicationController
 
   def update
   	contact = Contact.find(params[:id]) #contact_mailer.rbの引数を指定
-   	contact.update(contact_params)
-   	ContactMailer.send_when_admin_reply(contact, contact.admin_text).deliver
+   	if contact.update(contact_params)
+   	  ContactMailer.send_when_admin_reply(contact, contact.admin_text).deliver
+      redirect_to admin_home_top_path
+      flash[:notice] = "お問い合わせへの返信ができました。"
+    else
+      render 'edit'
+    end
   end
 
 
