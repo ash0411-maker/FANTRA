@@ -18,6 +18,7 @@ class Guide < ApplicationRecord
 
   validates :name, presence: true
   validates :family_name, presence: true
+  validates :nationality, presence: true
   validates :address, presence: true
   validates :postal_code, presence: true
   validates :identification_image, presence: true

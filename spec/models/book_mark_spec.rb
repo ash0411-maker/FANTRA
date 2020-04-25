@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 
-
 RSpec.describe BookMark, type: :model do
 	let(:tourist) { create(:tourist) }
     let(:tour) { create(:tour) }
