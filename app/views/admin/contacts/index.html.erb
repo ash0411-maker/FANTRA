@@ -4,6 +4,7 @@
 			<table class = "table">
 				<thead>
 					<tr class = "active">
+						<th>お問い合わせ番号</th>
 						<th>お客様氏名</th>
 						<th>メールアドレス</th>
 						<th></th>
@@ -12,6 +13,7 @@
 				<tbody>
 					<% @contacts.each do |contact| %>
 						<tr>
+							<td><%= contact.id %></td>
 							<td><%= contact.name %></td>
 							<td><%= contact.email %></td>
 							<td><%= link_to "回答する", edit_admin_contact_path(contact, class: "btn btn-sucess") %></td>
