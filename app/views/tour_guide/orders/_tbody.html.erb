@@ -15,7 +15,11 @@
 			<%= order.tourist.family_name %> <%= order.tourist.name %>
 		</td>
 		<td class = "text-center">
-			<%= order.tourist.sex %>
+			<% if order.tourist.sex == "男性" %>
+				<i class="fas fa-mars fa-2x"></i>
+			<% elsif order.tourist.sex == "女性" %>
+				<i class="fas fa-venus fa-2x"></i>
+			<% end %>
 		</td>
 		<td class = "text-center">
 			<%= order.tourist.nationality %>
