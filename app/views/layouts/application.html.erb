@@ -107,6 +107,8 @@
                 ツアー
               <% end %>
             </li>
+
+        <!----- 通知機能 ----->
             <li>
               <%= link_to tour_guide_guide_rooms_path(current_guide) do %>
                 <% if unchecked_guide_chat_notices.any? %>
@@ -122,6 +124,8 @@
                 チャット
               <% end %>
             </li>
+        <!----- 通知機能 ----->
+
             <li>
               <%= link_to tour_guide_guide_notifications_path(current_guide) do %>
                 <% if unchecked_notifications.any? %>
@@ -150,6 +154,8 @@
       <!----- 観光客ログイン時 ----->
         <% elsif tourist_signed_in? %>
           <ul>
+
+        <!----- 通知機能 ----->
             <li>
               <%= link_to tourist_tourist_chat_notices_path(current_tourist) do %>
                 <% if unchecked_tourist_chat_notices.any? %>
@@ -165,6 +171,8 @@
                 通知
               <% end %>
             </li>
+        <!----- 通知機能 ----->
+
             <li>
                 <%= link_to  destroy_tourist_session_path, method: :delete do %>
                   <i class="fas fa-sign-out-alt fa-2x"></i>

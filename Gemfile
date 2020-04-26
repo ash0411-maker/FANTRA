@@ -97,8 +97,10 @@ gem 'geocoder'
 #複数のデータを同時保存
 gem 'cocoon'
 
+#環境変数を管理
 gem 'dotenv-rails'
 
+#AWS ストレージ
 gem "refile-s3"
 
 gem 'capistrano'
@@ -106,6 +108,8 @@ gem 'capistrano-rails'
 gem 'capistrano3-puma'
 gem 'capistrano-rbenv'
 
+
+# AWSで動作させる際にはMySQL。本番環境で利用するデータベースとしては、より堅牢で安定したMySQLを使う
 group :production do
   gem 'mysql2'
 end
