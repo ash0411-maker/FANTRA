@@ -71,7 +71,7 @@ RSpec.describe Guide, type: :model do
     	end
     end
 
-    
+
 
     describe 'Guideアソシエーションのテスト' do
 		context 'Tourモデルとの関係' do
