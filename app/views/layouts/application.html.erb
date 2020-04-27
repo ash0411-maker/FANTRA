@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -193,7 +193,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to new_tourist_registration_path do %>
+                <%= link_to new_tourist_registration_path do %>f
                   新規登録
                 <% end %>
             </li>
