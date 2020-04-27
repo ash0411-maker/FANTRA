@@ -3,6 +3,13 @@
 
 	<!------- ツアー内容説明 -------->
 		<div class = "row">
+			<% if guide_signed_in? %>
+				<% if @tour.is_active == false %>
+					<span class = "is_actice_false">
+						<h1 class = "is_actice_false_text">販売停止中</h1>
+					</span>
+				<% end %>
+			<% end %>
 			<div class = "guide-tour-details">
 				<div class = "col-xs-4">
 					<div class = "guide-body-title">
