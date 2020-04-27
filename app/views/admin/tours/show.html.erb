@@ -14,35 +14,11 @@
 
 	<div class = "container">
 		<div class = "row">
-			<div class = "col-xs-3">
-				<div class = "text-left">
-					<div class = "left-bar">
-						<h3><%= @tour.title %></h3>
-						<h5 class = "city-name"><%= @tour.city.name %></h5>
-						<h5>ジャンル：<%= @tour.genre.name %></h5>
-					</div>
-				</div>
-			</div>
-			<div class = "col-xs-7">
-				<div class = "right-bar">
-					<table class = "table">
-						<thead>
-							<th class = "text-center"><h4>案内人</h4></th>
-							<th class = "text-center"><h4>定員</h4></th>
-							<th class = "text-center"><h4>一人当たりの価格</h4></th>
-							<th class = "text-center"><h4>価格に含まれるサービス</h4></th>
-							<th class = "text-center"><h4>所要時間</h4></th>
-						</thead>
-						<tbody class = "text-center">
-							<td><h4><%= @tour.guide.name %></h4></td>
-							<td><h4><%= @tour.capacity %>人</h4></td>
-							<td><h4><%= number_with_delimiter(@tour.price) %>円</h4></td>
-							<td><p class = "contents_of_price"><%= @tour.contents_of_price %></p></td>
-							<td><h4><%= @tour.time %></h4></td>
-						</tbody>
-					</table>
-				</div>
-			</div>
+
+		<!----- ツアー情報（価格等） ----->
+			<%= render 'tourist/tours/tour_info', tour: @tour %>
+		<!----- ツアー情報（価格等） ----->
+
 			<div class = "col-xs-2">
 				<%= form_for(@tour, url: admin_tour_path(@tour)) do |f| %>
 					<% if @tour.is_active == true %>
