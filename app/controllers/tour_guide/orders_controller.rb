@@ -21,6 +21,12 @@ class TourGuide::OrdersController < ApplicationController
     end
     @guide_total_sales = guide_total_sales.sum
     @guide_total_sales = @guide_total_sales.floor
+
+    rooms = current_guide.rooms
+    @tourist_ids = []
+    rooms.each do |room|
+      @tourist_ids << room.tourist_id
+    end
   end
 
 
