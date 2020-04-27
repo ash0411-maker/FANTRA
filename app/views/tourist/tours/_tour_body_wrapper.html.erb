@@ -1,0 +1,94 @@
+<div class = "guide-tour-body-wrapper">
+	<div class = "container">
+
+	<!------- ツアー内容説明 -------->
+		<div class = "row">
+			<div class = "guide-tour-details">
+				<div class = "col-xs-4">
+					<div class = "guide-body-title">
+						<h2>ツアー内容</h2>
+					</div>
+				</div>
+				<div class = "col-xs-8">
+					<h4 class = "guide-body-text"><%= tour.body %></h4>
+				</div>
+			</div>
+		</div>
+	<!------- ツアー内容説明 -------->
+
+
+
+	<!------- ツアーガイド紹介 -------->
+		<div class = "row">
+			<div class = "guide-tour-details">
+				<div class = "col-xs-4">
+					<div class = "guide-body-title">
+						<h2>ガイド紹介</h2>
+						<div class = "guide-tour-guide-introduction">
+						<%= attachment_image_tag tour.guide, :selfy_image, :fill, 100, 100, format: 'jpeg' %>
+						<h4><strong><%= tour.guide.family_name %> <%= tour.guide.name %></strong></h4>
+					</div>
+					</div>
+
+				<!----- チャット機能 ----->
+					<% if tourist_signed_in? %>
+						<div class = "chat-room-btn">
+							<% if guide_ids.include?(tour.guide.id) %>
+							    <%= link_to "質問しましょう！", tourist_tourist_room_path(current_tourist, current_tourist.rooms.find_by(guide_id: tour.guide.id)), class: "btn btn-default" %>
+							  <% else %>
+							    <%= form_for(Room.new, url: tourist_tourist_rooms_path(current_tourist)) do |f| %>
+							      <%= f.hidden_field :guide_id, :value => tour.guide.id %>
+							      <%= f.submit "質問しましょう！", class: "btn btn-default" %>
+							    <% end %>
+							<% end %>
+						</div>
+					<% end %>
+				<!----- チャット機能 ----->
+
+				</div>
+				<div class = "col-xs-8">
+					<div class = "tour-body-wrapper">
+						<h4 class = "guide-body-text"><%= tour.guide.introduction %></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!------- ツアーガイド紹介 -------->
+
+
+	<!----------- 集合場所 ------------>
+		<div class = "row">
+			<div class = "guide-tour-details">
+				<div class = "col-xs-4">
+					<div class = "guide-body-title">
+						<h2>集合場所</h2>
+					</div>
+				</div>
+				<div class = "col-xs-8">
+					<div class = "tour-body-wrapper">
+						<h4 class = "guide-body-text">
+							<%= tour.meetingpoint_address %><br/>
+							<%= tour.meetingpoint_introduction %>
+						</h4>
+
+					<!----- GoogleMap ----->
+						<%= render 'tourist/tours/google_map', tour: tour %>
+					<!----- GoogleMap ----->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	<!----------- 集合場所 ------------>
+
+
+
+
+
+	<!----------- レビュー一覧 ------------>
+		<%= render 'tourist/tours/review', comments: comments %>
+	<!----------- レビュー一覧 ------------>
+
+
+	</div>
+</div>
