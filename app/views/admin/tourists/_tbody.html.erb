@@ -1,0 +1,19 @@
+<td><%= tourist.id %></td>
+<td><%= tourist.created_at.to_s(:datetime_jp) %></td>
+<td><%= tourist.family_name %> <%= tourist.name %></td>
+<td>
+	<% if tourist.sex == "男性" %>
+		<i class="fas fa-mars fa-2x"></i>
+	<% elsif tourist.sex == "女性" %>
+		<i class="fas fa-venus fa-2x"></i>
+	<% end %>
+</td>
+<td><%= tourist.email %></td>
+<td>
+	<% if tourist.deleted_at == nil %>
+		有効
+	<% else %>
+		退会
+	<% end %>
+</td>
+<td><%= link_to "詳細へ", admin_tourist_path(tourist), class: "btn btn-default" %></td>

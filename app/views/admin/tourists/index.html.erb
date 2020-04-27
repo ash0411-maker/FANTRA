@@ -18,37 +18,13 @@
 					<% @tourists.each do |tourist| %>
 						<% if tourist.deleted_at == nil %>
 							<tr class = "text-center">
-								<td><%= tourist.id %></td>
-								<td><%= tourist.created_at.to_s(:datetime_jp) %></td>
-								<td><%= tourist.family_name %> <%= tourist.name %></td>
-								<td>
-									<% if tourist.sex == "男性" %>
-										<i class="fas fa-mars fa-2x"></i>
-									<% elsif tourist.sex == "女性" %>
-										<i class="fas fa-venus fa-2x"></i>
-									<% end %>
-								</td>
-								<td><%= tourist.email %></td>
-								<td>有効</td>
-								<td><%= link_to "詳細へ", admin_tourist_path(tourist), class: "btn btn-default" %></td>
+								<%= render 'tbody', tourist: tourist %>
 							</tr>
 						<% else %>
 
 					<!-- 退会しているtourist -->
 							<tr class = "text-center admin_tour_deleted_at">
-								<td><%= tourist.id %></td>
-								<td><%= tourist.deleted_at.to_s(:datetime_jp) %></td>
-								<td><%= tourist.family_name %> <%= tourist.name %></td>
-								<td>
-									<% if tourist.sex == "男性" %>
-										<i class="fas fa-mars fa-2x"></i>
-									<% elsif tourist.sex == "女性" %>
-										<i class="fas fa-venus fa-2x"></i>
-									<% end %>
-								</td>
-								<td><%= tourist.email %></td>
-								<td>退会</td>
-								<td><%= link_to "詳細へ", admin_tourist_path(tourist), class: "btn btn-default" %></td>
+								<%= render 'tbody', tourist: tourist %>
 							</tr>
 					<!-- 退会しているtourist -->
 						<% end %>
