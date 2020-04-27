@@ -15,35 +15,9 @@
 <!------- ツアー概要 ------->
 	<div class = "container">
 		<div class = "row">
-			<div class = "col-xs-3">
-				<div class = "text-left">
-					<div class = "left-bar">
-						<h4><%= @tour.title %></h4>
-						<h5 class = "city-name"><%= @tour.city.name %></h5>
-						<h5>ジャンル：<%= @tour.genre.name %></h5>
-					</div>
-				</div>
-			</div>
-			<div class = "col-xs-7">
-				<div class = "right-bar">
-					<table class = "table">
-						<thead>
-							<th class = "text-center"><h5>案内人</h5></th>
-							<th class = "text-center"><h5>定員</h5></th>
-							<th class = "text-center"><h5>一人当たりの価格</h5></th>
-							<th class = "text-center"><h5>価格に含まれるサービス</h5></th>
-							<th class = "text-center"><h5>所要時間</h5></th>
-						</thead>
-						<tbody class = "text-center">
-							<td><h5><%= @tour.guide.name %></h5></td>
-							<td><h5><%= @tour.capacity %>人</h5></td>
-							<td><h5><%= number_with_delimiter(@tour.price) %>円</h5></td>
-							<td><p class = "contents_of_price"><%= @tour.contents_of_price %></p></td>
-							<td><h5><%= @tour.time %></h5></td>
-						</tbody>
-					</table>
-				</div>
-			</div>
+		<!----- ツアー情報（価格等） ----->
+			<%= render 'tourist/tours/tour_info', tour: @tour %>
+		<!----- ツアー情報（価格等） ----->
 			<div class = "col-xs-2">
 				<% if current_guide.id == @tour.guide.id %>
 					<%= link_to "編集", edit_tour_guide_guide_tour_path(current_guide, @tour), class: "btn btn-default btn-lg edit-tour-btn" %>
