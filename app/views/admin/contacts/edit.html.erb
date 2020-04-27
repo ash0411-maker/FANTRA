@@ -3,6 +3,8 @@
 		<div class = "row">
 			<div class = "col-xs-9 col-xs-offset-1">
 				<h1>お問い合わせフォーム</h1>
+
+			<!----- お客様指名・メールアドレス ----->
 				<table class = "table table-bordered">
 					<thead>
 						<tr class = "active">
@@ -21,7 +23,10 @@
 						</tr>
 					</div>
 				</table>
+			<!----- お客様指名・メールアドレス ----->
 
+
+			<!----- お問い合わせ内容 ----->
 				<table class = "table table-bordered">
 					<thead>
 						<tr class = "active">
@@ -38,6 +43,31 @@
 						</div>
 					</tbody>
 				</table>
+			<!----- お問い合わせ内容 ----->
+
+			<!----- 回答内容 ----->
+				<% unless @contact.admin_text.nil? %>
+					<table class = "table table-bordered">
+						<thead>
+							<tr class = "active">
+								<th class = "text-center">回答内容</th>
+							</tr>
+						</thead>
+						<tbody>
+							<div class = "col-xs-12">
+								<tr class = "text-center">
+									<td>
+						  				<%= @contact.admin_text %>
+						  			</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+				<% end %>
+			<!----- 回答内容 ----->
+
+
+			<!----- 返信フォーム ----->
 				<table class = "table table-bordered">
 					<div class = "col-xs-12">
 						<thead>
@@ -54,6 +84,8 @@
 						</tbody>
 					</div>
 				</table>
+			<!----- 返信フォーム ----->
+
 			</div>
 		</div>
 		<div class = "row">
