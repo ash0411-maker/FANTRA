@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
 	#管理者以外のログインアウト後
 	root to: 'tour_guide/home#about'
+
+
 	get 'tour_guide/window' => 'tour_guide/home#window', as: 'home_window'
+	get 'home/introduction' => 'tour_guide/home#introduction', as: 'introduction'
 
 
 
@@ -50,6 +53,7 @@ Rails.application.routes.draw do
 	namespace :tour_guide do
 	    get 'top' => 'home#top'
 		get 'guides/thanks' => 'guides#thanks', as: 'guide_thanks'
+
 
 	    resources :guides, only: [:show, :edit, :update, :destroy] do
 	    	get 'tourists/delete' => 'guides#delete', as: 'guide_delete'

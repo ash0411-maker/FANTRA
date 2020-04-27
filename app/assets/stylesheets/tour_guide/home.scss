@@ -113,3 +113,86 @@
 	margin-top: 50px;
 	line-height: 50px;
 }
+
+
+///------ FANTRA説明画面 ---------
+.intro-top-wrapper{
+	margin: 0 auto;
+	background-image: image-url("IMG_0701.jpeg");
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+
+
+.intro-headline {
+	margin-top: 50px;
+	color: white;
+	position: absolute;
+	top: 150px;
+	left: 50px;
+}
+
+
+.intro-second-wrapper{
+	margin: 0 auto;
+	width: 80%;
+}
+
+
+.intro-second-wrapper-headline{
+	margin: 50px 0 50px;
+}
+
+.intro-second-wrapper-subtitle {
+	margin: 50px 0 50px;
+}
+
+.intro-line {
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+	border-bottom: solid 1px black;
+}
+
+
+.intro-third-wrapper {
+	margin: 0 auto 80px;
+	width: 80%;
+}
+
+.intro-photos-wrapper {
+	height: 1400px;
+	background-color: #F2F2F2;
+}
+
+.intro-first-photo {
+	background-image: image-url("IMG_9163.jpeg");
+	margin: 90px;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	width: 80%;
+}
+
+.intro-second-photo {
+	background-image: image-url("IMG_0311.jpeg");
+	margin: 90px;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	width: 80%;
+}
+
+.photo-message {
+	margin: 350px 0 0 100px;
+}
+
+.intro-panel {
+	width: 50%;
+	margin: 0 auto;
+}
+
+
+

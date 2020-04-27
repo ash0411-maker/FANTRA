@@ -16,6 +16,9 @@ class TourGuide::HomeController < ApplicationController
     @comments = @tour.comments
   end
 
+  def introduction
+  end
+
 end
 
 
