@@ -1,7 +1,7 @@
-<h1>ツアー予約概要</h1>
 <div class = "container">
 	<div class = "row">
-		<h3><%= flash[:danger] %></h3>
+		<h1>ツアー同行者人数入力</h1>
+		<h3 class = "flash"><%= flash[:danger] %></h3>
 
 	<!----- 注文フォーム ----->
 		<div class = "col-xs-4 col-xs-offset-2">
@@ -27,7 +27,7 @@
 				<%= f.hidden_field :tour_price, :value => @tour.price %>
 
 				<div>
-					<%= f.submit '送信', class: "btn btn-success" %>
+					<%= f.submit '送信', class: "btn btn-success btn-lg order-new-btn" %>
 				</div>
 
 			<% end %>
@@ -61,11 +61,11 @@
 				<div class="panel-body">
 				    <p class = "order-confirm">
 				    	価格に含まれるサービス<br/>
-				    	<strong><%= @tour.contents_of_price %></strong> 
+				    	<strong><%= @tour.contents_of_price %></strong>
 				    </p>
 				</div><div class="panel-body">
 				    <p class = "order-confirm">
-				    	価格 × 1人：<strong>¥<%= number_with_delimiter(@tour.price) %></strong> 
+				    	価格 × 1人：<strong>¥<%= number_with_delimiter(@tour.price) %></strong>
 				    </p>
 				</div>
 			</div>
