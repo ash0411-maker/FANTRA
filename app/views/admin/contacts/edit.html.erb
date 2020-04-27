@@ -30,7 +30,7 @@
 				<table class = "table table-bordered">
 					<thead>
 						<tr class = "active">
-							<th class = "text-center">お問い合わせ内容</th>
+							<th class = "text-center">お問い合わせ内容(<%= @contact.created_at.to_s(:datetime_jp) %>)</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,7 +50,7 @@
 					<table class = "table table-bordered">
 						<thead>
 							<tr class = "active">
-								<th class = "text-center">回答内容</th>
+								<th class = "text-center">回答内容(<%= @contact.updated_at.to_s(:datetime_jp) %>)</th>
 							</tr>
 						</thead>
 						<tbody>

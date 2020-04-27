@@ -10,6 +10,11 @@
 				本日入った予約数 <%= Order.where(created_at: Time.zone.now.all_day).count %> 件
 			<% end %>
 		</h2>
+		<h2>
+			<%= link_to admin_contacts_path do %>
+				本日届いたお問い合わせ <%= Contact.where(created_at: Time.zone.now.all_day).count %> 件
+			<% end %>
+		</h2>
 	</div>
 
 </div>
