@@ -2,46 +2,11 @@
 
 <!----- ツアー写真 ----->
 	<div class = "tour-image-wrapper">
-		<div class = "container">
-			<div class = "row">
-
-				<div class = "col-xs-4">
-					<div class = "tour-img-1">
-						<%= attachment_image_tag @tour_photos[0], :image, :fill, 380, 350, format: 'jpeg' %>
-					</div>
-				</div>
-
-				<div class = "col-xs-4">
-					<div class = "row">
-						<div class = "col-xs-6">
-							<div class = "tour-img-2">
-								<%= attachment_image_tag @tour_photos[1], :image, :fill, 190, 150, format: 'jpeg' %>
-							</div>
-						</div>
-						<div class = "col-xs-6">
-							<div class = "tour-img-3">
-								<%= attachment_image_tag @tour_photos[2], :image, :fill, 190, 150, format: 'jpeg' %>
-							</div>
-						</div>
-					</div>
-					<div class = "row">
-						<div class = "col-xs-12">
-							<div class = "tour-img-4">
-								<%= attachment_image_tag @tour_photos[3], :image, :fill, 395, 190, format: 'jpeg' %>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class = "col-xs-4">
-					<div class = "tour-img-5">
-						<%= attachment_image_tag @tour_photos[4], :image, :fill, 200, 350, format: 'jpeg' %>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
+		<span class = "guide_book_marks">
+		    <i class="fa fa-flag fa-5x" aria-hidden="true" style = "color: red;" ></i>
+		    <span class = "guide_book_marks_numbers"><%= @tour.book_marks.count %></span>
+		</span>
+		<%= render 'tourist/tours/tour_image_wrapper' %>
 	</div>
 <!----- ツアー写真 ----->
 
@@ -49,35 +14,9 @@
 
 	<div class = "container">
 		<div class = "row">
-			<div class = "col-xs-3">
-				<div class = "text-left">
-					<div class = "left-bar">
-						<h3><%= @tour.title %></h3>
-						<h5 class = "city-name"><%= @tour.city.name %></h5>
-						<h5>ジャンル：<%= @tour.genre.name %></h5>
-					</div>
-				</div>
-			</div>
-			<div class = "col-xs-7">
-				<div class = "right-bar">
-					<table class = "table">
-						<thead>
-							<th class = "text-center"><h4>案内人</h4></th>
-							<th class = "text-center"><h4>定員</h4></th>
-							<th class = "text-center"><h4>一人当たりの価格</h4></th>
-							<th class = "text-center"><h4>価格に含まれるサービス</h4></th>
-							<th class = "text-center"><h4>所要時間</h4></th>
-						</thead>
-						<tbody class = "text-center">
-							<td><h4><%= @tour.guide.name %></h4></td>
-							<td><h4><%= @tour.capacity %>人</h4></td>
-							<td><h4><%= number_with_delimiter(@tour.price) %>円</h4></td>
-							<td><p class = "contents_of_price"><%= @tour.contents_of_price %></p></td>
-							<td><h4><%= @tour.time %></h4></td>
-						</tbody>
-					</table>
-				</div>
-			</div>
+		<!----- ツアー情報（価格等） ----->
+			<%= render 'tourist/tours/tour_info', tour: @tour %>
+		<!----- ツアー情報（価格等） ----->
 			<div class = "col-xs-2">
 				<%= form_for(@tour, url: admin_tour_path(@tour)) do |f| %>
 					<% if @tour.is_active == true %>
@@ -108,5 +47,5 @@
 </div>
 
 <!-- ツアー情報（テキスト） -->
-<%= render 'tour_body_wrapper', tour: @tour, guide_ids: @guide_ids, comments: @comments %>
+<%= render 'tourist/tours/tour_body_wrapper', tour: @tour, guide_ids: @guide_ids, comments: @comments %>
 <!-- ツアー情報（テキスト） -->
