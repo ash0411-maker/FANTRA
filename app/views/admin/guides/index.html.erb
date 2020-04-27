@@ -17,22 +17,14 @@
 				<% @guides.each do |guide| %>
 					<% if guide.deleted_at == nil %>
 						<tr class = "text-center">
-							<td><%= guide.id %></td>
-							<td><%= guide.created_at.to_s(:datetime_jp) %></td>
-							<td><%= guide.family_name %> <%= guide.name %></td>
-							<td><%= guide.email %></td>
-							<td>有効</td>
-							<td><%= link_to "詳細へ", admin_guide_path(guide), class: "btn btn-default" %></td>
+							<%= render 'tbody', guide: guide %>
 						</tr>
 					<% else %>
+				<!-- 退会しているguide -->
 						<tr class = "text-center admin_guide_deleted_at">
-							<td><%= guide.id %></td>
-							<td><%= guide.deleted_at.to_s(:datetime_jp) %></td>
-							<td><%= guide.family_name %> <%= guide.name %></td>
-							<td><%= guide.email %></td>
-							<td>退会済み</td>
-							<td><%= link_to "詳細へ", admin_guide_path(guide), class: "btn btn-default" %></td>
+							<%= render 'tbody', guide: guide %>
 						</tr>
+				<!-- 退会しているguide -->
 					<% end %>
 				<%end%>
 			</tbody>
