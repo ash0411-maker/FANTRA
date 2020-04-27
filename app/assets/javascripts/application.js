@@ -22,7 +22,7 @@
 
 
 
-
+// 非ログイン時
 $(function(){
 $("document").ready(function() {
 // オプションを指定してSkipprの実行
@@ -52,7 +52,7 @@ $("#theTarget").skippr({
 });
 
 
-
+// ツーリスログイン時
 $(function(){
 $("document").ready(function() {
 // オプションを指定してSkipprの実行
