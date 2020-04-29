@@ -56,13 +56,15 @@
 				<div class = "col-xs-8">
 					<div class = "tour-body-wrapper">
 						<% if guide_signed_in? %>
-							<% if tour.guide.introduction.nil? %>
-								<h3 class = "guide-introduction-blank">
-									<%= link_to "登録情報編集画面", edit_tour_guide_guide_path(current_guide) %>
-									からあなたについて紹介文を書きましょう！
-								</h3>
-							<% else %>
-								<h4 class = "guide-body-text"><%= tour.guide.introduction %></h4>
+							<% if current_guide == tour.guide %>
+								<% if tour.guide.introduction.nil? %>
+									<h3 class = "guide-introduction-blank">
+										<%= link_to "登録情報編集画面", edit_tour_guide_guide_path(current_guide) %>
+										からあなたについて紹介文を書きましょう！
+									</h3>
+								<% else %>
+									<h4 class = "guide-body-text"><%= tour.guide.introduction %></h4>
+								<% end %>
 							<% end %>
 						<% else %>
 							<h4 class = "guide-body-text"><%= tour.guide.introduction %></h4>

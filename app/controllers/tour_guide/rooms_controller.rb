@@ -30,7 +30,6 @@ class TourGuide::RoomsController < ApplicationController
   end
 
 
-
   def create
     @room = Room.new(room_tourist_params)
     @room.guide_id = current_guide.id
