@@ -6,7 +6,7 @@ module AuthenticationHelper
     base.after(:each) { Warden.test_reset! }
   end
 
-  def login_admin2(resource)
+  def login(resource)
     login_as(resource, scope: warden_scope(resource))
   end
 

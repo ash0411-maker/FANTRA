@@ -59,16 +59,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_071723) do
     t.index ["tourist_id"], name: "index_comments_on_tourist_id"
   end
 
-  create_table "commments", force: :cascade do |t|
-    t.string "content"
-    t.integer "tourist_id"
-    t.integer "tour_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tour_id"], name: "index_commments_on_tour_id"
-    t.index ["tourist_id"], name: "index_commments_on_tourist_id"
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
