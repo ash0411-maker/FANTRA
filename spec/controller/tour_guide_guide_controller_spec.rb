@@ -7,7 +7,6 @@ RSpec.describe TourGuide::GuidesController, type: :controller do
 
 
 
-
   describe 'ユーザー新規登録' do
     before do
       visit new_guide_registration_path
@@ -37,8 +36,6 @@ RSpec.describe TourGuide::GuidesController, type: :controller do
         fill_in 'guide[postal_code]', with: ''
         fill_in 'guide[address]', with: ''
         fill_in 'guide[phone_number]', with: ''
-        attach_file 'guide[selfy_image]', ""
-        attach_file 'guide[identification_image]', ""
         fill_in 'guide[email]', with: ''
         fill_in 'guide[password]', with: ''
         fill_in 'guide[password_confirmation]', with: ''

@@ -14,12 +14,13 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+# require 'webdrivers/chromedriver'
 RSpec.configure do |config|
   config.include Capybara::DSL
-	config.before(:each, type: :system) do
-    #driven_by :selenium_chrome_headless
-    driven_by :rack_test
-	end
+#  config.before(:each, type: :system) do
+#    driven_by :selenium_chrome_headless
+    #driven_by :rack_test
+#  end
 	# config.after(:suite) do
 	# 	DatabaseCleaner.strategy = :transaction
 	# 	DatabaseCleaner.clean_with(:truncation)
