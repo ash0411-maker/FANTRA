@@ -22,14 +22,3 @@ end
 
 
 
-# t.integer "genre_id", null: false
-#     t.integer "guide_id", null: false
-#     t.integer "city_id", null: false
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.boolean "is_active", default: true
-#     t.string "time"
-#     t.string "meetingpoint_address"
-#     t.string "meetingpoint_introduction"
-#     t.float "latitude"
-#     t.float "longitude"

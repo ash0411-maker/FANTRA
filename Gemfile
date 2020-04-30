@@ -108,6 +108,9 @@ gem 'capistrano-rails'
 gem 'capistrano3-puma'
 gem 'capistrano-rbenv'
 
+#コントローラーテスト
+gem 'rails-controller-testing'
+
 
 # AWSで動作させる際にはMySQL。本番環境で利用するデータベースとしては、より堅牢で安定したMySQLを使う
 group :production do

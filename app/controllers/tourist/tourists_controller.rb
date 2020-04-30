@@ -36,7 +36,7 @@ class Tourist::TouristsController < ApplicationController
 
   private
   def tourist_params
-    params.require(:tourist).permit(:family_name, :name, :nationnality, :birth_year, :address, :postal_code, :email, :phone_number, :sex)
+    params.require(:tourist).permit(:family_name, :name, :nationality, :birth_year, :address, :postal_code, :email, :phone_number, :sex)
   end
 
   def correct_tourist
