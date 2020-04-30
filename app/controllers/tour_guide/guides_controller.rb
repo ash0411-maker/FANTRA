@@ -43,8 +43,12 @@ class TourGuide::GuidesController < ApplicationController
 
   def correct_guide
     guide = Guide.find(params[:id])
-    if current_guide != guide
-      redirect_to tour_guide_guide_path(current_guide)
+    if guide_signed_in?
+      if current_guide != guide
+        redirect_to tour_guide_guide_path(current_guide)
+      end
+    else
+      redirect_to new_guide_session_path
     end
   end
 

@@ -69,7 +69,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
         get :show, params: {id: tourist.id}
       end
       it 'リクエストは302となること' do
-        expect(response.status).to eq 302
+        expect(response).to redirect_to "/tourists/sign_in"
       end
     end
   end

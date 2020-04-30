@@ -68,8 +68,8 @@ RSpec.describe TourGuide::GuidesController, type: :controller do
       before do
         get :show, params: {id: guide.id}
       end
-      it 'リクエストは302となること' do
-        expect(response.status).to eq 302
+      it 'ログイン画面に遷移すること' do
+        expect(response).to redirect_to "/guides/sign_in"
       end
     end
   end

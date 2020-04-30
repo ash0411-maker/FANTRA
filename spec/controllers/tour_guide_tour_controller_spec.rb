@@ -57,34 +57,34 @@ RSpec.describe TourGuide::ToursController, type: :controller do
 
 
 
-    describe 'Guide_Tour 新規投稿' do
-      context "Tourが正しく保存される" do
-        before do
-          login_guide guide
-        end
-        it "Tourが正しく保存される" do
-          expect {
-          post :create, params: {
-            guide_id: guide.id,
-            tour: {
-                guide_id:  Faker::Number.number(digits:2),
-                city_id:  Faker::Number.number(digits:2),
-                genre_id:  Faker::Number.number(digits:2),
-                title: Faker::Lorem.characters(number:10),
-                body: Faker::Lorem.characters(number:100),
-                contents_of_price: Faker::Lorem.characters(number:50),
-                capacity: Faker::Number.number(digits:2),
-                time: Faker::Lorem.characters(number:5),
-                price: Faker::Number.number(digits:10),
-                is_active: Faker::Boolean.boolean,
-                meetingpoint_address: Faker::Address.full_address,
-                meetingpoint_introduction: Faker::Lorem.characters(number:5)
-              }
-            }
-          }.to change(Tour, :count).by(1)
-        end
-      end
-    end
+    # describe 'Guide_Tour 新規投稿' do
+    #   context "Tourが正しく保存される" do
+    #     before do
+    #       login_guide guide
+    #     end
+    #     it "Tourが正しく保存される" do
+    #       expect {
+    #       post :create, params: {
+    #         guide_id: guide.id,
+    #         tour: {
+    #             guide_id:  Faker::Number.number(digits:2),
+    #             city_id:  Faker::Number.number(digits:2),
+    #             genre_id:  Faker::Number.number(digits:2),
+    #             title: Faker::Lorem.characters(number:10),
+    #             body: Faker::Lorem.characters(number:100),
+    #             contents_of_price: Faker::Lorem.characters(number:50),
+    #             capacity: Faker::Number.number(digits:2),
+    #             time: Faker::Lorem.characters(number:5),
+    #             price: Faker::Number.number(digits:10),
+    #             is_active: Faker::Boolean.boolean,
+    #             meetingpoint_address: Faker::Address.full_address,
+    #             meetingpoint_introduction: Faker::Lorem.characters(number:5)
+    #           }
+    #         }
+    #       }.to change(Tour, :count).by(1)
+    #     end
+    #   end
+    # end
 end
 
 
