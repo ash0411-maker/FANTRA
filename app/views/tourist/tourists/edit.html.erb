@@ -1,7 +1,7 @@
 
 <div class = "container">
 	<div class = "row">
-		<div class = "col-xs-9">
+		<div class = "col-xs-11">
 
 		<!------- エラーメッセージ ------->
 			<% if @tourist.errors.any? %>
@@ -16,52 +16,57 @@
 		    <% end %>
 		<!------- エラーメッセージ ------->
 
-
 			<h1><%= @tourist.name %>さんの情報変更画面</h1>
 			<%= form_for(@tourist, url: tourist_tourist_path(@tourist)) do |f| %>
 				<table class = "table table-bordered">
-
-		        <!-- 氏名 -->
-		          <tr class = "text-center">
-		            <td class = "active">お名前・国籍</td>
-		            <td>
-		              <%= f.label :姓 %><br/><%= f.text_field :family_name %>
-		            </td>
-		            <td>
-		              <%= f.label :名 %><br/><%= f.text_field :name %>
-		            </td>
-		            <td>
-		              <%= f.label :性別 %><br/><%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
-		            </td>
-		          </tr>
-		        <!-- 氏名 -->
-
-
-		        <!-- 住所 -->
-		          <tr class = "text-center">
-		            <td class = "active">生まれ年・国籍・電話番号</td>
-		            <td>
-		              <%= f.label :生まれ年 %>(西暦)<br/><%= f.text_field :birth_year %>年
-		            </td>
-		            <td>
-		              <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
-		            </td>
-		            <td>
-		              <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
-		            </td>
-		          </tr>
-		        <!-- 住所 -->
+          		<!-- 氏名 -->
+		            <tr class = "text-center">
+		              <td class = "active">お名前・国籍・生まれ年</td>
+		              <td>
+		                <%= f.label :姓 %><br/><%= f.text_field :family_name %>
+		              </td>
+		              <td>
+		                <%= f.label :名 %><br/><%= f.text_field :name %>
+		              </td>
+		              <td>
+		                <%= f.label :性別 %><br/><%= f.select :sex,[["女性", "女性"], ["男性", "男性"]], :prompt => "--性別--"  %>
+		              </td>
+		              <td>
+		                <%= f.label :生まれ年 %>(西暦)<br/><%= f.text_field :birth_year %>年
+		              </td>
+		              <td>
+		                <%= f.label :メールアドレス %><br/><%= f.text_field :email %>年
+		              </td>
+		            </tr>
+		          <!-- 氏名 -->
 
 
-		        <!-- 電話番号、メアド -->
-		          <tr class = "text-center">
-		            <td class = "active">メールアドレス</td>
-		            <td>
-		              <%= f.label :メールアドレス %><br/><%= f.text_field :email %>
-		            </td>
-		          </tr>
-		        <!-- 電話番号、メアド -->
+		          <!-- 住所 -->
+		            <tr class = "text-center">
+		              <td class = "active">国籍・電話番号・住所</td>
+		              <td>
+		                <%= f.label :国籍 %><br/><%= f.text_field :nationality %>
+		              </td>
+		              <td>
+		                <%= f.label :電話番号 %><br/><%= f.text_field :phone_number %>
+		              </td>
+		              <td>
+		                <%= f.label :郵便番号 %><br/><%= f.text_field :postal_code %>
+		              </td>
+		              <td>
+		                <%= f.label :住所 %><br/><%= f.text_field :address %>
+		              </td>
+		            </tr>
+		          <!-- 住所 -->
 
+		          <!-- パスワード -->
+		            <tr class = "text-center">
+		              <td class = "active">メールアドレス・パスワード</td>
+		              <td>
+		                <%= f.label :メールアドレス %><br/><%= f.text_field :email %>
+		              </td>
+		            </tr>
+          <!-- パスワード -->
 		        </table>
 
 				<div class = "row">
