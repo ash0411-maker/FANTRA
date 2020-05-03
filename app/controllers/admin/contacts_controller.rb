@@ -1,4 +1,7 @@
 class Admin::ContactsController < ApplicationController
+
+  before_action :authenticate_admin!, only: [:edit, :update, :index]
+
   def index
   	@contacts = Contact.all.order(created_at: :desc)
   end

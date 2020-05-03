@@ -8,55 +8,11 @@ RSpec.describe Tourist::TouristsController, type: :controller do
 
 
 
-  describe 'ユーザー新規登録' do
-    before do
-      visit new_tourist_registration_path
-    end
-    context '新規登録画面に遷移' do
-      it '新規登録に成功する' do
-        fill_in 'tourist[name]', with: Faker::Name.first_name
-        fill_in 'tourist[family_name]', with: Faker::Name.last_name
-        select '男性', from: 'tourist[sex]'
-        fill_in 'tourist[nationality]', with: Faker::Lorem.characters(number:5)
-        fill_in 'tourist[postal_code]', with: Faker::Lorem.characters(number:7)
-        fill_in 'tourist[address]', with: Faker::Address.full_address
-        fill_in 'tourist[phone_number]', with: Faker::PhoneNumber
-        fill_in 'tourist[birth_year]', with: Faker::Number.number(digits:4)
-        fill_in 'tourist[email]', with: Faker::Internet.email
-        fill_in 'tourist[password]', with: 'password'
-        fill_in 'tourist[password_confirmation]', with: 'password'
-        click_button '新規登録'
-
-        expect(page).to have_content 'さんのマイページ'
-      end
-
-      it '新規登録に失敗する' do
-        fill_in 'tourist[name]', with: ''
-        fill_in 'tourist[family_name]', with: ''
-        select '性別', from: 'tourist[sex]'
-        fill_in 'tourist[nationality]', with: ''
-        fill_in 'tourist[postal_code]', with: ''
-        fill_in 'tourist[address]', with: ''
-        fill_in 'tourist[phone_number]', with: ''
-        fill_in 'tourist[birth_year]', with: ''
-        fill_in 'tourist[email]', with: ''
-        fill_in 'tourist[password]', with: ''
-        fill_in 'tourist[password_confirmation]', with: ''
-        click_button '新規登録'
-
-        expect(page).to have_content 'error'
-      end
-    end
-  end
-
-
-
-
 
   describe '詳細ページ' do
     context "詳細ページが正しく表示される" do
       before do
-        login_tourist tourist
+        login tourist
         get :show, params: {id: tourist.id}
       end
       it 'リクエストは200となること' do
@@ -81,7 +37,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
   describe 'Tourist編集ページ' do
     context "Tourist編集ページが正しく表示される" do
       before do
-        login_tourist tourist
+        login tourist
         get :edit, params: {id: tourist.id}
       end
       it 'リクエストは200 OKとなること' do
@@ -100,7 +56,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
 
     context "Tourist情報が正しく更新されること" do
       before do
-        login_tourist tourist
+        login tourist
       end
       it "name" do
         tourist_params = {
@@ -127,7 +83,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
   describe 'Tourist情報更新' do
     context "Tourist情報が正しく更新されること" do
       before do
-        login_tourist tourist
+        login tourist
       end
       it "name" do
         tourist_params = {
@@ -143,7 +99,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
         patch :update, params: {id: tourist, tourist: tourist_params}
         expect(tourist.reload.family_name).to eq "山田"
       end
-      it "family_name" do
+      it "sex" do
         tourist_params = {
           sex: "男性",
         }
@@ -175,7 +131,7 @@ RSpec.describe Tourist::TouristsController, type: :controller do
 
     context "Tourist情報が正しく更新されず、編集画面にrenderすること" do
       before do
-        login_tourist tourist
+        login tourist
       end
       it "name" do
         tourist_params = {

@@ -14,7 +14,7 @@ RSpec.describe TourGuide::ToursController, type: :controller do
     describe 'Guide_Tour 一覧ページ' do
       context "一覧ページが正しく表示される" do
         before do
-          login_guide guide
+          login guide
           get :index, params: {guide_id: guide.id}
         end
         it 'リクエストは200 OKとなること' do
@@ -37,7 +37,7 @@ RSpec.describe TourGuide::ToursController, type: :controller do
     describe 'Guide_Tour 新規投稿ページ' do
       context "新規投稿ページが正しく表示される" do
         before do
-          login_guide guide
+          login guide
           get :new, params: {guide_id: guide.id}
         end
         it 'リクエストは200 OKとなること' do
@@ -61,7 +61,7 @@ RSpec.describe TourGuide::ToursController, type: :controller do
     describe 'Guide_Tour 新規投稿' do
       context "Tourが正しく保存される" do
         before do
-          login_guide guide
+          login guide
         end
         it "Tourが正しく保存される" do
           expect {
