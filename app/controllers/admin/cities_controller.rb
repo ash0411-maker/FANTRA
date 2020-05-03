@@ -24,6 +24,7 @@ class Admin::CitiesController < ApplicationController
   end
 
   def update
+	  binding.pry
   	@city = City.find(params[:id])
   	if @city.update(city_params)
   		flash[:notice] = "都市名を編集しました。"
