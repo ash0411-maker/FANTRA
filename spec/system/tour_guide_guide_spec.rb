@@ -100,7 +100,7 @@ RSpec.describe TourGuide::GuidesController, type: :system do
   end
 
 
-  describe 'Guide予約ページのテスト' do
+  describe 'ログインが必要なページの遷移テスト' do
     let(:test_guide2) { create(:guide) }
     before do
       login guide

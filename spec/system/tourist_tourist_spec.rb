@@ -104,7 +104,96 @@ RSpec.describe Tourist::TouristsController, type: :system do
       end
     end
   end
+
+
+
+  describe 'ログインが必要なページの遷移テスト' do
+    let(:test_tourist2) { create(:tourist) }
+    before do
+      login tourist
+    end
+
+
+    context '自分の予約画面一覧への遷移' do
+      it '遷移できる' do
+        visit tourist_tourist_orders_path(tourist)
+        expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s + '/orders')
+      end
+    end
+    context '他人の予約画面への遷移' do
+      it '遷移できない' do
+        visit tourist_tourist_orders_path(test_tourist2)
+        expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s)
+      end
+    end
+  end
+
+
+  describe 'touristチャットルームページのテスト' do
+    let(:test_tourist2) { create(:tourist) }
+    let(:room) { create(:room) }
+    before do
+      login tourist
+    end
+
+
+    context '自分のチャットルーム一覧への遷移' do
+      it '遷移できる' do
+        visit tourist_tourist_rooms_path(tourist)
+        expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s + '/rooms')
+      end
+    end
+    context '他人のチャットルーム一覧への遷移' do
+      it '遷移できない' do
+        visit tourist_tourist_rooms_path(test_tourist2)
+        expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s)
+      end
+    end
+    # context '自分のチャットルームへの遷移' do
+    #   it '遷移できる' do
+    #     visit tourist_tourist_room_path(tourist.id, room)
+    #     expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s + '/rooms/' + room.id.to_s)
+    #   end
+    # end
+    context '他人のチャットルームへの遷移' do
+      it '遷移できない' do
+        visit tourist_tourist_room_path(test_tourist2, room)
+        expect(current_path).to eq('/tourist/tourists/' + tourist.id.to_s)
+      end
+    end
+  end
+
+
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
