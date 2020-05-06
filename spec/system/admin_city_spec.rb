@@ -44,7 +44,7 @@ RSpec.describe 'Cityに関するテスト', type: :system do
 
 
   describe 'Cityページのテスト' do
-    context '自分の編集画面への遷移' do
+    context 'Cityページへの遷移' do
       before do
         login admin
         visit admin_cities_path
@@ -53,7 +53,7 @@ RSpec.describe 'Cityに関するテスト', type: :system do
         expect(current_path).to eq('/admin/cities')
       end
     end
-    context '他人の編集画面への遷移' do
+    context 'ログイン無しでの遷移' do
       before do
         visit admin_cities_path
       end
