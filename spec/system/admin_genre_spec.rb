@@ -41,4 +41,24 @@ RSpec.describe 'genreに関するテスト', type: :system do
       end
     end
   end
+
+  describe 'Genreページのテスト' do
+    context 'Genreページへの遷移' do
+      before do
+        login admin
+        visit admin_genres_path
+      end
+      it '遷移できる' do
+        expect(current_path).to eq('/admin/genres')
+      end
+    end
+    context 'ログイン無しでの遷移' do
+      before do
+        visit admin_genres_path
+      end
+      it '遷移できない' do
+        expect(current_path).to eq('/admins/sign_in')
+      end
+    end
+  end
 end
