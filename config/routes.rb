@@ -92,7 +92,7 @@ Rails.application.routes.draw do
 		    	resources :messages, only: [:create]
 		    end
 		    resources :tours, only: [:show, :index] do
-		    	resources :comments, only: [:index, :create, :edit, :update]
+		    	resources :comments, only: [:create]
 				resource :book_marks, only: [:create, :destroy]
 			end
 		end
