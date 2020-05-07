@@ -5,9 +5,9 @@
 			    <div class ="error_explanation">
 			      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
 			      <ul>
-			      <% @contact.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
+				      <% @contact.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
 			      </ul>
 			    </div>
 			<% end %>
