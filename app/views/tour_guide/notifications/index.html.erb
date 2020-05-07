@@ -7,7 +7,6 @@
 				<h1>通知一覧</h1>
 				<% @notifications.each do |notice| %>
 					<div class = "notice_box">
-						<h4></h4>
 						<% case notice.action %>
 							<% when 'book_mark' then %>
 								<h4>
