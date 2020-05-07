@@ -35,7 +35,9 @@
 					<tbody>
 						<td><%= city.name %></td>
 						<td><%= link_to "編集", edit_admin_city_path(city), class: "btn btn-primary" %></td>
-						<td><%= link_to "削除", admin_city_path(city), method: :delete,data: {confirm:'削除してもよろしいですか？'}, class: "btn btn-danger" %></td>
+						<td>
+							<%= link_to "削除", admin_city_path(city), method: :delete,data: {confirm:'削除してもよろしいですか？'}, class: "btn btn-danger" %>
+						</td>
 					</tbody>
 				<% end %>
 			</table>

@@ -41,6 +41,7 @@ class Admin::CitiesController < ApplicationController
   	redirect_to admin_cities_path
   end
 
+
   private
   def city_params
       params.require(:city).permit(:name)
