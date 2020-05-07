@@ -33,9 +33,9 @@
 								<td><%= book_mark.tour.capacity %>名</td>
 								<td>¥ <%= number_with_delimiter(book_mark.tour.price) %></td>
 								<td><%= book_mark.tour.time %></td>
-								<th>
+								<td>
 									<%= link_to "詳細", tourist_tourist_tour_path(current_tourist, book_mark.tour), class: "btn btn-success" %>
-								</th>
+								</td>
 							</tr>
 						<% end %>
 					</tbody>
