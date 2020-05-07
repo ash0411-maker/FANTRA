@@ -37,7 +37,9 @@
 						<% end %>
 						<td><%= tour.city.name %></td>
 						<td><%= tour.genre.name %></td>
-						<td><%= link_to "ツアー詳細へ", tour_guide_guide_tour_path(current_guide, tour), class: "btn btn-default" %></td>
+						<td>
+							<%= link_to "ツアー詳細へ", tour_guide_guide_tour_path(current_guide, tour), class: "btn btn-default" %>
+						</td>
 					</tr>
 				</tbody>
 			<% end %>
