@@ -84,7 +84,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 #ページング
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 
 #エラー発見機
 gem 'pry-byebug'
