@@ -24,4 +24,10 @@ class Tourists::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def tourist_guest
+    tourist = Tourist.find(3)
+    sign_in tourist
+    redirect_to tourist_tourist_tours_path(current_tourist), notice: 'ゲストユーザーとしてログインしました。'
+  end
 end

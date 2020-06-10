@@ -24,4 +24,11 @@ class Guides::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+
+  def guide_guest
+    guide = Guide.find(11)
+    sign_in guide
+    redirect_to tour_guide_top_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 end

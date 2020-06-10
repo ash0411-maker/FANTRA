@@ -21,12 +21,18 @@ Rails.application.routes.draw do
 	  passwords:     'guides/passwords',
 	  registrations: 'guides/registrations'
 	}
+	devise_scope :guide do
+	    post "guides/sign_in_with_guest" => "guides/sessions#guide_guest", as: 'guests_guide'
+	end
 
 	devise_for :tourists, controllers: {
 	  sessions:      'guides/sessions',
 	  passwords:     'guides/passwords',
 	  registrations: 'guides/registrations'
 	}
+	devise_scope :tourist do
+	    post "tourists/sign_in_with_guest" => "tourists/sessions#tourist_guest", as: 'guests_tourist'
+	end
 
 
 
